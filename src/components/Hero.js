@@ -1,26 +1,24 @@
 import React from 'react'
-import HeroFlightForm from './HeroFlightForm'
+// import HeroFlightForm from './HeroFlightForm'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import SearchNavbar from './SearchNavbar'
 
-export default function Hero(props) {
+export default function Hero() {
     
     return (
         <Jumbotron className="hero bg-transparent jumbotron-fluid p-0">
-        <Container fluid={true}>
-            <Row className="justify-content-center py-0">
-                <Col md={8} sm={12}>
-                    {props.title && <h1 className="display-2 font-weight-bolder">{props.title}</h1>}
-                    {/* {props.subTitle && <h3 className="display-4 font-weight-light">{props.subTitle}</h3>} */}
-                    {/* {props.text && <h3 className="lead font-weight-light">{props.text}</h3>} */}
-                    <HeroFlightForm />
-                    {/* <SocialMediaIcons /> */}
-                </Col>
-            </Row>
-        </Container>
-    </Jumbotron>
+            <Container fluid={true} style={{paddingBottom: "6em"}}>
+                <Row className="justify-content-center py-0" >
+                    <Col id="search-box" md={5} sm={12}>                
+                        {/* <SocialMediaIcons /> */}
+                        <SearchNavbar activeTab={1}/>
+                    </Col>
+                </Row>
+            </Container>
+        </Jumbotron>
     )
 }
 

@@ -5,9 +5,10 @@ import Col from 'react-bootstrap/Col'
 
 export default function Footer() {
     return (
-        <footer className="footer mt-5">
+        //trying to put a grey or silver-ish top on the border
+        <footer id="footer" className="footer">
             <Container fluid={true}>
-                <Row className="border-top justify-content-between p-3">
+                <Row className="justify-content-between p-3">
                     <Col className="p-0" md={3} sm={12}>
                         TravelSaver.io
                     </Col>
