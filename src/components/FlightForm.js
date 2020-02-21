@@ -46,7 +46,18 @@ export default class FlightForm extends React.Component {
       })
       .then(response => response.json())
       .then(data => data.map(result => 
-         console.log(result.location_id)
+         console.log(result.location_id),
+         // console.log(result.code),
+         // console.log(result.country_code),
+         // console.log(result.name),
+         // console.log(result.city_name),
+         // console.log(result.state),
+         // console.log(result.display_name),
+         // console.log(result.display_title),
+         // console.log(result.time_zone_name),
+         // console.log(result.latitude),
+         // console.log(result.longitude),
+         // console.log(result.parent_code)
       ))
       .catch(err =>console.log(err))     
    }
@@ -82,10 +93,11 @@ export default class FlightForm extends React.Component {
                               <Form.Label>Returning</Form.Label>
                               <Form.Control id="returning" type="text" name="returning" placeholder="Click for calendar" value={this.state.returning} onChange={this.handleChange} />
                            </Col>
+                        </Form.Group>
                         <Form.Group>
                            <Col>
                               <Form.Label>Adults</Form.Label>
-                                 <Form.Control as="select" id="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange} >
+                                 <Form.Control as="select" id="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -99,7 +111,7 @@ export default class FlightForm extends React.Component {
                         <Form.Group>                              
                            <Col>
                               <Form.Label>Children</Form.Label>
-                                 <Form.Control as="select" id="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange} >
+                                 <Form.Control as="select" id="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -110,7 +122,6 @@ export default class FlightForm extends React.Component {
                                  </Form.Control>
                            </Col>
                         </Form.Group>
-                     </Form.Group>
                   </Form.Row>
                <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                      Get Deals
