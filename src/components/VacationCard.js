@@ -13,38 +13,38 @@ export default class VacationCard extends React.Component {
             items: [
                 {
                     id: 0,
-                    title: 'Moonlight',
-                    subTitle: 'JavaScript SPA/Rails API',
-                    imgSrc: moonlight,
-                    link: 'https://projectmoonlight.herokuapp.com/',
-                    gitLink: 'https://github.com/jamievullo/Moonlight',
+                    title: '',
+                    subTitle: '',
+                    imgSrc: '',
+                    link: '',
+                    gitLink: '',
                     selected: false
                 },
                 {
                     id: 1,
-                    title: 'Tag Sale',
-                    subTitle: 'Ruby on Rails, Active Record, SQL',
-                    imgSrc: tagsale,
-                    link: 'https://github.com/jamievullo/Tag-Sale',
-                    gitLink: 'https://github.com/jamievullo/Tag-Sale',
+                    title: '',
+                    subTitle: '',
+                    imgSrc: '',
+                    link: '',
+                    gitLink: '',
                     selected: false
                 },
                 {
                     id: 2,
-                    title: 'Rubiks Time Tracker',
-                    subTitle: 'Sinatra, HTML, CSS, OOP, MVC',
-                    imgSrc: rubikstimetracker,
-                    link: 'https://github.com/jamievullo/Rubiks_Time_Tracker',
-                    gitLink: 'https://github.com/jamievullo/Rubiks_Time_Tracker',
+                    title: '',
+                    subTitle: '',
+                    imgSrc: '',
+                    link: '',
+                    gitLink: '',
                     selected: false
                 },
                 {
                     id: 3,
-                    title: 'Weather Hack',
-                    subTitle: 'JavaScript SPA, API Integration',
-                    imgSrc: weatherapp,
-                    link: 'https://github.com/jamievullo/WeatherApp',
-                    gitLink: 'https://github.com/jamievullo/WeatherApp',
+                    title: '',
+                    subTitle: '',
+                    imgSrc: '',
+                    link: '',
+                    gitLink: '',
                     selected: false
                 },
             ]
