@@ -1,52 +1,49 @@
 import React from 'react'
 
-import Card from '../components/Card'
+import DestinationCard from '../components/DestinationCard'
 
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
+import ocean from '../assets/images/Ocean.png'
 
-export default class VacationCard extends React.Component {
+export default class VacationCardDisplay extends React.Component {
     constructor(props) {
         super()
         this.state ={
             items: [
                 {
                     id: 0,
-                    title: '',
+                    title: 'Popular Destinations',
                     subTitle: '',
-                    imgSrc: '',
+                    imgSrc: ocean,
                     link: '',
-                    gitLink: '',
                     selected: false
                 },
                 {
                     id: 1,
-                    title: '',
+                    title: 'Vacation Packages',
                     subTitle: '',
-                    imgSrc: '',
+                    imgSrc: ocean,
                     link: '',
-                    gitLink: '',
                     selected: false
                 },
                 {
                     id: 2,
-                    title: '',
+                    title: 'Weekend Getaways',
                     subTitle: '',
-                    imgSrc: '',
+                    imgSrc: ocean,
                     link: '',
-                    gitLink: '',
                     selected: false
                 },
-                {
-                    id: 3,
-                    title: '',
-                    subTitle: '',
-                    imgSrc: '',
-                    link: '',
-                    gitLink: '',
-                    selected: false
-                },
+                // {
+                //     id: 3,
+                //     title: 'Inspiration',
+                //     subTitle: '',
+                //     imgSrc: beachHouse,
+                //     link: '',
+                //     selected: false
+                // },
             ]
         }
     }
@@ -69,7 +66,7 @@ export default class VacationCard extends React.Component {
 
     makeItems = (items) => {
         return items.map(item => {
-            return <Card item={item} click={(e => this.handleCardClick(item.id, e))} key={item.id} />
+            return <DestinationCard item={item} click={(e => this.handleCardClick(item.id, e))} key={item.id} />
         })
     }
 
@@ -77,7 +74,7 @@ export default class VacationCard extends React.Component {
         return (
             <div>
                 <Container fluid={true}>
-                    <Row className="justify-content-around">
+                    <Row className="justify-content-center">
                         {this.makeItems(this.state.items)}
                     </Row>
                 </Container>

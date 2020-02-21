@@ -7,9 +7,9 @@ import TravelSaverNavbar from './components/TravelSaverNavbar';
 export default function App() {
 
   return (
-    <>
+    <div>
       <TravelSaverNavbar />
-    </>
+    </div>
   );
 
 }

@@ -52,6 +52,28 @@ code {
   box-shadow: 2px 2px 2px rgb(165, 162, 162);
 }
 
-.dropdown-toggle::after {
+/* .dropdown-toggle::after {
   color: white;
+} */
+
+.vac-card {
+  /* margin: 20px; */
 }
+/* dimensions for images */
+.vac-card-image {
+  border-radius:5px;
+  width: 400px;
+  height: 250px;
+  /* box-shadow: 0px 0px 4px 2px rgb(80, 78, 78); */
+}
+/* hidden info for projects */
+.vac-card-info {
+  /* margin-top: 10px; */
+  min-height: .5em;
+}
+/* styling for project titles */
+.vac-card-title {
+  font-size: 22px;
+  margin: 0px;
+}
+
