@@ -62,10 +62,10 @@ export default class HotelForm extends React.Component {
                            </Col>
                      </Form.Group>
                   </Form.Row>
-               </Form>            
                <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                      Get Deals
                </Button>
+               </Form>            
                </div>
          </div>
       )

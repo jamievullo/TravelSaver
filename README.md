@@ -10,3 +10,5 @@ https://www.npmjs.com/package/react-places-autocomplete
 https://react-bootstrap.github.io/components/tabs/
 https://react-bootstrap.github.io/components/forms/
 https://react-bootstrap.github.io/components/jumbotron/
+http://adphorus.github.io/react-date-range/#calendar
+https://www.npmjs.com/package/react-date-range

@@ -5,10 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 require('dotenv').config();
-const api_key = process.env.REACT_APP_API_KEY
+// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
-export default class HeroFlightForm extends React.Component {
+// console.log(api_key)
 
+export default class FlightForm extends React.Component {
+   
    state = {
       flyingFrom: '',
       flyingTo: '',
@@ -26,30 +28,33 @@ export default class HeroFlightForm extends React.Component {
       console.log(event.target.value)
    }
 
+   // componentDidMount = () => {
+   //    this.handleSubmit()
+   // }
+
    handleSubmit = (event) => {
       event.preventDefault();
+
+      console.log(event);
       
-      console.log(event.target);
-      
-      fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2019-09-01?inboundpartialdate=2019-12-01", {
+      fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
          "method": "GET",
          "headers": {
-            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
-         }
+            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+            "x-rapidapi-key": "9d244aaeabmsh059d5079a8fdd03p1a0572jsn52a9b59c3240"
+            }
       })
-      .then(response => {
-         console.log(response);
-      })
-      .catch(err => {
-         console.log(err);
-      });
+      .then(response => response.json())
+      .then(data => data.map(result => 
+         console.log(result.location_id)
+      ))
+      .catch(err =>console.log(err))     
    }
 
    render() {
       return (
          <div>
-               <div className='hero-flight-form'>
+            <div className='hero-flight-form'>
                <Form onSubmit={this.handleSubmit}>
                   <Form.Row>
                      <Form.Group>
@@ -107,11 +112,11 @@ export default class HeroFlightForm extends React.Component {
                         </Form.Group>
                      </Form.Group>
                   </Form.Row>
-               </Form>            
                <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                      Get Deals
                </Button>
-               </div>
+               </Form>            
+            </div>
          </div>
       )
    }
