@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 
 export default function Footer() {
     return (
-        //trying to put a grey or silver-ish top on the border
+        //trying to put a grey or silver-ish border on top of foooter
         <footer id="footer" className="footer">
             <Container fluid={true}>
                 <Row className="justify-content-between p-3">

@@ -6,3 +6,6 @@ https://react-bootstrap.github.io/getting-started/introduction
 https://www.npmjs.com/package/react-router-dom
 https://www.npmjs.com/package/dotenv
 https://downdetector.com/status/github/
+https://www.npmjs.com/package/react-places-autocomplete
+https://react-bootstrap.github.io/components/tabs/
+
