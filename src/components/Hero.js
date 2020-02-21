@@ -10,6 +10,7 @@ export default function Hero() {
     
     return (
         <Jumbotron className="hero bg-transparent jumbotron-fluid p-0">
+            {/* padding on bottom for display of form submit on smaller screens */}
             <Container fluid={true} style={{paddingBottom: "6em"}}>
                 <Row className="justify-content-center py-0" >
                     <Col id="search-box" md={5} sm={12}>                

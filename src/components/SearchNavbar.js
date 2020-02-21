@@ -1,6 +1,5 @@
 import React from 'react'
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// const [key, setKey] = useState('home');
 import FlightForm from './FlightForm';
 import CarRentalForm from './CarRentalForm'
 import HotelForm from './HotelForm'
@@ -11,9 +10,8 @@ export default class SearchNavbar extends React.Component {
     constructor(props) {
         super()
     
-
         this.state = {        
-        // Takes active tab from props if it is defined there
+        // Takes active tab from props
             activeTab: props.activeTab || 1        
         }
     }
@@ -25,7 +23,6 @@ export default class SearchNavbar extends React.Component {
             activeTab: selectedTab
         });
     }
-
 
     render() {
         return (

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import Container from 'react-bootstrap/Container'
 // import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
-export default class HeroFlightForm extends Component {
+export default class HeroFlightForm extends React.Component {
 
     state = {
         flyingFrom: '',
@@ -13,21 +13,13 @@ export default class HeroFlightForm extends Component {
         departing: '',
         returning: '',
         adults: '',
-        children: '',
-        // disabled: false,
+        children: ''
     }
 
     handleChange = (event) => {
-        // const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
         
         this.setState({
             [event.target.name]: event.target.value
-            // flyingFrom: event.target.value,
-            // flyingTo: event.target.value,
-            // departing: event.target.value,
-            // returning: event.target.value
         })
         console.log(event.target.value)
     }
@@ -36,10 +28,6 @@ export default class HeroFlightForm extends Component {
         event.preventDefault();
         
         console.log(event.target);
-
-        // this.setState({
-        //     disabled: true
-        // });
             //fetch
     }
 
