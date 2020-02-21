@@ -8,4 +8,5 @@ https://www.npmjs.com/package/dotenv
 https://downdetector.com/status/github/
 https://www.npmjs.com/package/react-places-autocomplete
 https://react-bootstrap.github.io/components/tabs/
-
+https://react-bootstrap.github.io/components/forms/
+https://react-bootstrap.github.io/components/jumbotron/
