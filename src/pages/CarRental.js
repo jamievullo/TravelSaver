@@ -4,7 +4,7 @@ export default function CarRental() {
 
     return (
         <div>
-            <h1>Display Fetched Flights</h1>
+            <h1>Display Fetched Car Rentals</h1>
         </div>
     )
 }

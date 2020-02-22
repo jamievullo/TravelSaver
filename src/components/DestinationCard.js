@@ -2,19 +2,11 @@ import React from 'react'
 
 export default function DestinationCard(props) {
     return (
-        <div className="d-inline-block" style={{paddingBottom: "6em"}}>
-            <div>
-            <a href={props.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-            >
-                {props.title}
+        <div className="justify-content-center" style={{paddingBottom: "6em"}}>
+            <a href={props.item.link} target="_blank" rel="noopener noreferrer">
+                <h3>{props.item.title}</h3>
             </a>
-            </div>
-            <img className="vac-card-image" 
-                src={props.item.imgSrc} 
-                alt={props.item.title} 
-            />            
+            <img className="vac-card-image" src={props.item.imgSrc} alt={props.item.title} />            
         </div>
     )
 }

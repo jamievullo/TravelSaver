@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 // import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import CarRental from '../pages/CarRental'
 
 export default class CarRentalForm extends React.Component {
 
@@ -14,7 +13,8 @@ export default class CarRentalForm extends React.Component {
       pickupDate: '',
       dropoffDate: '',
       pickupTime: '',
-      dropoffTime: ''
+      dropoffTime: '',
+      redirect: null
    }
 
    handleChange = (event) => {
@@ -22,18 +22,25 @@ export default class CarRentalForm extends React.Component {
       this.setState({
          [event.target.name]: event.target.value
       })
-      console.log(event.target.value)
+      // console.log(event.target.value)
    }
 
    handleSubmit = (event) => {
       event.preventDefault();
+      console.log(event);
       
-      console.log(event.target);
+      this.setState({
+         redirect: '/carrental'
+      })
+      
 
          //fetch
    }
 
    render() {
+      if(this.state.redirect) {
+         return <Redirect to={this.state.redirect}/>
+      }
       return (
          <div>
             <div className='car-rental-form'>
@@ -67,7 +74,6 @@ export default class CarRentalForm extends React.Component {
                   <Link className="nav-link" 
                      to='/carrental'
                      exact="true"
-                     onClick={() => <Route path="/carrental" render={() => <CarRental />} />}
                   >
                      <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                            Get Deals

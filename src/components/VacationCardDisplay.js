@@ -66,8 +66,7 @@ export default class VacationCardDisplay extends React.Component {
         return (
             <div>
                 <Container fluid={true}>
-                    <Row className="justify-content-center">
-                        
+                    <Row className="justify-content-center">                        
                         {this.makeItems(this.state.items)}
                     </Row>
                 </Container>

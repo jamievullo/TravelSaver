@@ -1,11 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 // import Container from 'react-bootstrap/Container'
 // import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Flights from '../pages/Flights'
 require('dotenv').config();
 // const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -19,7 +18,8 @@ export default class FlightForm extends React.Component {
       departing: '',
       returning: '',
       adults: '',
-      children: ''
+      children: '',
+      redirect: null
    }
 
    handleChange = (event) => {
@@ -36,8 +36,12 @@ export default class FlightForm extends React.Component {
    
    handleSubmit = (event) => {
       event.preventDefault();
-      
       console.log(event);
+
+      this.setState({
+         redirect: "/flights"
+      })
+      
       
       // fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
       //    "method": "GET",
@@ -65,6 +69,9 @@ export default class FlightForm extends React.Component {
    }
 
    render() {
+      if(this.state.redirect) {
+         return <Redirect to={this.state.redirect}/>
+      }
       return (
          <div>
             <div className='hero-flight-form'>
@@ -128,7 +135,6 @@ export default class FlightForm extends React.Component {
                   <Link className="nav-link" 
                      to='/flights'
                      exact="true"
-                     onClick={() => <Route path="/flights" render={() => <Flights />} />}
                   >
                      <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                            Get Deals        

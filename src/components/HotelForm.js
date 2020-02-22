@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 // import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Hotels from '../pages/Hotels'
 
 export default class HotelForm extends React.Component {
 
@@ -15,6 +14,7 @@ export default class HotelForm extends React.Component {
       roomsNeeded: '',
       adults: '',
       children: '',
+      redirect: null
    }
 
    handleChange = (event) => {
@@ -27,13 +27,20 @@ export default class HotelForm extends React.Component {
 
    handleSubmit = (event) => {
       event.preventDefault();
-      
-      console.log(event.target);
+      console.log(event);
+
+      this.setState({
+         redirect: "/hotels"
+      })
+
 
          //fetch
    }
 
    render() {
+      if(this.state.redirect) {
+         return <Redirect to={this.state.redirect}/>
+      }
       return (
          <div>
             <div className='hotel-form'>
@@ -67,7 +74,6 @@ export default class HotelForm extends React.Component {
                   <Link className="nav-link" 
                      to='/hotels'
                      exact="true"
-                     onClick={() => <Route path="/hotels" render={() => <Hotels />} />}
                   >
                      <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                            Get Deals

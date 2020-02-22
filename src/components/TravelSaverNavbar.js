@@ -11,8 +11,9 @@ import HomePage from '../pages/HomePage';
 import Login from '../pages/Login'
 import CreateAccount from '../pages/CreateAccount'
 
-// import Flights from './pages/Flights';
-// import Hotels from './pages/Hotels';
+import Flights from '../pages/Flights';
+import Hotels from '../pages/Hotels';
+import CarRental from '../pages/CarRental';
 
 export default function TravelSaverNavbar() {
    
@@ -30,17 +31,16 @@ export default function TravelSaverNavbar() {
                            <NavDropdown className="account" title={
                               <span className="my-auto" style={{color: "white"}}>Account</span>
                                     } id="basic-dropdown">
-                                 <NavDropdown.Item>
+                                 <NavDropdown.Item componentClass='span'>
                                     <Link className="nav-link" style={{color: "#364182"}} to='/login'>
                                        Log In
                                     </Link>
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item>
+                                 <NavDropdown.Item componentClass='span'>
                                     <Link className="nav-link" style={{color: "#364182"}} to='/signup'>
                                        Create Account
                                     </Link>
                                  </NavDropdown.Item>
-                              {/* <Link className="nav-link" style={{color: "white"}} to='/account'>Account</Link> */}
                            </NavDropdown>
                            <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>
 
@@ -48,9 +48,12 @@ export default function TravelSaverNavbar() {
                      </Navbar.Collapse>
             </Navbar>
 
-               <Route path="/" exact render={() => <HomePage />} />
-               <Route path="/login" render={() => <Login />} />
-               <Route path="/signup" render={() => <CreateAccount />} />
+               <Route path="/" exact component={HomePage} />
+               <Route path="/login" component={Login} />
+               <Route path="/signup" component={CreateAccount} />
+               <Route path="/flights" component={Flights} />
+               <Route path="/hotels" component={Hotels}/>
+               <Route path="/carrental" component={CarRental} />
 
                <Footer />
          </Container>

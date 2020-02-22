@@ -37,9 +37,6 @@ export default class SearchNavbar extends React.Component {
                 <CarRentalForm />
             </Tab>
         </Tabs>
-
-        // <Route path="/flights" render={() => <Flights />} />
-        // <Route path="/hotels" render={() => <Hotels />} />
         )
     }
 }
