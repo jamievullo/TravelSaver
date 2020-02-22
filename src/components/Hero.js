@@ -9,13 +9,12 @@ import SearchNavbar from './SearchNavbar'
 export default function Hero() {
     
    return (
-      <Jumbotron className="hero bg-transparent jumbotron-fluid p-0">
-         {/* padding on bottom for display of form submit on smaller screens */}
+      <Jumbotron className="bg-transparent jumbotron-fluid p-0">
          <Container fluid={true}>
                <Row className="justify-content-center py-0" >
-                  <Col id="search-box" md={6} sm={12}>                
+                  <Col id="search-box" md={5} sm={12}>                
                      {/* <SocialMediaIcons /> */}
-                     <SearchNavbar activeTab={1}/>
+                     <SearchNavbar activeTab={1}/> {/* sets tab selected on load */}
                   </Col>
                </Row>
          </Container>

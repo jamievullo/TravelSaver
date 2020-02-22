@@ -1,10 +1,10 @@
 import React from 'react'
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import FlightForm from './FlightForm';
 import CarRentalForm from './CarRentalForm'
 import HotelForm from './HotelForm'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
+// import Hotels from '../pages/Hotels'
 
 export default class SearchNavbar extends React.Component {
     constructor(props) {
@@ -26,7 +26,6 @@ export default class SearchNavbar extends React.Component {
 
     render() {
         return (
-        // <Router>
         <Tabs id="hero-tabs" activeKey={this.state.activeTab} onSelect={this.handleSelect}>
             <Tab eventKey={1} title="Flights">
                 <FlightForm />
@@ -38,7 +37,9 @@ export default class SearchNavbar extends React.Component {
                 <CarRentalForm />
             </Tab>
         </Tabs>
-        // </Router>
+
+        // <Route path="/flights" render={() => <Flights />} />
+        // <Route path="/hotels" render={() => <Hotels />} />
         )
     }
 }

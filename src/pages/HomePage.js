@@ -5,9 +5,13 @@ import VacationCardDisplay from '../components/VacationCardDisplay'
 
 export default function HomePage() {
     return (
-        <div className="home-box">
-            <Hero />
-            <VacationCardDisplay />
-        </div>
+        <>
+            <div className="home-box">
+                <Hero />
+            </div>
+            <div>
+                <VacationCardDisplay />
+            </div>
+        </>
     )
 }

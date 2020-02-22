@@ -1,9 +1,11 @@
 import React from 'react'
+import { BrowserRouter as Route, Link } from "react-router-dom";
 // import Container from 'react-bootstrap/Container'
 // import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Flights from '../pages/Flights'
 require('dotenv').config();
 // const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -31,22 +33,22 @@ export default class FlightForm extends React.Component {
    // componentDidMount = () => {
    //    this.handleSubmit()
    // }
-
+   
    handleSubmit = (event) => {
       event.preventDefault();
-
+      
       console.log(event);
       
-      fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
-         "method": "GET",
-         "headers": {
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "9d244aaeabmsh059d5079a8fdd03p1a0572jsn52a9b59c3240"
-            }
-      })
-      .then(response => response.json())
-      .then(data => data.map(result => 
-         console.log(result.location_id),
+      // fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
+      //    "method": "GET",
+      //    "headers": {
+      //       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+      //       "x-rapidapi-key": "9d244aaeabmsh059d5079a8fdd03p1a0572jsn52a9b59c3240"
+      //       }
+      // })
+      // .then(response => response.json())
+      // .then(data => data.map(result => 
+      //    console.log(result.location_id),
          // console.log(result.code),
          // console.log(result.country_code),
          // console.log(result.name),
@@ -58,8 +60,8 @@ export default class FlightForm extends React.Component {
          // console.log(result.latitude),
          // console.log(result.longitude),
          // console.log(result.parent_code)
-      ))
-      .catch(err =>console.log(err))     
+   //    ))
+   //    .catch(err =>console.log(err))     
    }
 
    render() {
@@ -97,7 +99,7 @@ export default class FlightForm extends React.Component {
                         <Form.Group>
                            <Col>
                               <Form.Label>Adults</Form.Label>
-                                 <Form.Control as="select" id="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="adults" name="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -111,7 +113,7 @@ export default class FlightForm extends React.Component {
                         <Form.Group>                              
                            <Col>
                               <Form.Label>Children</Form.Label>
-                                 <Form.Control as="select" id="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="children" name="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -123,9 +125,15 @@ export default class FlightForm extends React.Component {
                            </Col>
                         </Form.Group>
                   </Form.Row>
-               <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
-                     Get Deals
-               </Button>
+                  <Link className="nav-link" 
+                     to='/flights'
+                     exact="true"
+                     onClick={() => <Route path="/flights" render={() => <Flights />} />}
+                  >
+                     <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
+                           Get Deals        
+                     </Button>
+                  </Link>                  
                </Form>            
             </div>
          </div>

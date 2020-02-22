@@ -36,37 +36,29 @@ export default class VacationCardDisplay extends React.Component {
                     link: '',
                     selected: false
                 },
-                // {
-                //     id: 3,
-                //     title: 'Inspiration',
-                //     subTitle: '',
-                //     imgSrc: beachHouse,
-                //     link: '',
-                //     selected: false
-                // },
             ]
         }
     }
 
-    handleCardClick = (id, card) => {
-        let items = [...this.state.items];
+    // handleCardClick = (id, card) => {
+    //     let items = [...this.state.items];
 
-        items[id].selected = items[id].selected ? false : true;
+    //     items[id].selected = items[id].selected ? false : true;
 
-        items.forEach(item => {
-            if(item.id !== id) {
-                item.selected = false;
-            }
-        })
+    //     items.forEach(item => {
+    //         if(item.id !== id) {
+    //             item.selected = false;
+    //         }
+    //     })
 
-        this.setState({
-            items
-        })
-    }
+    //     this.setState({
+    //         items
+    //     })
+    // }
 
     makeItems = (items) => {
         return items.map(item => {
-            return <DestinationCard item={item} click={(e => this.handleCardClick(item.id, e))} key={item.id} />
+            return <DestinationCard item={item} key={item.id} />
         })
     }
 
@@ -75,6 +67,7 @@ export default class VacationCardDisplay extends React.Component {
             <div>
                 <Container fluid={true}>
                     <Row className="justify-content-center">
+                        
                         {this.makeItems(this.state.items)}
                     </Row>
                 </Container>

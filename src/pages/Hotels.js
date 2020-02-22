@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Hotels extends Component {
+export default function Hotels() {
     
-    render() {
         return (
             <div>
-                <h1>Display Fetched Hotels</h1>
+                <h1 style={{color: "black"}}>Display Fetched Hotels</h1>
             </div>
         )
-    }
 }

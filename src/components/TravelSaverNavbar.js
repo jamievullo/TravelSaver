@@ -44,15 +44,11 @@ export default function TravelSaverNavbar() {
                            </NavDropdown>
                            <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>
 
-                           {/* <Link className="nav-link" style={{color: "white"}} to='/flights'>Flights</Link>
-                           <Link className="nav-link" style={{color: "white"}} to='/hotels'>Hotels</Link> */}
                         </Nav>
                      </Navbar.Collapse>
             </Navbar>
 
                <Route path="/" exact render={() => <HomePage />} />
-               {/* <Route path="/flights" render={() => <Flights title={this.state.flights.title} />} />
-               <Route path="/hotels" render={() => <Hotels title={this.state.hotels.title} />} /> */}
                <Route path="/login" render={() => <Login />} />
                <Route path="/signup" render={() => <CreateAccount />} />
 
