@@ -1,8 +1,10 @@
 import React from 'react'
+import { BrowserRouter as Route, Link } from "react-router-dom";
 // import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import CarRental from '../pages/CarRental'
 
 export default class CarRentalForm extends React.Component {
 
@@ -34,7 +36,7 @@ export default class CarRentalForm extends React.Component {
    render() {
       return (
          <div>
-               <div className='car-rental-form'>
+            <div className='car-rental-form'>
                <Form onSubmit={this.handleSubmit}>
                      <Form.Row>
                   <Form.Group>
@@ -62,11 +64,17 @@ export default class CarRentalForm extends React.Component {
                      </Col>
                   </Form.Group>
                   </Form.Row>
-               <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
-                     Get Deals
-               </Button>
+                  <Link className="nav-link" 
+                     to='/carrental'
+                     exact="true"
+                     onClick={() => <Route path="/carrental" render={() => <CarRental />} />}
+                  >
+                     <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
+                           Get Deals
+                     </Button>
+                  </Link>
                </Form>            
-               </div>
+            </div>
          </div>
       )
    }
