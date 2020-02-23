@@ -56,7 +56,7 @@ code {
 }
 
 .dropdown-toggle::after {
-  color: white;
+  color: #ffd744;
 }
 
 /* .vac-card {

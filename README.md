@@ -13,3 +13,5 @@ https://react-bootstrap.github.io/components/jumbotron/
 http://adphorus.github.io/react-date-range/#calendar
 https://www.npmjs.com/package/react-date-range
 https://www.react-spring.io/
+https://stackoverflow.com/questions/35687353/react-bootstrap-link-item-in-a-navitem
+https://skyscanner.github.io/slate/#browse-quotes

@@ -14,6 +14,7 @@ import CreateAccount from '../pages/CreateAccount'
 import Flights from '../pages/Flights';
 import Hotels from '../pages/Hotels';
 import CarRental from '../pages/CarRental';
+import brand from '../assets/images/TravelSaverBrand.png'
 
 export default function TravelSaverNavbar() {
    
@@ -23,7 +24,7 @@ export default function TravelSaverNavbar() {
             <Navbar className="navbar" expand="lg">
                <Navbar.Brand>
                   {/* gotta create logo for brand */}
-                  {/* <Brand /> */}
+                  <img src={brand} style={{height: "50px", width: "300px"}} alt=""/>
                </Navbar.Brand>
                   <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
                      <Navbar.Collapse id="navbar-toggle">
@@ -31,15 +32,11 @@ export default function TravelSaverNavbar() {
                            <NavDropdown className="account" title={
                               <span className="my-auto" style={{color: "white"}}>Account</span>
                                     } id="basic-dropdown">
-                                 <NavDropdown.Item componentClass='span'>
-                                    <Link className="nav-link" style={{color: "#364182"}} to='/login'>
+                                 <NavDropdown.Item as={Link} to='/login'>
                                        Log In
-                                    </Link>
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item componentClass='span'>
-                                    <Link className="nav-link" style={{color: "#364182"}} to='/signup'>
+                                 <NavDropdown.Item as={Link} to='/signup'>
                                        Create Account
-                                    </Link>
                                  </NavDropdown.Item>
                            </NavDropdown>
                            <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>

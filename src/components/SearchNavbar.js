@@ -4,7 +4,9 @@ import CarRentalForm from './CarRentalForm'
 import HotelForm from './HotelForm'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-// import Hotels from '../pages/Hotels'
+import plane from '../assets/images/PlaneTab2.png'
+import hotel from '../assets/images/HotelTab.png'
+import rentalcar from '../assets/images/RentalTab.png'
 
 export default class SearchNavbar extends React.Component {
     constructor(props) {
@@ -25,15 +27,18 @@ export default class SearchNavbar extends React.Component {
     }
 
     render() {
+        const planeTab = <img src={plane} style={{height: "40p", width: "50px"}} alt=""/>
+        const hotelTab = <img src={hotel} style={{height: "40p", width: "50px"}} alt=""/>
+        const rentalTab = <img src={rentalcar} style={{height: "40p", width: "50px"}} alt=""/>
         return (
         <Tabs id="hero-tabs" activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-            <Tab eventKey={1} title="Flights">
+            <Tab eventKey={1} title={planeTab}>
                 <FlightForm />
             </Tab>
-            <Tab eventKey={2} title="Hotels">
+            <Tab eventKey={2} title={hotelTab}>
                 <HotelForm />
             </Tab>
-            <Tab eventKey={3} title="Car Rental">
+            <Tab eventKey={3} title={rentalTab}>
                 <CarRentalForm />
             </Tab>
         </Tabs>
