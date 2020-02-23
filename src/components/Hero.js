@@ -12,7 +12,7 @@ export default function Hero() {
       <Jumbotron className="bg-transparent jumbotron-fluid p-0">
          <Container fluid={true}>
                <Row className="justify-content-center py-0" >
-                  <Col id="search-box" md={5} sm={12}>                
+                  <Col id="search-box" md="auto" xs={6}>                
                      {/* <SocialMediaIcons /> */}
                      <SearchNavbar activeTab={1}/> {/* sets tab selected on load */}
                   </Col>

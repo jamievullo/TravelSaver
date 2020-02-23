@@ -107,6 +107,7 @@ export default class FlightForm extends React.Component {
                            <Col>
                               <Form.Label>Adults</Form.Label>
                                  <Form.Control as="select" id="adults" name="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -121,6 +122,7 @@ export default class FlightForm extends React.Component {
                            <Col>
                               <Form.Label>Children</Form.Label>
                                  <Form.Control as="select" id="children" name="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
