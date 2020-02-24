@@ -4,6 +4,9 @@ import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+// import AirportSelector from './AirportSelector';
+// import DatePicker from './DatePicker'
+
 
 export default class CarRentalForm extends React.Component {
 
@@ -61,13 +64,13 @@ export default class CarRentalForm extends React.Component {
                   <Form.Group>
                      <Col>
                      <Form.Label>Pick-up date</Form.Label>
-                     <Form.Control id="pickup-date" type="text" name="pickupDate" placeholder="Click for calendar" value={this.state.pickupDate} onChange={this.handleChange} />
+                     <Form.Control id="pickup-date" type="text" name="pickupDate" placeholder="dd/mm/yyyy" value={this.state.pickupDate} onChange={this.handleChange} />
                      </Col>
                   </Form.Group>
                   <Form.Group>
                            <Col>
                               <Form.Label>Time</Form.Label>
-                                 <Form.Control as="select" id="pickup-time" name="pickup-time" style={{width: "5em"}} value={this.state.pickupTime} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="pickup-time" name="pickup-time" style={{width: "6.25em"}} value={this.state.pickupTime} onChange={this.handleChange}>
                                     <option>6:00am</option>
                                     <option>6:30am</option>
                                     <option>7:00am</option>
@@ -111,13 +114,19 @@ export default class CarRentalForm extends React.Component {
                   <Form.Group>
                      <Col>
                      <Form.Label>Drop-off date</Form.Label>
-                     <Form.Control id="dropoff-date" type="text" name="dropoffDate" placeholder="Click for calendar" value={this.state.dropoffDate} onChange={this.handleChange} />
+                     <Form.Control id="dropoff-date" type="text" name="dropoffDate" placeholder="dd/mm/yyyy" value={this.state.dropoffDate} onChange={this.handleChange} />
                      </Col>
                   </Form.Group>
+                  {/* <Form.Group>
+                     <Col>
+                        <Form.Label>Calendar</Form.Label>
+                           <DatePicker />
+                     </Col>
+                     </Form.Group> */}
                   <Form.Group>
                            <Col>
                               <Form.Label>Time</Form.Label>
-                                 <Form.Control as="select" id="dropoff-time" name="dropoff-time" style={{width: "5em"}} value={this.state.dropOff} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="dropoff-time" name="dropoff-time" style={{width: "6.25em"}} value={this.state.dropOff} onChange={this.handleChange}>
                                     <option>6:00am</option>
                                     <option>6:30am</option>
                                     <option>7:00am</option>

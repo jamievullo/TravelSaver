@@ -14,7 +14,7 @@ import CreateAccount from '../pages/CreateAccount'
 import Flights from '../pages/Flights';
 import Hotels from '../pages/Hotels';
 import CarRental from '../pages/CarRental';
-import brand from '../assets/images/TravelSaverBrand.png'
+import brand from '../assets/images/TravelSaverBrand5.png'
 
 export default function TravelSaverNavbar() {
    
@@ -24,7 +24,7 @@ export default function TravelSaverNavbar() {
             <Navbar className="navbar" expand="lg">
                <Navbar.Brand>
                   {/* gotta create logo for brand */}
-                  <img src={brand} style={{height: "50px", width: "300px"}} alt=""/>
+                  <img src={brand} style={{height: "50px", width: "340px"}} alt=""/>
                </Navbar.Brand>
                   <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
                      <Navbar.Collapse id="navbar-toggle">

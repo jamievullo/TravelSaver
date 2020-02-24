@@ -82,7 +82,7 @@ export default class HotelForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Adults</Form.Label>
-                                 <Form.Control as="select" id="h-adults" name="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="h-adults" name="adults" style={{width: "3.5em"}} value={this.state.adults} onChange={this.handleChange}>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -100,7 +100,7 @@ export default class HotelForm extends React.Component {
                         <Form.Group>
                            <Col>
                               <Form.Label>Children</Form.Label>
-                                 <Form.Control as="select" id="h-children" name="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="h-children" name="children" style={{width: "3.5em"}} value={this.state.children} onChange={this.handleChange}>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>

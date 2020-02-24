@@ -6,6 +6,11 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
 import ocean from '../assets/images/Ocean.png'
+import weekend from '../assets/images/Weekend.png'
+import paris from '../assets/images/Paris.png'
+import mountains from '../assets/images/MountainsTravel.png'
+import tropical from '../assets/images/Tropical.png'
+import adventure from'../assets/images/Adventure.png'
 
 export default class VacationCardDisplay extends React.Component {
     constructor(props) {
@@ -16,7 +21,7 @@ export default class VacationCardDisplay extends React.Component {
                     id: 0,
                     title: 'Popular Destinations',
                     subTitle: '',
-                    imgSrc: ocean,
+                    imgSrc: paris,
                     link: '',
                     selected: false
                 },
@@ -32,7 +37,31 @@ export default class VacationCardDisplay extends React.Component {
                     id: 2,
                     title: 'Weekend Getaways',
                     subTitle: '',
-                    imgSrc: ocean,
+                    imgSrc: weekend,
+                    link: '',
+                    selected: false
+                },
+                {
+                    id: 3,
+                    title: 'Explore',
+                    subTitle: '',
+                    imgSrc: mountains,
+                    link: '',
+                    selected: false
+                },
+                {
+                    id: 4,
+                    title: 'Tropical',
+                    subTitle: '',
+                    imgSrc: tropical,
+                    link: '',
+                    selected: false
+                },
+                {
+                    id: 5,
+                    title: 'Adventure',
+                    subTitle: '',
+                    imgSrc: adventure,
                     link: '',
                     selected: false
                 },

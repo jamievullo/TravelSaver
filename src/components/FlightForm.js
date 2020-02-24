@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 require('dotenv').config();
-// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
+const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 // console.log(api_key)
 
@@ -43,29 +43,19 @@ export default class FlightForm extends React.Component {
       })
       
       
-      // fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
-      //    "method": "GET",
-      //    "headers": {
-      //       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      //       "x-rapidapi-key": "9d244aaeabmsh059d5079a8fdd03p1a0572jsn52a9b59c3240"
-      //       }
-      // })
-      // .then(response => response.json())
-      // .then(data => data.map(result => 
-      //    console.log(result.location_id),
-         // console.log(result.code),
-         // console.log(result.country_code),
-         // console.log(result.name),
-         // console.log(result.city_name),
-         // console.log(result.state),
-         // console.log(result.display_name),
-         // console.log(result.display_title),
-         // console.log(result.time_zone_name),
-         // console.log(result.latitude),
-         // console.log(result.longitude),
-         // console.log(result.parent_code)
+   //    fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
+   //       "method": "GET",
+   //       "headers": {
+   //          "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+   //          "x-rapidapi-key": api_key
+   //          }
+   //    })
+   //    .then(response => response.json())
+   //    .then(data => data.map(result => 
+   //       console.log(result.location_id, result.code, result.country_code, result.name, 
+   //          result.city_name, result.state, result.display_name, result.display_title)
    //    ))
-   //    .catch(err =>console.log(err))     
+   //    .catch(err =>console.log(err))      
    }
 
    render() {
@@ -94,19 +84,19 @@ export default class FlightForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Departing</Form.Label>
-                              <Form.Control id="departing" type="text" name="departing" placeholder="Click for calendar" value={this.state.departing} onChange={this.handleChange} />
+                              <Form.Control id="departing" type="text" name="departing" placeholder="dd/mm/yyyy" value={this.state.departing} onChange={this.handleChange} />
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Returning</Form.Label>
-                              <Form.Control id="returning" type="text" name="returning" placeholder="Click for calendar" value={this.state.returning} onChange={this.handleChange} />
+                              <Form.Control id="returning" type="text" name="returning" placeholder="dd/mm/yyyy" value={this.state.returning} onChange={this.handleChange} />
                            </Col>
                         </Form.Group>
                         <Form.Group>
                            <Col>
                               <Form.Label>Adults</Form.Label>
-                                 <Form.Control as="select" id="adults" name="adults" style={{width: "3em"}} value={this.state.adults} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="adults" name="adults" style={{width: "3.5em"}} value={this.state.adults} onChange={this.handleChange}>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -121,7 +111,7 @@ export default class FlightForm extends React.Component {
                         <Form.Group>                              
                            <Col>
                               <Form.Label>Children</Form.Label>
-                                 <Form.Control as="select" id="children" name="children" style={{width: "3em"}} value={this.state.children} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="children" name="children" style={{width: "3.5em"}} value={this.state.children} onChange={this.handleChange}>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>

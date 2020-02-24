@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import SearchNavbar from './SearchNavbar'
 
 export default function Hero() {
-    
+
    return (
       <Jumbotron className="bg-transparent jumbotron-fluid p-0">
          <Container fluid={true}>
