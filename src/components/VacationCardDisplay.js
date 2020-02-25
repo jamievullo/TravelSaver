@@ -5,11 +5,11 @@ import DestinationCard from '../components/DestinationCard'
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
-import ocean from '../assets/images/Ocean.png'
+import plans from '../assets/images/Plans.png'
 import weekend from '../assets/images/Weekend.png'
 import paris from '../assets/images/Paris.png'
 import mountains from '../assets/images/MountainsTravel.png'
-import tropical from '../assets/images/Tropical.png'
+import tropical from '../assets/images/Tropical2.png'
 import adventure from'../assets/images/Adventure.png'
 
 export default class VacationCardDisplay extends React.Component {
@@ -29,7 +29,7 @@ export default class VacationCardDisplay extends React.Component {
                     id: 1,
                     title: 'Vacation Packages',
                     subTitle: '',
-                    imgSrc: ocean,
+                    imgSrc: plans,
                     link: '',
                     selected: false
                 },

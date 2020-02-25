@@ -5,6 +5,7 @@ import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import PaperAirplane from './PaperAirplane';
 require('dotenv').config();
 // const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -90,6 +91,7 @@ export default class FlightForm extends React.Component {
       return (
          <div>
             <div className='hero-flight-form'>
+               <PaperAirplane />
                <Form onSubmit={this.handleSubmit}>
                   <Form.Row>
                      <Form.Group>

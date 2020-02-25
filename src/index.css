@@ -87,3 +87,9 @@ h3 {
   color: #212747;
 }
 
+.paper-airplane {
+  position: absolute;
+  top: 40%;
+  left: -20%;
+}
+

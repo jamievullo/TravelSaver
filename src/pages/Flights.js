@@ -1,6 +1,7 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import PaperAirplane from '../components/PaperAirplane';
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -72,6 +73,7 @@ export default class Flights extends React.Component {
         .catch(err => {    
             console.log(err);
         });
+
     }
 
     render() {
@@ -79,11 +81,12 @@ export default class Flights extends React.Component {
         // if (isLoading) {
         //     return <p>Loading ...</p>;
         // }
+        
         return (
             <div >
                 <Container fluid={true}>
-                    <Row className="justify-content-center" style={{height: "100%"}}> 
-                        {this.state.departing}                       
+                    <Row className="justify-content-center" >
+                        {this.state.departing} 
                     </Row>
                 </Container>
             </div>
