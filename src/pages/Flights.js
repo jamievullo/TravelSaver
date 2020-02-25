@@ -9,30 +9,41 @@ export default class Flights extends React.Component {
         super(props)
 
         this.state = {
+            departing: this.props.location.state.flightInfo.departing,
+            returning: this.props.location.state.flightInfo.returning,
+            flyingFrom: this.props.location.state.flightInfo.flyingFrom,
+            flyingTo: this.props.location.state.flightInfo.flyingTo,
             isLoading: false
         }
+        console.log(this.state)
     }
 
+        //****eyes****
     changeDateFormat = (enteredDate) => {
         let date = enteredDate
-        let newDate = date.split("/").reverse().join("-");
-        return newDate
+        let newDate = date.split("/").reverse()
+        const year = parseInt(newDate[0])
+        const day = 0 + "" + (parseInt(newDate[1]))
+        const month = 0 + "" + (parseInt(newDate[2]))         
+        const extraNewDate = [year, month, day]
+        return extraNewDate.join("-")
     }
 
-    componentDidMount = (props) => {
+    componentDidMount = () => {
 
         this.setState({
             isLoading: true
         })
-
-        const outbound = this.changeDateFormat(this.props.departing)
-        const inbound = this.changeDateFormat(this.props.returning)
-        const origin = this.props.flyingFrom
-        const destination = this.props.flyingTo
+        // console.log(this.state.departing)
+        const outbound = this.changeDateFormat(this.state.departing)
+        const inbound = this.changeDateFormat(this.state.returning)
+        const origin = this.state.flyingFrom
+        const destination = this.state.flyingTo
         console.log(outbound, inbound, origin, destination);
 
         fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
-      // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-04-14", {
+    //   fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-010-014", {
+        
         "method": "GET",
         "headers": {
         "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -57,8 +68,8 @@ export default class Flights extends React.Component {
         return (
             <div>
                 <Container fluid={true}>
-                    <Row className="justify-content-center">                        
-                        {this.makeItems(this.state.items)}
+                    <Row className="justify-content-center"> 
+                        {this.state.departing}                       
                     </Row>
                 </Container>
             </div>

@@ -80,7 +80,12 @@ export default class FlightForm extends React.Component {
       //    return <p>Loading ...</p>;
       // }
       if(this.state.redirect) {
-         return <Redirect to={this.state.redirect}/>
+         return <Redirect to={{
+            pathname: this.state.redirect,
+            state: {
+               flightInfo: this.state
+            }
+         }}/>
       }
       return (
          <div>
