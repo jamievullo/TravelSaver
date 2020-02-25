@@ -6,12 +6,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 require('dotenv').config();
-const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
+// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 // console.log(api_key)
 
 export default class FlightForm extends React.Component {
-   
+   // sets initial state
    state = {
       flyingFrom: '',
       flyingTo: '',
@@ -19,9 +19,10 @@ export default class FlightForm extends React.Component {
       returning: '',
       adults: '',
       children: '',
-      redirect: null
+      redirect: null,
+      // isLoading: false
    }
-
+   // sets state of all inputted values based on name attribute
    handleChange = (event) => {
       
       this.setState({
@@ -30,44 +31,54 @@ export default class FlightForm extends React.Component {
       console.log(event.target.value)
       
    }
+   // changes date format to be used in fetch
+   // changeDateFormat = (inputtedDate) => {
+   //    let date = inputtedDate
+   //    let newDate = date.split("/").reverse().join("-");
+   //    return newDate
+   // }
 
-   changeDateFormat = (inputtedDate) => {
-      let date = inputtedDate
-      let newDate = date.split("/").reverse().join("-");
-      return newDate
-   }
+   // componentDidMount = () => {      
 
-   // componentDidMount = () => {
-   //    this.handleSubmit()
    // }
    
    handleSubmit = (event) => {
       event.preventDefault();
-      const outbound = this.changeDateFormat(this.state.departing)
-      const inbound = this.changeDateFormat(this.state.returning)
-      const origin = this.state.flyingFrom
-      const destination = this.state.flyingTo
-      console.log(outbound, inbound, origin, destination);
+      // const outbound = this.changeDateFormat(this.state.departing)
+      // const inbound = this.changeDateFormat(this.state.returning)
+      // const origin = this.state.flyingFrom
+      // const destination = this.state.flyingTo
+      // console.log(outbound, inbound, origin, destination);
 
-      // this.setState({
-      //    redirect: "/flights"
-      // })      
-      //    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
-      //    // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-04-14", {
-      //       "method": "GET",
-      //       "headers": {
-      //          "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      //          "x-rapidapi-key": api_key
-      //       }
-      //    })
-      //    .then(response => response.json())
-      //    .then(data => console.log(data))
-      //    .catch(err => {
-      //       console.log(err);
-      //    });
+      // after submit, redirects to flight page
+      this.setState({
+         redirect: "/flights",
+         // isLoading: true
+      })  
+
+      // fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
+      // // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-04-14", {
+      //    "method": "GET",
+      //    "headers": {
+      //       "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+      //       "x-rapidapi-key": api_key
+      //    }
+      // })
+      // .then(response => response.json())
+      // .then(data => {
+      //    // data.map()
+      //    console.log(data)
+      // })
+      // .catch(err => {    
+      //    console.log(err);
+      // });
    }
 
    render() {
+      // const { isLoading } = this.state
+      // if (isLoading) {
+      //    return <p>Loading ...</p>;
+      // }
       if(this.state.redirect) {
          return <Redirect to={this.state.redirect}/>
       }

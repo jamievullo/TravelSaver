@@ -13,7 +13,7 @@ import tropical from '../assets/images/Tropical.png'
 import adventure from'../assets/images/Adventure.png'
 
 export default class VacationCardDisplay extends React.Component {
-    constructor(props) {
+    constructor() {
         super()
         this.state ={
             items: [
