@@ -8,14 +8,16 @@ export default class Flights extends React.Component {
     constructor(props) {
         super(props)
 
+        //pulling props from flight form for fetch
         this.state = {
             departing: this.props.location.state.flightInfo.departing,
             returning: this.props.location.state.flightInfo.returning,
             flyingFrom: this.props.location.state.flightInfo.flyingFrom,
             flyingTo: this.props.location.state.flightInfo.flyingTo,
+            
             isLoading: false
         }
-        console.log(this.state)
+        // console.log(this.state)
     }
 
         //****eyes****
@@ -39,7 +41,7 @@ export default class Flights extends React.Component {
         const inbound = this.changeDateFormat(this.state.returning)
         const origin = this.state.flyingFrom
         const destination = this.state.flyingTo
-        console.log(outbound, inbound, origin, destination);
+        // console.log(outbound, inbound, origin, destination);
 
         fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
     //   fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-010-014", {
@@ -53,7 +55,19 @@ export default class Flights extends React.Component {
         .then(response => response.json())
         .then(data => {
             // data.map()
-            console.log(data)
+            console.log(data.Quotes[0].MinPrice, 
+                        data.Quotes[0].Direct, 
+                        data.Quotes[0].OutboundLeg.CarrierIds[0], 
+                        data.Quotes[0].QuoteId,
+                        data.Places[0].SkyscannerCode,
+                        data.Places[0].CityName,
+                        data.Places[0].Name,
+                        data.Places[1].SkyscannerCode,
+                        data.Places[1].CityName,
+                        data.Places[1].Name,
+                        data.Places[0].CityName,
+                        data
+                        )
         })
         .catch(err => {    
             console.log(err);
@@ -61,14 +75,14 @@ export default class Flights extends React.Component {
     }
 
     render() {
-        const { isLoading } = this.state
-        if (isLoading) {
-            return <p>Loading ...</p>;
-        }
+        // const { isLoading } = this.state
+        // if (isLoading) {
+        //     return <p>Loading ...</p>;
+        // }
         return (
-            <div>
+            <div >
                 <Container fluid={true}>
-                    <Row className="justify-content-center"> 
+                    <Row className="justify-content-center" style={{height: "100%"}}> 
                         {this.state.departing}                       
                     </Row>
                 </Container>
