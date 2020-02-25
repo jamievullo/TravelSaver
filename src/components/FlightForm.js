@@ -28,6 +28,13 @@ export default class FlightForm extends React.Component {
          [event.target.name]: event.target.value
       })
       console.log(event.target.value)
+      
+   }
+
+   changeDateFormat = (inputtedDate) => {
+      let date = inputtedDate
+      let newDate = date.split("/").reverse().join("-");
+      return newDate
    }
 
    // componentDidMount = () => {
@@ -36,26 +43,28 @@ export default class FlightForm extends React.Component {
    
    handleSubmit = (event) => {
       event.preventDefault();
-      console.log(event);
+      const outbound = this.changeDateFormat(this.state.departing)
+      const inbound = this.changeDateFormat(this.state.returning)
+      const origin = this.state.flyingFrom
+      const destination = this.state.flyingTo
+      console.log(outbound, inbound, origin, destination);
 
-      this.setState({
-         redirect: "/flights"
-      })
-      
-      
-   //    fetch("https://tripadvisor1.p.rapidapi.com/airports/search?locale=en_US&query=new%20york", {
-   //       "method": "GET",
-   //       "headers": {
-   //          "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-   //          "x-rapidapi-key": api_key
-   //          }
-   //    })
-   //    .then(response => response.json())
-   //    .then(data => data.map(result => 
-   //       console.log(result.location_id, result.code, result.country_code, result.name, 
-   //          result.city_name, result.state, result.display_name, result.display_title)
-   //    ))
-   //    .catch(err =>console.log(err))      
+      // this.setState({
+      //    redirect: "/flights"
+      // })      
+      //    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
+      //    // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-04-14", {
+      //       "method": "GET",
+      //       "headers": {
+      //          "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+      //          "x-rapidapi-key": api_key
+      //       }
+      //    })
+      //    .then(response => response.json())
+      //    .then(data => console.log(data))
+      //    .catch(err => {
+      //       console.log(err);
+      //    });
    }
 
    render() {
@@ -70,15 +79,15 @@ export default class FlightForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying From</Form.Label>
-                              <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter city or airport" value={this.state.flyingFrom} onChange={this.handleChange}>
-                                 {/* <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" placeholder="Enter city or airport" value={this.state.flyingFrom}/> */}
+                              <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}>
+                                 {/* <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom}/> */}
                                  </Form.Control>
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying To</Form.Label>
-                              <Form.Control id="flying-to" type="text" name="flyingTo" placeholder="Enter city or airport" value={this.state.flyingTo} onChange={this.handleChange} />
+                              <Form.Control id="flying-to" type="text" name="flyingTo" placeholder="Enter airport code" value={this.state.flyingTo} onChange={this.handleChange} />
                            </Col>
                      </Form.Group>
                      <Form.Group>

@@ -16,3 +16,7 @@ https://www.react-spring.io/
 https://stackoverflow.com/questions/35687353/react-bootstrap-link-item-in-a-navitem
 https://skyscanner.github.io/slate/#browse-quotes
 https://react-bootstrap.github.io/layout/grid/#container-props
+
+Future adjustments 
+-Geocoding country automatically from location.
+-Autocomplete for airport input in FlightForm
