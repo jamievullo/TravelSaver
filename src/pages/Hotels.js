@@ -2,8 +2,8 @@ import React from 'react'
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 export default class Hotels extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             goingTo: this.props.location.state.hotelInfo.goingTo,
@@ -12,8 +12,10 @@ export default class Hotels extends React.Component {
             roomsNeeded: this.props.location.state.hotelInfo.roomsNeeded,
             adults: this.props.location.state.hotelInfo.adults,
             children: this.props.location.state.hotelInfo.children,
+            locationId: '',
             isLoading: false
         }
+        console.log(this.state)
     }
 
     changeDateFormat = (enteredDate) => {
@@ -31,14 +33,15 @@ export default class Hotels extends React.Component {
             isLoading: true
         })
         //location id is going to need to be fetched first
-        //need function to determinr number of nights for literal
+        //need function to determine number of nights for literal
         const goingTo = this.state.goingTo
         const checkIn = this.changeDateFormat(this.state.checkIn)
         // const checkOut = this.changeDateFormat(this.state.checkOut)
-        const adults = this.state.adults
-        const rooms = this.state.roomsNeeded
-        const locationId = this.state.locationId
-
+        const adults = parseInt(this.state.adults)
+        const rooms = parseInt(this.state.roomsNeeded)
+        const locationId = parseInt(this.state.locationId)
+        
+        //fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=2&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
         fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
             "method": "GET",
             "headers": {
@@ -46,15 +49,18 @@ export default class Hotels extends React.Component {
             "x-rapidapi-key": api_key
 	}
             })
-            .then(response => {
-                console.log(response);
-            })
+            .then(res => res.json())
+            .then(data => console.log(data))                
             .catch(err => {
                 console.log(err);
             });
     }
 
     render() {
+        // const { isLoading } = this.state
+        // if (isLoading) {
+        //     return <p>Loading ...</p>;
+        // }
         return (
             <div>
                 <h1 style={{color: "black"}}>Display Fetched Hotels</h1>
