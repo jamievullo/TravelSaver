@@ -28,6 +28,14 @@ export default class Hotels extends React.Component {
         return extraNewDate.join("-")
     }
 
+    numberOfNights = (date1, date2) => {
+        let newDate1 = date1.split("/")
+        let newDate2 = date2.split("/")
+        const day1 = parseInt(newDate1[1])
+        const day2 = parseInt(newDate2[1])
+        return day2 - day1
+    }
+
     componentDidMount = () => {
         this.setState({
             isLoading: true
@@ -36,12 +44,13 @@ export default class Hotels extends React.Component {
         //need function to determine number of nights for literal
         const goingTo = this.state.goingTo
         const checkIn = this.changeDateFormat(this.state.checkIn)
-        // const checkOut = this.changeDateFormat(this.state.checkOut)
+        const nights = this.numberOfNights(this.state.checkIn, this.state.checkOut)
         const adults = parseInt(this.state.adults)
         const rooms = parseInt(this.state.roomsNeeded)
         const locationId = parseInt(this.state.locationId)
         
-        //fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=2&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
+        
+        //fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
         fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
             "method": "GET",
             "headers": {
