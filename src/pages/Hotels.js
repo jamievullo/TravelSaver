@@ -42,27 +42,39 @@ export default class Hotels extends React.Component {
         })
         //location id is going to need to be fetched first
         //need function to determine number of nights for literal
-        const goingTo = this.state.goingTo
         const checkIn = this.changeDateFormat(this.state.checkIn)
         const nights = this.numberOfNights(this.state.checkIn, this.state.checkOut)
         const adults = parseInt(this.state.adults)
         const rooms = parseInt(this.state.roomsNeeded)
         const locationId = parseInt(this.state.locationId)
         
-        
+        fetch("https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=scranton", {
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+            "x-rapidapi-key": api_key
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => {
+            console.log(err);
+        });
+
+        //second fetch
         //fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
         fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
             "x-rapidapi-key": api_key
-	}
-            })
-            .then(res => res.json())
-            .then(data => console.log(data))                
-            .catch(err => {
-                console.log(err);
-            });
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))                
+        .catch(err => {
+            console.log(err);
+        });
     }
 
     render() {
