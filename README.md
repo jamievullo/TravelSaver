@@ -16,6 +16,12 @@ https://www.react-spring.io/
 https://stackoverflow.com/questions/35687353/react-bootstrap-link-item-in-a-navitem
 https://skyscanner.github.io/slate/#browse-quotes
 https://react-bootstrap.github.io/layout/grid/#container-props
+https://github.com/airbnb/react-dates
+https://greensock.com/ease-visualizer/
+https://www.npmjs.com/package/react-gsap
+https://repl.it/@jamievullo/help
+https://zellwk.com/blog/looping-through-js-objects/
+
 
 Future adjustments 
 -Geocoding country automatically from location.

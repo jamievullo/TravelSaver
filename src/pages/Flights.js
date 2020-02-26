@@ -2,7 +2,7 @@ import React from 'react'
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 //working on Paper Airplane for loading animation
-// import PaperAirplane from '../components/PaperAirplane';
+import PaperAirplane from '../components/PaperAirplane';
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 

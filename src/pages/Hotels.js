@@ -56,7 +56,10 @@ export default class Hotels extends React.Component {
             }
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data =>  {
+            const values = Object.values(data)
+            console.log(values[0][0].result_object.location_id)
+        })
         .catch(err => {
             console.log(err);
         });
