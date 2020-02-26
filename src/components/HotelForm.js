@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
-// import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -32,14 +31,16 @@ export default class HotelForm extends React.Component {
       this.setState({
          redirect: "/hotels"
       })
-
-
-         //fetch
    }
 
    render() {
       if(this.state.redirect) {
-         return <Redirect to={this.state.redirect}/>
+         return <Redirect to={{
+            pathname: this.state.redirect,
+            state: {
+               hotelInfo: this.state
+            }
+         }}/>
       }
       return (
          <div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
-// import Container from 'react-bootstrap/Container'
 // import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -32,54 +31,17 @@ export default class FlightForm extends React.Component {
       console.log(event.target.value)
       
    }
-   // changes date format to be used in fetch
-   // changeDateFormat = (inputtedDate) => {
-   //    let date = inputtedDate
-   //    let newDate = date.split("/").reverse().join("-");
-   //    return newDate
-   // }
-
-   // componentDidMount = () => {      
-
-   // }
    
    handleSubmit = (event) => {
       event.preventDefault();
-      // const outbound = this.changeDateFormat(this.state.departing)
-      // const inbound = this.changeDateFormat(this.state.returning)
-      // const origin = this.state.flyingFrom
-      // const destination = this.state.flyingTo
-      // console.log(outbound, inbound, origin, destination);
 
       // after submit, redirects to flight page
       this.setState({
          redirect: "/flights",
-         // isLoading: true
       })  
-
-      // fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
-      // // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-04-14", {
-      //    "method": "GET",
-      //    "headers": {
-      //       "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      //       "x-rapidapi-key": api_key
-      //    }
-      // })
-      // .then(response => response.json())
-      // .then(data => {
-      //    // data.map()
-      //    console.log(data)
-      // })
-      // .catch(err => {    
-      //    console.log(err);
-      // });
    }
 
    render() {
-      // const { isLoading } = this.state
-      // if (isLoading) {
-      //    return <p>Loading ...</p>;
-      // }
       if(this.state.redirect) {
          return <Redirect to={{
             pathname: this.state.redirect,
