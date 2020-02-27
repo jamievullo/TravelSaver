@@ -31,7 +31,7 @@ export default class FlightForm extends React.Component {
       console.log(event.target.value)
       
    }
-   
+   //prevents default of submit button and redirects
    handleSubmit = (event) => {
       event.preventDefault();
 
@@ -42,6 +42,7 @@ export default class FlightForm extends React.Component {
    }
 
    render() {
+      //if submit button pressed, sets state of redirect and sends props/state to flight page
       if(this.state.redirect) {
          return <Redirect to={{
             pathname: this.state.redirect,

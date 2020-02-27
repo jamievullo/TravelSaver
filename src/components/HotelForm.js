@@ -68,7 +68,7 @@ export default class HotelForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Rooms</Form.Label>
-                                 <Form.Control as="select" id="rooms" name="rooms" value={this.state.rooms} onChange={this.handleChange}>
+                                 <Form.Control as="select" id="rooms" name="roomsNeeded" value={this.state.roomsNeeded} onChange={this.handleChange}>
                                        <option>0</option>
                                        <option>1</option>
                                        <option>2</option>

@@ -13,11 +13,12 @@ export default class SearchNavbar extends React.Component {
         super()
     
         this.state = {        
-        // Takes active tab from props
+        // Takes active tab from props and sets default to 1
             activeTab: props.activeTab || 1        
         }
     }
 
+    // sets selected tab state
     handleSelect = (selectedTab) => {
         // The active tab must be set into the state so that
         // the Tabs component knows about the change and re-renders.
@@ -27,6 +28,7 @@ export default class SearchNavbar extends React.Component {
     }
 
     render() {
+        //images for tabs
         const planeTab = <img src={plane} style={{height: "40p", width: "50px"}} alt=""/>
         const hotelTab = <img src={hotel} style={{height: "40p", width: "50px"}} alt=""/>
         const rentalTab = <img src={rentalcar} style={{height: "40p", width: "50px"}} alt=""/>

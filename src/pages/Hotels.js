@@ -13,11 +13,12 @@ export default class Hotels extends React.Component {
             adults: this.props.location.state.hotelInfo.adults,
             children: this.props.location.state.hotelInfo.children,
             locationId: '',
-            isLoading: false
+            isLoading: true
         }
-        console.log(this.state)
+        // console.log(this.state)
     }
-
+    
+    //needed to reformat inputted date to input into template literal for fetch
     changeDateFormat = (enteredDate) => {
         let date = enteredDate
         let newDate = date.split("/").reverse()
@@ -28,6 +29,7 @@ export default class Hotels extends React.Component {
         return extraNewDate.join("-")
     }
 
+    //needed function to determine the number of nights for hotel stay in template literal
     numberOfNights = (date1, date2) => {
         let newDate1 = date1.split("/")
         let newDate2 = date2.split("/")
@@ -37,18 +39,13 @@ export default class Hotels extends React.Component {
     }
 
     componentDidMount = () => {
-        this.setState({
-            isLoading: true
-        })
+       
         //location id is going to need to be fetched first
-        //need function to determine number of nights for literal
-        const checkIn = this.changeDateFormat(this.state.checkIn)
-        const nights = this.numberOfNights(this.state.checkIn, this.state.checkOut)
-        const adults = parseInt(this.state.adults)
-        const rooms = parseInt(this.state.roomsNeeded)
-        const locationId = parseInt(this.state.locationId)
+        const destination = this.state.goingTo
         
-        fetch("https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=scranton", {
+        
+        fetch(`https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=${destination}`, {
+        // fetch("https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=scranton", {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
@@ -59,26 +56,36 @@ export default class Hotels extends React.Component {
         .then(data =>  {
             const values = Object.values(data)
             console.log(values[0][0].result_object.location_id)
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            this.setState({
+                locationId: values[0][0].result_object.location_id
+            })
 
-        //second fetch
-        //fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
-        fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
-            }
         })
+    }
+    
+    //second fetch
+        componentDidUpdate = () => {
+            const checkIn = this.changeDateFormat(this.state.checkIn)
+            const nights = this.numberOfNights(this.state.checkIn, this.state.checkOut)
+            const adults = parseInt(this.state.adults)
+            const rooms = parseInt(this.state.roomsNeeded)
+            const locationId = this.state.locationId
+            console.log("componentDidUpdate")
+        fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
+            // fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+                    "x-rapidapi-key": api_key
+                }
+            })
         .then(res => res.json())
-        .then(data => console.log(data))                
+        .then(data => console.log(data)) //set state, flip loading boolean               
         .catch(err => {
             console.log(err);
         });
     }
+
 
     render() {
         // const { isLoading } = this.state
@@ -87,6 +94,7 @@ export default class Hotels extends React.Component {
         // }
         return (
             <div>
+                {this.state.isLoading && <p>Loading..</p>}
                 <h1 style={{color: "black"}}>Display Fetched Hotels</h1>
             </div>
             )

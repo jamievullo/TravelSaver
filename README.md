@@ -21,6 +21,7 @@ https://greensock.com/ease-visualizer/
 https://www.npmjs.com/package/react-gsap
 https://repl.it/@jamievullo/help
 https://zellwk.com/blog/looping-through-js-objects/
+https://stackoverflow.com/questions/40981040/using-a-fetch-inside-another-fetch-in-javascript
 
 
 Future adjustments 

@@ -5,15 +5,14 @@ import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { NavDropdown } from 'react-bootstrap';
-// import Brand from './components/Brand'
 import Footer from '../components/Footer';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login'
 import CreateAccount from '../pages/CreateAccount'
-
 import Flights from '../pages/Flights';
 import Hotels from '../pages/Hotels';
 import CarRental from '../pages/CarRental';
+
 import brand from '../assets/images/TravelSaverBrand5.png'
 
 export default function TravelSaverNavbar() {
@@ -23,7 +22,6 @@ export default function TravelSaverNavbar() {
          <Container className="p-0" fluid={true} >
             <Navbar className="navbar" expand="lg">
                <Navbar.Brand>
-                  {/* gotta create logo for brand */}
                   <img src={brand} style={{height: "50px", width: "340px"}} alt=""/>
                </Navbar.Brand>
                   <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />

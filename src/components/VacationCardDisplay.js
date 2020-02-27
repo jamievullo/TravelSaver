@@ -15,6 +15,7 @@ import adventure from'../assets/images/Adventure.png'
 export default class VacationCardDisplay extends React.Component {
     constructor() {
         super()
+        //sets state of vac card item array titles, links, images, and selected status
         this.state ={
             items: [
                 {
@@ -85,6 +86,7 @@ export default class VacationCardDisplay extends React.Component {
     //     })
     // }
 
+    //iterates over items array and sets props for each card
     makeItems = (items) => {
         return items.map(item => {
             return <DestinationCard item={item} key={item.id} />
@@ -95,7 +97,8 @@ export default class VacationCardDisplay extends React.Component {
         return (
             <div>
                 <Container fluid={true} style={{paddingBottom: "4em"}}>
-                    <Row className="justify-content-center">                        
+                    <Row className="justify-content-center"> 
+                        {/* on render "makes" cards for each vacation card item */}
                         {this.makeItems(this.state.items)}
                     </Row>
                 </Container>
