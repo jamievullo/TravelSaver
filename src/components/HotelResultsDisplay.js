@@ -7,7 +7,7 @@ import { Col } from 'react-bootstrap'
 export default function HotelResultsDisplay(props) {
     return (
         <div>
-             <div className="justify-content-left" style={{width: "50%", paddingBottom: "1em"}}>
+            <div className="justify-content-center" >
                 {/* <h4>{props.item.name}</h4>
                 <span>{props.item.address}</span>
                 <span>{props.item.price}</span>
@@ -18,8 +18,8 @@ export default function HotelResultsDisplay(props) {
                 <img className="hotel-photo-display" src={props.item.photo} alt={props.item.name} /> */}
                 
                 <Card>
-                    <Row className="no-gutters">
-                        <Col className="auto">
+                    <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
+                        <Col className="auto" md={3}>
                             <img src="//placehold.it/267" className="img-fluid" alt=""/>
                         </Col>
                         <Col>                       

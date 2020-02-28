@@ -1,5 +1,5 @@
 import React from 'react'
-// import PaperAirplane from '../components/PaperAirplane'
+import PaperAirplane from '../components/PaperAirplane'
 import HotelResultsDisplay from '../components/HotelResultsDisplay'
 // const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -15,7 +15,7 @@ export default class Hotels extends React.Component {
             adults,
             children,
             locationId: '',
-            isLoading: true
+            isLoading: false
         }
         // console.log(this.state)
     }
@@ -85,12 +85,14 @@ export default class Hotels extends React.Component {
     //     });
     // }
 
-
     render() {
         return (
-            <div>
+            <div style={{margin: "0 auto", width:"85%"}}>
                 {/* {this.state.isLoading && <PaperAirplane />} */}
-                {this.state.isLoading && <p>Loading..</p>}
+                {/* {this.state.isLoading && <p>Loading..</p>} */}
+                <PaperAirplane />
+                <HotelResultsDisplay />
+                <HotelResultsDisplay />
                 <HotelResultsDisplay />
             </div>
             )
