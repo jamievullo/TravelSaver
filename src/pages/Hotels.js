@@ -90,7 +90,7 @@ export default class Hotels extends React.Component {
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data.data)
-    //             data.data.forEach(hotel => {
+    //             data.data.map(hotel => {
     //                 //to prevent infinite loop of re-rendering because of setting state,
     //                 //check to see if previous state is = what you are setting state to
     //                 if(prevState.isLoading !== this.state.isLoading && prevState.name !== this.state.name && 
@@ -127,7 +127,7 @@ export default class Hotels extends React.Component {
     render() {
         return (
             <div style={{margin: "0 auto", width:"85%"}}>
-                {this.state.isLoading && <p>Loading..</p>}
+                {/* {this.state.isLoading && <p>Loading..</p>} */}
                 <HotelResultsDisplay />
             </div>
             )
