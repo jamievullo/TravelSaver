@@ -23,8 +23,11 @@ https://repl.it/@jamievullo/help
 https://zellwk.com/blog/looping-through-js-objects/
 https://stackoverflow.com/questions/40981040/using-a-fetch-inside-another-fetch-in-javascript
 https://www.codeply.com/go/l1KAQtjjbA
+https://stackoverflow.com/questions/30528348/setstate-inside-of-componentdidupdate
 
 
 Future adjustments 
--Geocoding country automatically from location.
+-Geocoding country, city, lat-lng automatically from location.
 -Autocomplete for airport input in FlightForm
+-Autocomplete city for HotelForm
+-Datepicker for dates on all forms

@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import { Col } from 'react-bootstrap'
 
 export default function HotelResultsDisplay(props) {
+
     return (
         <div>
             <div className="justify-content-center" >
