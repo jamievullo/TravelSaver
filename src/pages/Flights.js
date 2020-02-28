@@ -11,11 +11,14 @@ export default class Flights extends React.Component {
         super(props)
 
         //pulling props and setting state from flight form for fetch
+        const { departing, returning, flyingFrom, flyingTo, adults, children } = this.props.location.flightInfo
         this.state = {
-            departing: this.props.location.state.flightInfo.departing,
-            returning: this.props.location.state.flightInfo.returning,
-            flyingFrom: this.props.location.state.flightInfo.flyingFrom,
-            flyingTo: this.props.location.state.flightInfo.flyingTo,
+            departing,
+            returning,
+            flyingFrom,
+            flyingTo,
+            adults,
+            children,
             
             isLoading: false
         }
