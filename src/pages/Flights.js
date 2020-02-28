@@ -78,10 +78,6 @@ export default class Flights extends React.Component {
     }
 
     render() {
-        // const { isLoading } = this.state
-        // if (isLoading) {
-        //     return <p>Loading ...</p>;
-        // }
         
         return (
             <div >

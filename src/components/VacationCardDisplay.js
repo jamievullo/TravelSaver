@@ -15,7 +15,7 @@ import adventure from'../assets/images/Adventure.png'
 export default class VacationCardDisplay extends React.Component {
     constructor() {
         super()
-        //sets state of vac card item array titles, links, images, and selected status
+        //sets state of vac card item array titles, links, images, and selected status for display
         this.state ={
             items: [
                 {
