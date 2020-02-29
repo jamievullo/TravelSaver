@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button'
 export default class Login extends React.Component {
 
    state = {
-      name: '',
       email: '',
       password: '',
       redirect: null
@@ -41,37 +40,32 @@ export default class Login extends React.Component {
       }
       return (
          <div>
-            <Form onSubmit={this.handleSubmit}>
-            <Form.Row>
-               <Form.Group>
+         <Col>
+            <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
+               <Form.Row>
+                  <Form.Group>
                      <Col>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control id="enter-name" type="text" name="name" placeholder="Enter Username" value={this.state.name} onChange={this.handleChange}>
-                           </Form.Control>
+                        <Form.Label style={{color: "#364182"}}>Email</Form.Label>
+                           <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
+                        {/* </Col>
+                  </Form.Group>
+                  <Form.Group>
+                        <Col> */}
+                        <Form.Label style={{color: "#364182"}}>Password</Form.Label>
+                           <Form.Control id="password" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                      </Col>
-               </Form.Group>
-               <Form.Group>
-                     <Col>
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
-                     </Col>
-               </Form.Group>
-               <Form.Group>
-                     <Col>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control id="password" type="password" name="password" placeholder="Enter a Password 6-8 characters" value={this.state.password} onChange={this.handleChange} />
-                     </Col>
-               </Form.Group>
-            </Form.Row>
-            <Link className="nav-link" 
-               to='/'
-               exact="true"
-            >
-               <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
-                  Welcome Back
-               </Button>
-            </Link>                  
-         </Form>            
+                  </Form.Group>
+               </Form.Row>
+                  <Link className="nav-link" 
+                     to='/'
+                     exact="true"
+                  >
+                  <Button className="d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
+                     True Adventurer
+                  </Button>
+                  </Link>                  
+            </Form>
+         </Col> 
          </div>
       )
    }

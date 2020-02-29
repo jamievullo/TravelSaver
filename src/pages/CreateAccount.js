@@ -42,43 +42,44 @@ export default class CreateAccount extends React.Component {
       }
       return (
          <div>
-            <Form onSubmit={this.handleSubmit}>
+            <Col>
+            <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
             <Form.Row>
                <Form.Group>
                   <Col>
-                     <Form.Label>Name</Form.Label>
-                     <Form.Control id="enter-name" type="text" name="name" placeholder="Enter Username" value={this.state.name} onChange={this.handleChange}>
-                        </Form.Control>
-                  </Col>
+                     <Form.Label style={{color: "#364182"}}>Name</Form.Label>
+                     <Form.Control id="enter-name" type="text" name="name" placeholder="Enter Username" value={this.state.name} onChange={this.handleChange} />
+                  {/* </Col>
                </Form.Group>
                <Form.Group>
-                  <Col>
-                     <Form.Label>Email</Form.Label>
+                  <Col> */}
+                     <Form.Label style={{color: "#364182"}}>Email</Form.Label>
                      <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
-                  </Col>
+                  {/* </Col>
                </Form.Group>
                <Form.Group>
-                  <Col>
-                     <Form.Label>Password</Form.Label>
-                     <Form.Control id="password" type="password" name="password" placeholder="Enter a Password 6-8 characters" value={this.state.password} onChange={this.handleChange} />
-                  </Col>
+                  <Col> */}
+                     <Form.Label style={{color: "#364182"}}>Password</Form.Label>
+                     <Form.Control id="password" type="password" name="password" placeholder="Password 6-8 digits" value={this.state.password} onChange={this.handleChange} />
+                  {/* </Col>
                </Form.Group>
                <Form.Group>
-                  <Col>
-                     <Form.Label>Confirm Password</Form.Label>
+                  <Col> */}
+                     <Form.Label style={{color: "#364182"}}>Confirm Password</Form.Label>
                      <Form.Control id="confirm-password" type="password" name="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleChange} />
                   </Col>
                </Form.Group>
-            </Form.Row>
+               </Form.Row>
             <Link className="nav-link" 
                to='/'
                exact="true"
-            >
-               <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
-                  Start Exploring
+               >
+               <Button id="cabutton" className="d-inline-block" style={{backgroundColor: "#212747"}}size="lg" type="submit">
+                  See The World
                </Button>
             </Link>                  
-         </Form>            
+         </Form>
+         </Col>            
          </div>
       )
    }
