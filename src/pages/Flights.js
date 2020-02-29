@@ -1,7 +1,6 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-//working on Paper Airplane for loading animation
+import FlighResultsDisplay from '../components/FlightResultsDisplay'
 // import PaperAirplane from '../components/PaperAirplane';
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
@@ -9,20 +8,19 @@ const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 export default class Flights extends React.Component {
     constructor(props) {
         super(props)
-
-        //pulling props and setting state from flight form for fetch
-        const { departing, returning, flyingFrom, flyingTo, adults, children } = this.props.location.flightInfo
+        // pulling props and setting state from flight form for fetch in flightInfo redirect object
+        const { departing, returning, flyingFrom, flyingTo, adults, children } = this.props.location.state.flightInfo
         this.state = {
             departing,
             returning,
             flyingFrom,
             flyingTo,
             adults,
-            children,
-            
-            isLoading: false
+            children,            
+            isLoading: true,
+            flights: []
         }
-        // console.log(this.state)
+        console.log(this.state)
     }
 
     //needed function to change date format to insert into template literal
@@ -39,7 +37,7 @@ export default class Flights extends React.Component {
     componentDidMount = () => {
 
         this.setState({
-            isLoading: true
+            isLoading: false
         })
         // console.log(this.state.departing)
         const outbound = this.changeDateFormat(this.state.departing)
@@ -77,18 +75,15 @@ export default class Flights extends React.Component {
         .catch(err => {    
             console.log(err);
         });
-
     }
 
     render() {
-        
+        console.log(this.props)        
         return (
-            <div >
-                <Container fluid={true}>
+            <div style={{margin: "0 auto", width:"85%"}}>                
                     <Row className="justify-content-center" >
-                        {this.state.departing} 
-                    </Row>
-                </Container>
+                        <FlighResultsDisplay />
+                    </Row>                
             </div>
         )
     }

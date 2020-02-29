@@ -20,16 +20,14 @@ export default class FlightForm extends React.Component {
       adults: '',
       children: '',
       redirect: null,
-      // isLoading: false
+      flights: []
    }
    // sets state of all inputted values based on name attribute
-   handleChange = (event) => {
-      
+   handleChange = (event) => {      
       this.setState({
          [event.target.name]: event.target.value
       })
-      console.log(event.target.value)
-      
+      console.log(event.target.value)      
    }
    //prevents default of submit button and redirects to flight page for results display
    handleSubmit = (event) => {
