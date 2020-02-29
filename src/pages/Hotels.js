@@ -16,13 +16,6 @@ export default class Hotels extends React.Component {
             children,
             locationId: '',
             isLoading: true,
-            // name: '',
-            // address: '',
-            // rating: '',
-            // price: '',
-            // photo: '',
-            // website: '',
-            // amenities: {},
             hotels: []
             }
         // console.log(this.state)
@@ -53,7 +46,6 @@ export default class Hotels extends React.Component {
         const destination = this.state.goingTo
             
         fetch(`https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=${destination}`, {
-        // fetch("https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=scranton", {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
@@ -85,7 +77,6 @@ export default class Hotels extends React.Component {
         // console.log("componentDidUpdate")
 
         fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
-        // fetch("https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=2&nights=2&currency=USD&rooms=1&lang=en_US&checkin=2020-04-14&location_id=60969", {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
@@ -100,42 +91,21 @@ export default class Hotels extends React.Component {
                     isLoading: false,
                     hotels: [...allHotels]
                 })
-                // data.data.map(hotel => { 
-                    // let newHotels = [this.state.hotels]
-                    // let allHotels = [...newHotels, hotel]
-                    // console.log(allHotels)
-                    
-                    // //to prevent infinite loop of re-rendering because of setting state,
-                    // //check to see if previous state is != what you are setting state to
-                    // if(prevState.isLoading !== this.state.isLoading) {
-                    //     // && prevState.name !== this.state.name && 
-                    //     // prevState.address !== this.state.address && prevState.rating !== this.state.rating &&
-                    //     // prevState.price !== this.state.price && prevState.photo !== this.state.photo &&
-                    //     // prevState.website !== this.state.website
-                    //     this.setState({
-                    //     isLoading: false,
-                    //     hotels: [...allHotels]
-                    //     })
-                    // }
-                    return null 
+                return null 
                 // console.log(hotel.name, hotel.address, hotel.rating, hotel.price, hotel.website, hotel.amenities)
-                })            
+            })            
             .catch(err => {
                 console.log(err);
-            });
-        
+            });        
     }
 
     render() {
-        // if(this.state.isLoading === false) {
-        //     this.state.hotels.map(hotel => <HotelResultsDisplay hotel={hotel} />)
-        //     }
         return (
             <div style={{margin: "0 auto", width:"85%"}}>
                 {/* {this.state.isLoading && <p>Loading..</p>} */}
+                {/* maps over hotels state object and index and passes them as props HRD component */}
                 {this.state.hotels.map((hotel, i) => <HotelResultsDisplay key={i} hotel={hotel} />)}
-                {/* <HotelResultsDisplay hotel={this.state.hotels}/> */}
             </div>
             )
         }
-    }
+}

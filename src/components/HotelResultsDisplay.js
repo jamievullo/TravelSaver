@@ -1,14 +1,14 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
-import { Col } from 'react-bootstrap'
+import Col from 'react-bootstrap/Col'
 
 export default function HotelResultsDisplay(props) {
 
+    //maps through amenities to limit the amount of results and separate rendering 
     const amenitiesFun = (props) => {
         let amenities = props.hotel.amenities
         return amenities.slice(0,9).map(amenity => `${amenity.name}, `)
-
     }
 
     return (
@@ -29,6 +29,7 @@ export default function HotelResultsDisplay(props) {
                             <Card.Text>Price Range: {props.hotel.price}</Card.Text>
                             <Card.Text>Rating: {props.hotel.rating}</Card.Text>                            
                             <Card.Text>
+                                {/* passes in amenities function and props to render amenities */}
                                 Amenities: {amenitiesFun(props)}
                             </Card.Text>
                             <Card.Text as="h6">Click Here to Book Now: <a href={props.hotel.website} target="_blank" rel="noopener noreferrer">{props.hotel.name}</a></Card.Text>                       
