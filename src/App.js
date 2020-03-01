@@ -15,13 +15,12 @@ export default class App extends React.Component {
       user: {}
     }
   } 
-
+    //keep track of logged in status and request this information every time it’s mounted
   componentDidMount() {
-    //on page load/refresh will check for session in the backend
     this.loginStatus()
   }
 
-  //taking in login data and setting state
+  //taking in login data recieved from server and setting state
   handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
@@ -39,7 +38,8 @@ export default class App extends React.Component {
 
   loginStatus = () => {
     //ajax call to sessions custom route
-    axios.get('http://localhost:3001/logged_in', 
+    axios.get('http://localhost:3001/logged_in',
+    // This allows our Rails server to set and read the cookie on the front-end’s browser.
     {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
@@ -50,6 +50,8 @@ export default class App extends React.Component {
     })
     .catch(error => console.log('api errors:', error))
   }
+
+
 
   render() {
     return (

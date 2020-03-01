@@ -3,6 +3,7 @@ import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 export default class Login extends React.Component {
 
@@ -13,8 +14,7 @@ export default class Login extends React.Component {
       redirect: null
    }
 
-   handleChange = (event) => {
-      
+   handleChange = (event) => {      
       this.setState({
          [event.target.name]: event.target.value
       })
@@ -23,13 +23,33 @@ export default class Login extends React.Component {
 
    handleSubmit = (event) => {
       event.preventDefault();
-      console.log(event);
-
-      this.setState({
-         redirect: "/"
+      // console.log(event);
+      const {email, password} = this.state
+      let user = {
+         email: email,
+         password: password
+         }
+      
+      axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+      .then(response => {
+      if (response.data.logged_in) {
+         this.props.handleLogin(response.data)
+         this.redirect()
+      } else {
+         this.setState({
+            errors: response.data.errors
+         })
+      }
       })
+      .catch(error => console.log('api errors:', error))
+   };
+   redirect = () => {
+      this.props.history.push('/')
+      // this.setState({
+      //    redirect: "/"
+      //    })
    }
-
+   
    render() {
       if(this.state.redirect) {
          return <Redirect to={{
@@ -48,10 +68,6 @@ export default class Login extends React.Component {
                      <Col>
                         <Form.Label style={{color: "#364182"}}>Email</Form.Label>
                            <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
-                        {/* </Col>
-                  </Form.Group>
-                  <Form.Group>
-                        <Col> */}
                         <Form.Label style={{color: "#364182"}}>Password</Form.Label>
                            <Form.Control id="password" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                      </Col>

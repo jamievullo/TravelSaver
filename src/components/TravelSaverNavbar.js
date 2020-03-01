@@ -47,14 +47,14 @@ export default function TravelSaverNavbar() {
                {/* <Route path="/login" component={Login} /> */}
                <Route exact path='/login' 
                render={props => (<Login {...props} 
-               handleLogin={this.props.handleLogin} 
-               loggedInStatus={this.props.loggedInStatus}/>)}
+               handleLogin={props.handleLogin} 
+               loggedInStatus={props.loggedInStatus}/>)}
                />
                {/* <Route path="/signup" component={CreateAccount} /> */}
                <Route 
                exact path='/signup' 
                render={props => (
-               <CreateAccount {...props} handleLogin={this.props.handleLogin} loggedInStatus={this.props.loggedInStatus}/>)}
+               <CreateAccount {...props} handleLogin={props.handleLogin} loggedInStatus={props.loggedInStatus}/>)}
                />
                <Route path="/flights" component={Flights} />
                <Route path="/hotels" component={Hotels}/>

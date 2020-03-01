@@ -82,7 +82,7 @@ export default class CreateAccount extends React.Component {
                <Form.Group>
                   <Col> */}
                      <Form.Label style={{color: "#364182"}}>Confirm Password</Form.Label>
-                     <Form.Control id="password_confirmation" type="password" name="pasword_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange} />
+                     <Form.Control id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange} />
                   </Col>
                </Form.Group>
                </Form.Row>
