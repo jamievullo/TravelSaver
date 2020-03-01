@@ -16,6 +16,12 @@ export default class App extends React.Component {
     }
   } 
 
+  componentDidMount() {
+    //on page load/refresh will check for session in the backend
+    this.loginStatus()
+  }
+
+  //taking in login data and setting state
   handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
@@ -23,6 +29,7 @@ export default class App extends React.Component {
     })
   }
 
+  //on logout clears user state obj and toggles isLoggedIn obj
   handleLogout = () => {
     this.setState({
     isLoggedIn: false,
@@ -31,6 +38,7 @@ export default class App extends React.Component {
   }
 
   loginStatus = () => {
+    //ajax call to sessions custom route
     axios.get('http://localhost:3001/logged_in', 
     {withCredentials: true})
     .then(response => {
