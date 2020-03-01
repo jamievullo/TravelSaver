@@ -3,6 +3,7 @@ import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 export default class CreateAccount extends React.Component {
 
@@ -24,12 +25,33 @@ export default class CreateAccount extends React.Component {
 
    handleSubmit = (event) => {
       event.preventDefault();
-      console.log(event);
-
-      this.setState({
-         redirect: "/"
+      // console.log(event);
+      const {email, password, password_confirmation} = this.state
+      let user = {
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+      }
+   axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
+      .then(response => {
+         if (response.data.status === 'created') {
+         this.props.handleLogin(response.data)
+         this.redirect()
+         } else {
+         this.setState({
+            errors: response.data.errors
+            })
+         }
       })
+      .catch(error => console.log('api errors:', error))
+   };
+   redirect = () => {
+      this.props.history.push('/')
    }
+
+      // this.setState({
+      //    redirect: "/"
+      // })
 
    render() {
       if(this.state.redirect) {
