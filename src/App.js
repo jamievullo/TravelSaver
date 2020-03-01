@@ -54,7 +54,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <TravelSaverNavbar />
+        {/* passing props to TS navbar */}
+        <TravelSaverNavbar handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn} />
       </div>
     );
 
