@@ -7,10 +7,10 @@ import Button from 'react-bootstrap/Button'
 export default class CreateAccount extends React.Component {
 
    state = {
-      name: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      password_confirmation: '',
+      errors: '',
       redirect: null
    }
 
@@ -47,12 +47,6 @@ export default class CreateAccount extends React.Component {
             <Form.Row>
                <Form.Group>
                   <Col>
-                     <Form.Label style={{color: "#364182"}}>Name</Form.Label>
-                     <Form.Control id="enter-name" type="text" name="name" placeholder="Enter Username" value={this.state.name} onChange={this.handleChange} />
-                  {/* </Col>
-               </Form.Group>
-               <Form.Group>
-                  <Col> */}
                      <Form.Label style={{color: "#364182"}}>Email</Form.Label>
                      <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
                   {/* </Col>
@@ -66,7 +60,7 @@ export default class CreateAccount extends React.Component {
                <Form.Group>
                   <Col> */}
                      <Form.Label style={{color: "#364182"}}>Confirm Password</Form.Label>
-                     <Form.Control id="confirm-password" type="password" name="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleChange} />
+                     <Form.Control id="password_confirmation" type="password" name="pasword_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange} />
                   </Col>
                </Form.Group>
                </Form.Row>
