@@ -12,56 +12,121 @@ import CreateAccount from '../pages/CreateAccount'
 import Flights from '../pages/Flights';
 import Hotels from '../pages/Hotels';
 import CarRental from '../pages/CarRental';
-
+import axios from 'axios'
 import brand from '../assets/images/TravelSaverBrand5.png'
 
-export default function TravelSaverNavbar() {
+export default class TravelSaverNavbar extends React.Component {
+   constructor(props) {
+      super(props)
+  
+      this.state = {
+         isLoggedIn: false,
+         user: {}
+      }
+   } 
+      //keep track of logged in status and request this information every time it’s mounted
+   componentDidMount() {
+      this.loginStatus()
+   }
+  
+    //taking in login data recieved from server and setting state
+   handleLogin = (data) => {
+   console.log(data)
+      this.setState({
+         isLoggedIn: true,
+         user: data.user
+      })
+   }
+
+    //on logout clears user state obj and toggles isLoggedIn obj
+   handleLogout = () => {
+      this.setState({
+      isLoggedIn: false,
+      user: {}
+      })
+   }
+
+   loginStatus = () => {
+      //ajax call to sessions custom route
+      axios.get('http://localhost:3001/logged_in',
+      // This allows our Rails server to set and read the cookie on the front-end’s browser.
+      {withCredentials: true})
+      .then(response => {
+         if (response.data.logged_in) {
+            this.handleLogin(response)
+         } else {
+            this.handleLogout()
+         }
+      })
+      .catch(error => console.log('api errors:', error))
+      }
    
-   return (
-      <Router>
-         <Container className="p-0" fluid={true} >
-            <Navbar className="navbar" expand="lg">
-               <Navbar.Brand>
-                  <img src={brand} style={{height: "50px", width: "340px"}} alt=""/>
-               </Navbar.Brand>
-                  <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
-                     <Navbar.Collapse id="navbar-toggle">
-                        <Nav className="ml-auto">
-                           <NavDropdown className="account" title={
-                              <span className="my-auto" style={{color: "white"}}>Account</span>
-                                    } id="basic-dropdown">
-                                 <NavDropdown.Item as={Link} to='/login'>
+   handleClick = () => {
+      axios.delete('http://localhost:3001/logout', {withCredentials: true})
+      .then(response => {
+         this.handleLogout()
+         this.history.push('/')
+      })
+      .catch(error => console.log(error))
+   }
+
+   render() {
+      return (
+         <Router>
+            <Container className="p-0" fluid={true} >
+               <Navbar className="navbar" expand="lg">
+                  <Navbar.Brand>
+                     <img src={brand} style={{height: "50px", width: "340px"}} alt=""/>
+                  </Navbar.Brand>
+                     <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
+                        <Navbar.Collapse id="navbar-toggle">
+                           <Nav className="ml-auto">
+                              <NavDropdown className="account" title={
+                                 <span className="my-auto" style={{color: "white"}}>Account</span>
+                                       } id="basic-dropdown">
+                                    { 
+                                    this.state.isLoggedIn ? 
+                                    <NavDropdown.Item as={Link} to='/' onClick={this.handleClick}>
+                                       Log Out
+                                    </NavDropdown.Item> :
+                                    <>
+                                    <NavDropdown.Item as={Link} to='/login'>
                                        Log In
-                                 </NavDropdown.Item>
-                                 <NavDropdown.Item as={Link} to='/signup'>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/signup'>
                                        Create Account
-                                 </NavDropdown.Item>
-                           </NavDropdown>
-                           <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>
+                                    </NavDropdown.Item>
+                                    </>
+                                    }
+                              </NavDropdown>
+                              <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>
 
-                        </Nav>
-                     </Navbar.Collapse>
-            </Navbar>
+                           </Nav>
+                        </Navbar.Collapse>
+               </Navbar>
 
-               <Route path="/" exact component={HomePage} />
-               {/* <Route path="/login" component={Login} /> */}
-               <Route exact path='/login' 
-               render={props => (<Login {...props} 
-               handleLogin={props.handleLogin} 
-               loggedInStatus={props.loggedInStatus}/>)}
-               />
-               {/* <Route path="/signup" component={CreateAccount} /> */}
-               <Route 
-               exact path='/signup' 
-               render={props => (
-               <CreateAccount {...props} handleLogin={props.handleLogin} loggedInStatus={props.loggedInStatus}/>)}
-               />
-               <Route path="/flights" component={Flights} />
-               <Route path="/hotels" component={Hotels}/>
-               <Route path="/carrental" component={CarRental} />
+                  <Route path="/" exact component={HomePage} />
+                  {/* <Route path="/login" component={Login} /> */}
+                  <Route exact path='/login' 
+                     render={props => (<Login {...props} 
+                     handleLogin={this.handleLogin} 
+                     loggedInStatus={this.state.isLoggedIn}/>)}
+                  />
+                  {/* <Route path="/signup" component={CreateAccount} /> */}
+                  <Route 
+                     exact path='/signup' 
+                     render={props => (
+                     <CreateAccount {...props} 
+                        handleLogin={this.handleLogin} 
+                        loggedInStatus={this.state.isLoggedIn}/>)}
+                  />
+                  <Route path="/flights" component={Flights} />
+                  <Route path="/hotels" component={Hotels}/>
+                  <Route path="/carrental" component={CarRental} />
 
-               <Footer />
-         </Container>
-      </Router>
-   )
+                  <Footer />
+            </Container>
+         </Router>
+      )
+   }
 }

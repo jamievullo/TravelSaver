@@ -34,7 +34,10 @@ export default class Login extends React.Component {
       .then(response => {
       if (response.data.logged_in) {
          this.props.handleLogin(response.data)
-         this.redirect()
+         this.setState({
+            redirect: '/'
+         })
+         // this.redirect()
       } else {
          this.setState({
             errors: response.data.errors
@@ -44,20 +47,15 @@ export default class Login extends React.Component {
       .catch(error => console.log('api errors:', error))
    };
    redirect = () => {
-      this.props.history.push('/')
-      // this.setState({
-      //    redirect: "/"
-      //    })
+      // this.props.history.push('/')
+      this.setState({
+         redirect: "/"
+         })
    }
    
    render() {
       if(this.state.redirect) {
-         return <Redirect to={{
-            pathname: this.state.redirect,
-            state: {
-               LoginInfo: this.state
-            }
-         }}/>
+         return <Redirect to='/' />
       }
       return (
          <div>
@@ -73,14 +71,14 @@ export default class Login extends React.Component {
                      </Col>
                   </Form.Group>
                </Form.Row>
-                  <Link className="nav-link" 
+                  {/* <Link className="nav-link" 
                      to='/'
                      exact="true"
-                  >
+                  > */}
                   <Button className="d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
                      True Adventurer
                   </Button>
-                  </Link>                  
+                  {/* </Link>                   */}
             </Form>
          </Col> 
          </div>
