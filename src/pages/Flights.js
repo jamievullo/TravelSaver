@@ -8,7 +8,8 @@ const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 export default class Flights extends React.Component {
     constructor(props) {
         super(props)
-        // pulling props and setting state from flight form for fetch in flightInfo redirect object
+        // pulling props and setting state from flight form for fetch 
+        //from flightInfo state redirect object in form render
         const { departing, returning, flyingFrom, flyingTo, adults, children } = this.props.location.state.flightInfo
         this.state = {
             departing,
@@ -20,7 +21,7 @@ export default class Flights extends React.Component {
             isLoading: true,
             flights: []
         }
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     //needed function to change date format to insert into template literal
@@ -46,8 +47,9 @@ export default class Flights extends React.Component {
         const destination = this.state.flyingTo
         // console.log(outbound, inbound, origin, destination);
 
-        fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
-    //   fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-010-014", {
+        // fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
+            fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}/${inbound}`, {
+        //fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-010-014", {
         
         "method": "GET",
         "headers": {
@@ -57,20 +59,21 @@ export default class Flights extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             // data.map()
-            console.log(data.Quotes[0].MinPrice, 
-                        data.Quotes[0].Direct, 
-                        data.Quotes[0].OutboundLeg.CarrierIds[0], 
-                        data.Quotes[0].QuoteId,
-                        data.Places[0].SkyscannerCode,
-                        data.Places[0].CityName,
-                        data.Places[0].Name,
-                        data.Places[1].SkyscannerCode,
-                        data.Places[1].CityName,
-                        data.Places[1].Name,
-                        data.Places[0].CityName,
-                        data
-                        )
+            // console.log(data.Quotes[0].MinPrice, 
+            //             data.Quotes[0].Direct, 
+            //             data.Quotes[0].OutboundLeg.CarrierIds[0], 
+            //             data.Quotes[0].QuoteId,
+            //             data.Places[0].SkyscannerCode,
+            //             data.Places[0].CityName,
+            //             data.Places[0].Name,
+            //             data.Places[1].SkyscannerCode,
+            //             data.Places[1].CityName,
+            //             data.Places[1].Name,
+            //             data.Places[0].CityName,
+            //             data
+                        // )
         })
         .catch(err => {    
             console.log(err);
@@ -78,7 +81,7 @@ export default class Flights extends React.Component {
     }
 
     render() {
-        console.log(this.props)        
+        // console.log(this.props)        
         return (
             <div style={{margin: "0 auto", width:"85%"}}>                
                     <Row className="justify-content-center" >

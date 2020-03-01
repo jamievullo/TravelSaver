@@ -24,6 +24,8 @@ https://zellwk.com/blog/looping-through-js-objects/
 https://stackoverflow.com/questions/40981040/using-a-fetch-inside-another-fetch-in-javascript
 https://www.codeply.com/go/l1KAQtjjbA
 https://stackoverflow.com/questions/30528348/setstate-inside-of-componentdidupdate
+https://www.robinwieruch.de/react-pass-props-to-component
+https://medium.com/how-i-get-it/react-with-rails-user-authentication-8977e98762f2
 
 
 Future adjustments 
