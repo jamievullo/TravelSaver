@@ -6,7 +6,12 @@ const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 export default class Hotels extends React.Component {
     constructor(props) {
         super(props)
-        const { goingTo, checkIn, checkOut, roomsNeeded, adults, children } = this.props.location.state.hotelInfo
+        const { goingTo, 
+                checkIn, 
+                checkOut, 
+                roomsNeeded, 
+                adults, 
+                children } = this.props.location.state.hotelInfo
         this.state = {
             goingTo,
             checkIn,
@@ -63,7 +68,7 @@ export default class Hotels extends React.Component {
         })
     }    
     //second fetch
-    componentDidUpdate = (prevProps, prevState) => {
+    componentDidUpdate = () => {
         //checks for state of isLoading and if false then run fetch. Prevents infinite loop
         //of fetching.
         if(this.state.isLoading === false) {

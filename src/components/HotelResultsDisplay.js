@@ -12,7 +12,7 @@ export default function HotelResultsDisplay(props) {
     }
 
     return (
-        <div>
+        <div style={{marginBottom: "2.5em"}}>
             <div className="justify-content-center" >
                 <Card>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
