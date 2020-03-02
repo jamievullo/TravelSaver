@@ -1,6 +1,7 @@
 import React from 'react'
-// import PaperAirplane from '../components/PaperAirplane'
+// import Loading from '../components/Loading'
 import HotelResultsDisplay from '../components/HotelResultsDisplay'
+import PaperAirplane from '../components/PaperAirplane'
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 export default class Hotels extends React.Component {
@@ -106,11 +107,19 @@ export default class Hotels extends React.Component {
 
     render() {
         return (
+            <div>
+            {this.state.isLoading ? (
+                <div> 
+                    <PaperAirplane />
+                </div>        
+                ) : (                                 
             <div style={{margin: "0 auto", width:"85%"}}>
                 {/* {this.state.isLoading && <p>Loading..</p>} */}
                 {/* maps over hotels state object and index and passes them as props HRD component */}
                 {this.state.hotels.map((hotel, i) => <HotelResultsDisplay key={i} hotel={hotel} />)}
             </div>
+                )} 
+            </div>     
             )
         }
 }
