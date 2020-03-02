@@ -46,11 +46,12 @@ class Login extends React.Component {
       } else {
          this.setState({
             errors: response.data.errors
-         })
-      }
+            })
+         }
       })
       .catch(error => console.log('api errors:', error))
    };
+
    // redirect = () => {
    //    // this.props.history.push('/')
    //    this.setState({
@@ -62,9 +63,8 @@ class Login extends React.Component {
       if(this.state.redirect) {
          return <Redirect to='/' />
       } else if (this.props.loggedInStatus === true) {
-         this.setState({
-            redirect: '/'
-         })
+         return <Redirect to='/' />
+         // this.redirect()
       }
       return (
          <div>

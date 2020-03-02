@@ -21,6 +21,11 @@ const tsReducer = (state = {
                 ...state,
                 user: Object.assign(user)
             }
+
+        case 'LOGOUT_USER':
+            return {
+                user: {}
+            }
             //default return in case action type isnt found in switch
         default: 
             return state

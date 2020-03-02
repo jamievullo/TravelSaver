@@ -62,6 +62,7 @@ class TravelSaverNavbar extends React.Component {
 
     //on logout clears user state obj and toggles isLoggedIn obj
    handleLogout = () => {
+      this.props.dispatch({ type: 'LOGOUT_USER', payload: ''})
       this.setState({
       isLoggedIn: false,
       user: {}
