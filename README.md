@@ -14,7 +14,7 @@ A web application made using the Rails framework as an API for backend and the R
 This is a single page application that allows Users to signup and search for real-time prices of flights, hotels, and rental cars for a specific date or date range. Utilizes 4 different APIs including TripAdvisor, Skyscanner, Avis, and Triposo.  
 
 ### Technologies
-This application utilizes the Ruby Programming language, the React Library, and JavaScript while using several gems (listed)
+This application utilizes the Ruby Programming language, the React Library, and JavaScript while using several gems and dependencies(listed)
 ruby '2.6.1'
 * gem 'rails', '~> 6.0.0'
 * gem 'sqlite3', '~> 1.4'
@@ -37,6 +37,23 @@ ruby '2.6.1'
 * gem 'webdrivers'
 * gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 * gem 'bootstrap'
+
+* "axios": "^0.19.2",
+* "bootstrap": "^4.4.1",
+* "dotenv": "^8.2.0",
+* "gsap": "^3.2.0",
+* "react": "^16.12.0",
+* "react-autocomplete": "^1.8.1",
+* "react-bootstrap": "^1.0.0-beta.16",
+* "react-dates": "^21.8.0",
+* "react-dom": "^16.12.0",
+* "react-loading": "^2.0.3",
+* "react-places-autocomplete": "^7.2.1",
+* "react-redux": "^7.2.0",
+* "react-router-dom": "^5.1.2",
+* "react-scripts": "3.4.0",
+* "react-spring": "^8.0.27",
+* "redux": "^4.0.5"
 
 ### Setup
 * To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into your terminal.
