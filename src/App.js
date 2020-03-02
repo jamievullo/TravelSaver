@@ -1,16 +1,19 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './App.css';
 import TravelSaverNavbar from './components/TravelSaverNavbar';
-// require('dotenv').config();
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 export default function App() {
 
+  const store = createStore()
+
   return (
-    <div>
-      {/* passing props to TS navbar */}
-      <TravelSaverNavbar/>
-    </div>
+    <Provider store={store}>
+      <div>
+        <TravelSaverNavbar/>
+      </div>
+    </Provider>
   );
 }
 
