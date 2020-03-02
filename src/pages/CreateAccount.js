@@ -4,8 +4,9 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
-export default class CreateAccount extends React.Component {
+class CreateAccount extends React.Component {
 
    state = {
       email: '',
@@ -36,6 +37,8 @@ export default class CreateAccount extends React.Component {
       .then(response => {
          if (response.data.status === 'created') {
          this.props.handleLogin(response.data)
+         const userData = response.data.user
+         this.props.dispatch({ type: 'ADD_NEW_USER', payload: userData })
          this.redirect()
          } else {
          this.setState({
@@ -102,3 +105,4 @@ export default class CreateAccount extends React.Component {
 }
 
 
+export default connect()(CreateAccount)
