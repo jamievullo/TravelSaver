@@ -1,4 +1,4 @@
-05-13-19 PT Jamie Vullo JavaScript w/Rails as an API Project
+05-13-19 PT Jamie Vullo React with Redux and Rails as an API Project
 
 # TravelSaver
 A web application made using the Rails framework as an API for backend and the React JavaScript libraray for frontend. 
