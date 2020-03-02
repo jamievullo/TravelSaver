@@ -54,6 +54,8 @@
 
 -https://medium.com/how-i-get-it/react-with-rails-user-authentication-8977e98762f2
 
+https://medium.com/swlh/add-loading-animation-to-your-react-app-db3999a5c88d
+
 
 Future adjustments 
 -Geocoding country, city, lat-lng automatically from location.

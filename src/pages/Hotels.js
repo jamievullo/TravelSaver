@@ -110,7 +110,7 @@ export default class Hotels extends React.Component {
             <div>
             {this.state.isLoading ? (
                 <div> 
-                    <PaperAirplane />
+                    <PaperAirplane anim={"hotels"}/>
                 </div>        
                 ) : (                                 
             <div style={{margin: "0 auto", width:"85%"}}>
