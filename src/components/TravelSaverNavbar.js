@@ -14,11 +14,12 @@ import Hotels from '../pages/Hotels';
 import CarRental from '../pages/CarRental';
 import axios from 'axios'
 import brand from '../assets/images/TravelSaverBrand5.png'
+import { connect } from 'react-redux'
 
-export default class TravelSaverNavbar extends React.Component {
+class TravelSaverNavbar extends React.Component {
    constructor(props) {
       super(props)
-  
+
       this.state = {
          isLoggedIn: false,
          user: {}
@@ -28,13 +29,34 @@ export default class TravelSaverNavbar extends React.Component {
    componentDidMount() {
       this.loginStatus()
    }
-  
+
     //taking in login data recieved from server and setting state
    handleLogin = (data) => {
-   console.log(data)
+   // debugger
+      console.log(data)
+      if (data.user) {
+         const user = data.user
+         this.dataOrigin(user)
+      } else if (data.data.user) {
+         const user = data.data.user
+         this.dataOrigin(user)
+      }
+      // this.props.dispatch({ type: 'LOGIN_USER', payload: data.user })
+      // this.setState({
+      //    isLoggedIn: true,
+      //    user: this.props.user
+      // })
+   }
+
+   //helper function to overcome not setting state 2x in same function and to
+   //also pass into conditional to check if the origin of the data is from the 
+   //server(to check for login from session) or from user input.
+   
+   dataOrigin = (user) => {
+      this.props.dispatch({ type: 'LOGIN_USER', payload: user})
       this.setState({
          isLoggedIn: true,
-         user: data.user
+         user: this.props.user
       })
    }
 
@@ -61,7 +83,7 @@ export default class TravelSaverNavbar extends React.Component {
       .catch(error => console.log('api errors:', error))
       }
    
-   handleClick = () => {
+   handleLogoutClick = () => {
       axios.delete('http://localhost:3001/logout', {withCredentials: true})
       .then(response => {
          this.handleLogout()
@@ -86,7 +108,7 @@ export default class TravelSaverNavbar extends React.Component {
                                        } id="basic-dropdown">
                                     { 
                                     this.state.isLoggedIn ? 
-                                    <NavDropdown.Item as={Link} to='/' onClick={this.handleClick}>
+                                    <NavDropdown.Item as={Link} to='/' onClick={this.handleLogoutClick}>
                                        Log Out
                                     </NavDropdown.Item> :
                                     <>
@@ -130,3 +152,9 @@ export default class TravelSaverNavbar extends React.Component {
       )
    }
 }
+
+const mapStateToProps = state => ({
+   user: state.user
+})
+
+export default connect(mapStateToProps)(TravelSaverNavbar)

@@ -37,7 +37,9 @@ class CreateAccount extends React.Component {
       .then(response => {
          if (response.data.status === 'created') {
          this.props.handleLogin(response.data)
+         //sets response.data.user to userDate variable
          const userData = response.data.user
+         //calls dispatch method 'add new user' and passes user data payload
          this.props.dispatch({ type: 'ADD_NEW_USER', payload: userData })
          this.redirect()
          } else {

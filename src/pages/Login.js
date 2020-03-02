@@ -4,8 +4,9 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
 
    state = {
       email: '',
@@ -34,6 +35,10 @@ export default class Login extends React.Component {
       .then(response => {
       if (response.data.logged_in) {
          this.props.handleLogin(response.data)
+         this.props.dispatch({
+            type: 'LOGIN_USER',
+            payload: response.data.user
+         })
          this.setState({
             redirect: '/'
          })
@@ -46,16 +51,20 @@ export default class Login extends React.Component {
       })
       .catch(error => console.log('api errors:', error))
    };
-   redirect = () => {
-      // this.props.history.push('/')
-      this.setState({
-         redirect: "/"
-         })
-   }
+   // redirect = () => {
+   //    // this.props.history.push('/')
+   //    this.setState({
+   //       redirect: "/"
+   //       })
+   // }
    
    render() {
       if(this.state.redirect) {
          return <Redirect to='/' />
+      } else if (this.props.loggedInStatus === true) {
+         this.setState({
+            redirect: '/'
+         })
       }
       return (
          <div>
@@ -86,3 +95,4 @@ export default class Login extends React.Component {
    }
 }
 
+export default connect()(Login)
