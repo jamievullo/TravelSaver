@@ -5,10 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import PaperAirplane from './PaperAirplane';
-require('dotenv').config();
-// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
-// console.log(api_key)
+require('dotenv').config();
 
 export default class FlightForm extends React.Component {
    // sets initial state
@@ -23,7 +21,8 @@ export default class FlightForm extends React.Component {
       flights: []
    }
    // sets state of all inputted values based on name attribute
-   handleChange = (event) => {      
+   handleChange = (event) => {
+      console.log(event.target)      
       this.setState({
          [event.target.name]: event.target.value
       })

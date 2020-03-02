@@ -30,12 +30,6 @@ const tsReducer = (state = {
         default: 
             return state
     }
-
-
-
 }
 
-
-
 export default tsReducer
-
