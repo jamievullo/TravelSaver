@@ -109,6 +109,7 @@ ruby '2.6.1'
 * https://medium.com/how-i-get-it/react-with-rails-user-authentication-8977e98762f2
 * https://medium.com/swlh/add-loading-animation-to-your-react-app-db3999a5c88d
 * https://blog.logrocket.com/axios-or-fetch-api/
+* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_zoom_hover
 
 ### License
 * MIT License

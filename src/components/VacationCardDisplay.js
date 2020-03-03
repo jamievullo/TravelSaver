@@ -5,12 +5,12 @@ import DestinationCard from '../components/DestinationCard'
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
-import plans from '../assets/images/Plans.png'
-import weekend from '../assets/images/Weekend.png'
-import paris from '../assets/images/Paris.png'
-import mountains from '../assets/images/MountainsTravel.png'
-import tropical from '../assets/images/Tropical2.png'
-import adventure from'../assets/images/Adventure.png'
+// import plans from '../assets/images/Plans.png'
+// import weekend from '../assets/images/Weekend.png'
+// import paris from '../assets/images/Paris.png'
+// import mountains from '../assets/images/MountainsTravel.png'
+// import tropical from '../assets/images/Tropical2.png'
+// import adventure from'../assets/images/Adventure.png'
 
 export default class VacationCardDisplay extends React.Component {
     constructor() {
@@ -21,48 +21,42 @@ export default class VacationCardDisplay extends React.Component {
                 {
                     id: 0,
                     title: 'Popular Destinations',
-                    subTitle: '',
-                    imgSrc: paris,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241333/Paris_ms9qjv.png',
                     link: '',
                     selected: false
                 },
                 {
                     id: 1,
                     title: 'Vacation Packages',
-                    subTitle: '',
-                    imgSrc: plans,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241429/Plans_ravrft.png',
                     link: '',
                     selected: false
                 },
                 {
                     id: 2,
                     title: 'Weekend Getaways',
-                    subTitle: '',
-                    imgSrc: weekend,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241270/Weekend_gwbpr0.png',
                     link: '',
                     selected: false
                 },
                 {
                     id: 3,
                     title: 'Explore',
-                    subTitle: '',
-                    imgSrc: mountains,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241530/MountainsTravel_bgymt9.png',
                     link: '',
                     selected: false
                 },
                 {
                     id: 4,
                     title: 'Tropical',
-                    subTitle: '',
-                    imgSrc: tropical,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241459/Tropical2_wxbkeu.png',
                     link: '',
                     selected: false
                 },
                 {
                     id: 5,
                     title: 'Adventure',
-                    subTitle: '',
-                    imgSrc: adventure,
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241393/Adventure_aptvwt.png',
                     link: '',
                     selected: false
                 },
@@ -70,21 +64,21 @@ export default class VacationCardDisplay extends React.Component {
         }
     }
 
-    // handleCardClick = (id, card) => {
-    //     let items = [...this.state.items];
+    handleCardClick = (id, card) => {
+        let items = [...this.state.items];
 
-    //     items[id].selected = items[id].selected ? false : true;
+        items[id].selected = items[id].selected ? false : true;
 
-    //     items.forEach(item => {
-    //         if(item.id !== id) {
-    //             item.selected = false;
-    //         }
-    //     })
+        items.forEach(item => {
+            if(item.id !== id) {
+                item.selected = false;
+            }
+        })
 
-    //     this.setState({
-    //         items
-    //     })
-    // }
+        this.setState({
+            items
+        })
+    }
 
     //iterates over items array and sets props for each card
     makeItems = (items) => {
@@ -96,7 +90,7 @@ export default class VacationCardDisplay extends React.Component {
     render() {
         return (
             <div>
-                <Container fluid={true} style={{paddingBottom: "4em"}}>
+                <Container fluid={true} style={{paddingBottom: "4em"}} onClick={this.handleCardClick}>
                     <Row className="justify-content-center"> 
                         {/* on render "makes" cards for each vacation card item */}
                         {this.makeItems(this.state.items)}

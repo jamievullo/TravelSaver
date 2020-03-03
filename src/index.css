@@ -103,3 +103,18 @@ h3 {
   top: 0%;
   left: -25%;
 }
+
+#zoomer {
+  overflow: hidden;
+}
+
+#zoomer img {
+  transition: transform .4s;
+}
+
+#zoomer:hover img  {
+  -ms-transform: scale(1.13); /* IE 9 */
+  -webkit-transform: scale(1.13); /* Safari 3-8 */
+  transform: scale(1.13); 
+  
+}
