@@ -15,6 +15,9 @@ import CarRental from '../pages/CarRental';
 import axios from 'axios'
 import brand from '../assets/images/TravelSaverBrand5.png'
 import { connect } from 'react-redux'
+import PopularDestinationsDisplay from './PopularDestinationsDisplay';
+import ExploreDisplay from './ExploreDisplay';
+import WeekendGetawaysDisplay from './WeekendGetawayDisplay'
 
 class TravelSaverNavbar extends React.Component {
    constructor(props) {
@@ -146,7 +149,12 @@ class TravelSaverNavbar extends React.Component {
                   <Route path="/flights" component={Flights} />
                   <Route path="/hotels" component={Hotels}/>
                   <Route path="/carrental" component={CarRental} />
-
+                  <Route path="/popular_destinations" component={PopularDestinationsDisplay} />
+                  <Route path="/weekend_getaways" component={WeekendGetawaysDisplay} />
+                  <Route path="/vacation_packages" component={PopularDestinationsDisplay} />
+                  <Route path="/explore" component={ExploreDisplay} />
+                  <Route path="/tropical" component={PopularDestinationsDisplay} />
+                  <Route path="/adventure" component={PopularDestinationsDisplay} />
                   <Footer />
             </Container>
          </Router>

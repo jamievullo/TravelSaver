@@ -1,20 +1,18 @@
 import React from 'react'
 
-class PopularDestinationsDisplay extends React.Component {
+class WeekendGetawayDisplay extends React.Component {
 
     state = {
-        destinations: []
+        destination: []
     }
 
     componentDidMount() {
-        fetch("http://localhost:3001/popular_destinations")
+        fetch('http://localhost:3001/weekend_getaways')
         .then(response => response.json())
         .then(data => this.setState({
-            destinations: data.results
+            destination: data.results
         }))
     }
-
-
 
     render() {
         return (
@@ -25,4 +23,4 @@ class PopularDestinationsDisplay extends React.Component {
     }
 }
 
-export default PopularDestinationsDisplay
+export default WeekendGetawayDisplay

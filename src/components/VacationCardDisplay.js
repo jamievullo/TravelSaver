@@ -22,7 +22,7 @@ export default class VacationCardDisplay extends React.Component {
                     id: 0,
                     title: 'Popular Destinations',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241333/Paris_ms9qjv.png',
-                    link: '',
+                    link: '/popular_destinations',
                     selected: false
                 },
                 {
@@ -36,14 +36,14 @@ export default class VacationCardDisplay extends React.Component {
                     id: 2,
                     title: 'Weekend Getaways',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241270/Weekend_gwbpr0.png',
-                    link: '',
+                    link: '/weekend_getaways',
                     selected: false
                 },
                 {
                     id: 3,
                     title: 'Explore',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241530/MountainsTravel_bgymt9.png',
-                    link: '',
+                    link: '/explore',
                     selected: false
                 },
                 {
