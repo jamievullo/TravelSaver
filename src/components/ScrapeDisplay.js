@@ -5,10 +5,10 @@ import Col from 'react-bootstrap/Col'
 
 export default function ScrapeDisplay(props) {
     return (
-        <div style={{marginBottom: "2.5em"}}>
+        <div style={{marginBottom: "3em"}}>
             <div className="justify-content-center" >
                 <Card>
-                    <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
+                    <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1.3em"}}>
                         <Col className="auto" md={3}>
                             <img src={props.destination.image} className="img-fluid" alt=""/>
                         </Col>

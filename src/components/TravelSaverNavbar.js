@@ -157,6 +157,7 @@ class TravelSaverNavbar extends React.Component {
                   <Route path="/explore" component={ExploreDisplay} />
                   <Route path="/tropical" component={PopularDestinationsDisplay} />
                   <Route path="/adventure" component={AdventureDisplay} />
+                  <div style={{height: "50px"}}></div>
                   <Footer />
             </Container>
          </Router>
