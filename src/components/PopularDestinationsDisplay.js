@@ -21,6 +21,7 @@ class PopularDestinationsDisplay extends React.Component {
     render() {
         return (
             <div>
+                <center><h3>Popular Destinations</h3></center>
                 {this.state.isLoading ? (
                     <div> 
                         <PaperAirplane anim={"hotels"}/>

@@ -10,7 +10,7 @@ export default function ScrapeDisplay(props) {
                 <Card>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
                         <Col className="auto" md={3}>
-                            <img src={props.destination.photo.images.medium.url} className="img-fluid" alt=""/>
+                            <img src={props.destination.image} className="img-fluid" alt=""/>
                         </Col>
                         <Col>                       
                             <Card.Title>
