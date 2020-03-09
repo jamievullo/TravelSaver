@@ -19,6 +19,7 @@ import PopularDestinationsDisplay from './PopularDestinationsDisplay';
 import ExploreDisplay from './ExploreDisplay';
 import WeekendGetawaysDisplay from './WeekendGetawayDisplay'
 import AdventureDisplay from './AdventureDisplay'
+import FamilyVacationsDisplay from './FamilyVacationsDisplay'
 
 class TravelSaverNavbar extends React.Component {
    constructor(props) {
@@ -152,7 +153,7 @@ class TravelSaverNavbar extends React.Component {
                   <Route path="/carrental" component={CarRental} />
                   <Route path="/popular_destinations" component={PopularDestinationsDisplay} />
                   <Route path="/weekend_getaways" component={WeekendGetawaysDisplay} />
-                  <Route path="/vacation_packages" component={PopularDestinationsDisplay} />
+                  <Route path="/family_vacations" component={FamilyVacationsDisplay} />
                   <Route path="/explore" component={ExploreDisplay} />
                   <Route path="/tropical" component={PopularDestinationsDisplay} />
                   <Route path="/adventure" component={AdventureDisplay} />

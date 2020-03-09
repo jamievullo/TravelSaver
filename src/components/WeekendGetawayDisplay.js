@@ -3,14 +3,14 @@ import React from 'react'
 class WeekendGetawayDisplay extends React.Component {
 
     state = {
-        destination: []
+        destinations: []
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         fetch('http://localhost:3001/weekend_getaways')
         .then(response => response.json())
         .then(data => this.setState({
-            destination: data.results
+            destinations: data.results
         }))
     }
 

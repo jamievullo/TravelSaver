@@ -27,9 +27,9 @@ export default class VacationCardDisplay extends React.Component {
                 },
                 {
                     id: 1,
-                    title: 'Vacation Packages',
+                    title: 'Family Vacations',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241429/Plans_ravrft.png',
-                    link: '',
+                    link: '/family_vacations',
                     selected: false
                 },
                 {
@@ -64,21 +64,21 @@ export default class VacationCardDisplay extends React.Component {
         }
     }
 
-    handleCardClick = (id, card) => {
-        let items = [...this.state.items];
+    // handleCardClick = (id, card) => {
+    //     let items = [...this.state.items];
 
-        items[id].selected = items[id].selected ? false : true;
+    //     items[id].selected = items[id].selected ? false : true;
 
-        items.forEach(item => {
-            if(item.id !== id) {
-                item.selected = false;
-            }
-        })
+    //     items.forEach(item => {
+    //         if(item.id !== id) {
+    //             item.selected = false;
+    //         }
+    //     })
 
-        this.setState({
-            items
-        })
-    }
+    //     this.setState({
+    //         items
+    //     })
+    // }
 
     //iterates over items array and sets props for each card
     makeItems = (items) => {

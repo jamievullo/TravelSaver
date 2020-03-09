@@ -1,4 +1,6 @@
 import React from 'react'
+import ScrapeDisplay from './ScrapeDisplay'
+import PaperAirplane from './PaperAirplane'
 
 class PopularDestinationsDisplay extends React.Component {
 
@@ -6,7 +8,7 @@ class PopularDestinationsDisplay extends React.Component {
         destinations: []
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         fetch("http://localhost:3001/popular_destinations")
         .then(response => response.json())
         .then(data => this.setState({
@@ -14,12 +16,20 @@ class PopularDestinationsDisplay extends React.Component {
         }))
     }
 
-
-
     render() {
         return (
             <div>
-                
+                {this.state.isLoading ? (
+                    <div> 
+                        <PaperAirplane anim={"hotels"}/>
+                    </div>        
+                    ) : (                                 
+                    <div style={{margin: "0 auto", width:"85%"}}>
+                        {/* {this.state.isLoading && <p>Loading..</p>} */}
+                        {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
+                        {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
+                    </div>
+                )}                 
             </div>
         )
     }

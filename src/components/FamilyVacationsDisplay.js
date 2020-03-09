@@ -1,16 +1,18 @@
 import React from 'react'
 
-class ExploreDisplay extends React.Component {
+class FamilyVacationsDisplay extends React.Component {
 
     state = {
         destinations: []
     }
+
     componentDidMount = () => {
-        fetch('http://localhost:3001/explore')
+        fetch('http://localhost:3001/family_vacations')
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results
-        }))
+            })
+        )  
     }
 
     render() {
@@ -22,4 +24,4 @@ class ExploreDisplay extends React.Component {
     }
 }
 
-export default ExploreDisplay
+export default FamilyVacationsDisplay
