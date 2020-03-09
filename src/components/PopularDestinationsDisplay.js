@@ -5,14 +5,16 @@ import PaperAirplane from './PaperAirplane'
 class PopularDestinationsDisplay extends React.Component {
 
     state = {
-        destinations: []
+        destinations: [],
+        isLoading: true
     }
 
     componentDidMount = () => {
         fetch("http://localhost:3001/popular_destinations")
         .then(response => response.json())
         .then(data => this.setState({
-            destinations: data.results
+            destinations: data.results,
+            isLoading: false
         }))
     }
 

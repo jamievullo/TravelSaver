@@ -10,13 +10,13 @@ export default function ScrapeDisplay(props) {
                 <Card>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
                         <Col className="auto" md={3}>
-                            <img src={props.destinations.photo.images.medium.url} className="img-fluid" alt=""/>
+                            <img src={props.destination.photo.images.medium.url} className="img-fluid" alt=""/>
                         </Col>
                         <Col>                       
                             <Card.Title>
-                                {props.destinations.title}
+                                {props.destination.title}
                             </Card.Title>
-                            <Card.Text>{props.destinations.description}</Card.Text>
+                            <Card.Text>{props.destination.description}</Card.Text>
                             {/* <Card.Text>Rating: {props.hotel.rating}</Card.Text>                                                   */}
                         </Col>
                     </Row>    
