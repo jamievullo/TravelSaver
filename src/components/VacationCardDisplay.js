@@ -57,7 +57,7 @@ export default class VacationCardDisplay extends React.Component {
                     id: 5,
                     title: 'Adventure',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241393/Adventure_aptvwt.png',
-                    link: '',
+                    link: '/adventure',
                     selected: false
                 },
             ]

@@ -18,6 +18,7 @@ import { connect } from 'react-redux'
 import PopularDestinationsDisplay from './PopularDestinationsDisplay';
 import ExploreDisplay from './ExploreDisplay';
 import WeekendGetawaysDisplay from './WeekendGetawayDisplay'
+import AdventureDisplay from './AdventureDisplay'
 
 class TravelSaverNavbar extends React.Component {
    constructor(props) {
@@ -154,7 +155,7 @@ class TravelSaverNavbar extends React.Component {
                   <Route path="/vacation_packages" component={PopularDestinationsDisplay} />
                   <Route path="/explore" component={ExploreDisplay} />
                   <Route path="/tropical" component={PopularDestinationsDisplay} />
-                  <Route path="/adventure" component={PopularDestinationsDisplay} />
+                  <Route path="/adventure" component={AdventureDisplay} />
                   <Footer />
             </Container>
          </Router>
