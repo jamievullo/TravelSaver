@@ -87,7 +87,7 @@ class Login extends React.Component {
                   <Button className="d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
                      True Adventurer
                   </Button>
-                  {/* </Link>                   */}
+                  {/* </Link> */}
             </Form>
          </Col> 
          </div>

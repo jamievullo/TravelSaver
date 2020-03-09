@@ -116,6 +116,7 @@ ruby '2.6.1'
 
 ### Future Adjustments 
 * Geocoding country, city, lat-lng automatically from location.
-* Autocomplete for airport input in FlightForm
+* Autocomplete for airport code based on city input in FlightForm
 * Autocomplete city for HotelForm
 * Datepicker for dates on all forms
+* Somehow get deep links for transfer of search data to carrier, hotel, or rental provider.

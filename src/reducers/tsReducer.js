@@ -8,6 +8,7 @@ const tsReducer = (state = {
             //email from user, id from rails
             const {email, id} = action.payload
             const newUser = { email, id }
+            //spread operator is used to copy previous state to avoid mutating arguments
             return {
                 ...state,
                 user: Object.assign(newUser)
@@ -26,7 +27,7 @@ const tsReducer = (state = {
             return {
                 user: {}
             }
-            //default return in case action type isnt found in switch
+            //default return in case action type/match isnt found in switch
         default: 
             return state
     }
