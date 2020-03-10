@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import Alert from 'react-bootstrap/Alert'
 
 class Login extends React.Component {
 
@@ -45,12 +46,24 @@ class Login extends React.Component {
          // this.redirect()
       } else {
          this.setState({
-            errors: response.data.errors
+            errors: response.data.errors,
+            email: "",
+            password: ""
             })
          }
       })
       .catch(error => console.log('api errors:', error))
    };
+
+   errorMessages = () => {
+      if(this.state.errors) {
+         return this.state.errors.map((err, index) => (
+            <Alert style={{color: 'red'}} key={index}>
+               {err}
+            </Alert>
+            )
+         )
+      }}
 
    // redirect = () => {
    //    // this.props.history.push('/')
@@ -68,6 +81,7 @@ class Login extends React.Component {
       }
       return (
          <div>
+            {this.errorMessages()}
          <Col>
             <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
                <Form.Row>
