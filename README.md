@@ -102,7 +102,7 @@ ruby '2.6.1'
 * https://www.npmjs.com/package/react-gsap
 * https://repl.it/@jamievullo/help
 * https://zellwk.com/blog/looping-through-js-objects/
-* https://stackoverflow.com/questions/40981040/using-a-fetch-inside-another-fetch-in-javascript
+* https://stackoverflow.com/questions/40981040/     using-a-fetch-inside-another-fetch-in-javascript
 * https://www.codeply.com/go/l1KAQtjjbA
 * https://stackoverflow.com/questions/30528348/setstate-inside-of-componentdidupdate
 * https://www.robinwieruch.de/react-pass-props-to-component
@@ -110,6 +110,8 @@ ruby '2.6.1'
 * https://medium.com/swlh/add-loading-animation-to-your-react-app-db3999a5c88d
 * https://blog.logrocket.com/axios-or-fetch-api/
 * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_zoom_hover
+* https://repl.it/@jamievullo/Scrapers
+
 
 ### License
 * MIT License

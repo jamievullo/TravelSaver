@@ -1,6 +1,8 @@
 import React from 'react'
+import ScrapeDisplay from './ScrapeDisplay'
+import PaperAirplane from './PaperAirplane'
 
-class WeekendGetawayDisplay extends React.Component {
+class NotYourAverageDisplay extends React.Component {
 
     state = {
         destinations: [],
@@ -8,18 +10,19 @@ class WeekendGetawayDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch('http://localhost:3001/weekend_getaways')
+        fetch('http://localhost:3001/not_your_average')
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results,
             isLoading: false
-        }))
+            })
+        )  
     }
 
     render() {
         return (
             <div>
-                <center><h3>Weekend Getaways</h3></center>
+                <center><h3>Not Your Average Vacation</h3></center>
                     {this.state.isLoading ? (
                         <div> 
                             <PaperAirplane anim={"hotels"}/>
@@ -30,11 +33,10 @@ class WeekendGetawayDisplay extends React.Component {
                             {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
                             {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
                         </div>
-                    )}
-                
+                    )}           
             </div>
         )
     }
 }
 
-export default WeekendGetawayDisplay
+export default NotYourAverageDisplay

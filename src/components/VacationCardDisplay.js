@@ -48,9 +48,9 @@ export default class VacationCardDisplay extends React.Component {
                 },
                 {
                     id: 4,
-                    title: 'Tropical',
+                    title: 'Not Your Average',
                     imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241459/Tropical2_wxbkeu.png',
-                    link: '',
+                    link: '/not_your_average',
                     selected: false
                 },
                 {

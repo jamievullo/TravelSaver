@@ -3,14 +3,16 @@ import React from 'react'
 class AdventureDisplay extends React.Component {
 
     state = {
-        destinations: []
+        destinations: [],
+        isLoading: true
     }
 
     componentDidMount = () => {
         fetch('http://localhost:3001/adventure')
         .then(response => response.json())
         .then(data => this.setState({
-            destinations: data.results
+            destinations: data.results,
+            isLoading: false
         })
         )
     }
@@ -18,6 +20,18 @@ class AdventureDisplay extends React.Component {
     render() {
         return (
             <div>
+                <center><h3>Adventure</h3></center>
+                    {this.state.isLoading ? (
+                        <div> 
+                            <PaperAirplane anim={"hotels"}/>
+                        </div>        
+                        ) : (                                 
+                        <div style={{margin: "0 auto", width:"80%"}}>
+                            {/* {this.state.isLoading && <p>Loading..</p>} */}
+                            {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
+                            {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
+                        </div>
+                    )}
                 
             </div>
         )

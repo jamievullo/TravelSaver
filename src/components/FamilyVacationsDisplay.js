@@ -5,14 +5,16 @@ import PaperAirplane from './PaperAirplane'
 class FamilyVacationsDisplay extends React.Component {
 
     state = {
-        destinations: []
+        destinations: [],
+        isLoading: true
     }
 
     componentDidMount = () => {
         fetch('http://localhost:3001/family_vacations')
         .then(response => response.json())
         .then(data => this.setState({
-            destinations: data.results
+            destinations: data.results,
+            isLoading: false
             })
         )  
     }
@@ -31,8 +33,7 @@ class FamilyVacationsDisplay extends React.Component {
                         {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
                         {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
                     </div>
-                )} 
-                
+                )}                 
             </div>
         )
     }
