@@ -111,6 +111,7 @@ ruby '2.6.1'
 * https://blog.logrocket.com/axios-or-fetch-api/
 * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_zoom_hover
 * https://repl.it/@jamievullo/Scrapers
+* https://rubygems.org/gems/nokogiri
 
 
 ### License

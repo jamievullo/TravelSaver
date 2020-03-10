@@ -1,8 +1,9 @@
 body {
-  /* background-image: url("./assets/images/LonelyLuggage.png"); */
-  /* background-color: #ffc600; */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
+  /* background-image: url("./assets/images/DestinationPole.png");
+  background-color: #ffc600;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left; */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,12 +18,11 @@ code {
 }
 
 .navbar {
-  /* currently transparent line 46 app.js */
   background-color: #364182;
   border-bottom: 10px;
-  border-bottom: silver;
 }
 
+/* text color for links in navbar */
 .nav-link {
   color: white;
 }
@@ -66,12 +66,12 @@ code {
   margin: 20px;
 } */
 
-/* dimensions for images */
+/* dimensions for images on home screen */
 .vac-card-image {
   margin: .25em;
   width: 375px;
   height: 235px;
-  /* box-shadow: 0px 0px 4px 2px rgb(80, 78, 78); */
+  box-shadow: 0px 2px 1px rgb(149, 149, 149);
 }
 /* hidden info for projects */
 /* .vac-card-info {
@@ -92,12 +92,6 @@ h3 {
 }
 
 /* initial position of "paper airplane animation" */
-/* .paper-airplane {
-  position: absolute;
-  top: -44.5%;
-  left: -13.5%;
-} */
-
 .paper-airplane {
   position: absolute;
   top: 0%;
@@ -113,8 +107,8 @@ h3 {
 }
 
 #zoomer:hover img  {
-  -ms-transform: scale(1.13); /* IE 9 */
-  -webkit-transform: scale(1.13); /* Safari 3-8 */
-  transform: scale(1.13); 
+  -ms-transform: scale(1.05); /* IE 9 */
+  -webkit-transform: scale(1.05); /* Safari 3-8 */
+  transform: scale(1.05); 
   
 }

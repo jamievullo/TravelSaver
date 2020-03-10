@@ -6,8 +6,8 @@ export default function DestinationCard(props) {
         <div id='zoomer' className="justify-content-center" style={{paddingBottom: "1em"}} >
             <a href={props.item.link}>
                 <h3>{props.item.title}</h3>
-            </a>
             <img id='img' className="vac-card-image" src={props.item.imgSrc} alt={props.item.title} />            
+            </a>
         </div>
     )
 }

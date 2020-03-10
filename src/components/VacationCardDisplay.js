@@ -10,7 +10,8 @@ import Container from 'react-bootstrap/Container';
 // import paris from '../assets/images/Paris.png'
 // import mountains from '../assets/images/MountainsTravel.png'
 // import tropical from '../assets/images/Tropical2.png'
-// import adventure from'../assets/images/Adventure.png'
+// import adventure from '../assets/images/Adventure.png'
+// import observe from '../assets/images/Observe.png'
 
 export default class VacationCardDisplay extends React.Component {
     constructor() {
@@ -49,7 +50,7 @@ export default class VacationCardDisplay extends React.Component {
                 {
                     id: 4,
                     title: 'Not Your Average',
-                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583241459/Tropical2_wxbkeu.png',
+                    imgSrc: 'https://res.cloudinary.com/brickcodebanger/image/upload/v1583838458/Observe_v3iglr.png',
                     link: '/not_your_average',
                     selected: false
                 },

@@ -12,12 +12,11 @@ export default function ScrapeDisplay(props) {
                         <Col className="auto" md={3}>
                             <img src={props.destination.image} className="img-fluid" alt=""/>
                         </Col>
-                        <Col>                       
+                        <Col style={{marginLeft: '.50em'}}>                       
                             <Card.Title>
                                 {props.destination.title}
                             </Card.Title>
                             <Card.Text>{props.destination.description}</Card.Text>
-                            {/* <Card.Text>Rating: {props.hotel.rating}</Card.Text>                                                   */}
                         </Col>
                     </Row>    
                 </Card>
