@@ -39,4 +39,8 @@ export default function HotelResultsDisplay(props) {
             </div> 
         </div>
     )
+    
 }
+    // HotelResultsDisplay.defaultProps = {
+    //     hotel.photo.images.medium.url: ''
+    // }

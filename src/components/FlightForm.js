@@ -22,7 +22,7 @@ export default class FlightForm extends React.Component {
    }
    // sets state of all inputted values based on name attribute
    handleChange = (event) => {
-      console.log(event.target)      
+      // console.log(event.target)      
       this.setState({
          [event.target.name]: event.target.value
       })

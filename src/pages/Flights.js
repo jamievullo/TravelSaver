@@ -2,6 +2,7 @@ import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlighResultsDisplay from '../components/FlightResultsDisplay'
 // import PaperAirplane from '../components/PaperAirplane';
+// import moment from 'moment'
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -19,20 +20,31 @@ export default class Flights extends React.Component {
             adults,
             children,            
             isLoading: true,
-            flights: []
+            flights: [],
+            sid: ""
         }
         // console.log(this.state)
     }
 
     //needed function to change date format to insert into template literal
-    changeDateFormat = (enteredDate) => {
-        let date = enteredDate
-        let newDate = date.split("/").reverse()
-        const year = parseInt(newDate[0])
-        const day = 0 + "" + (parseInt(newDate[1]))
-        const month = 0 + "" + (parseInt(newDate[2]))         
-        const extraNewDate = [year, month, day]
-        return extraNewDate.join("-")
+    // changeDateFormat = (enteredDate) => {
+    //     let date = enteredDate
+    //     let newDate = date.split("/").reverse()
+    //     const year = parseInt(newDate[0])
+    //     const day = 0 + "" + (parseInt(newDate[1]))
+    //     const month = 0 + "" + (parseInt(newDate[2]))         
+    //     const extraNewDate = [year, month, day]
+    //     return extraNewDate.join("-")
+    // }
+
+    dateFormatter = date => {
+        const index = [2, 0, 1]
+        const newDate = date.split('/').map(i => {
+            const day = parseInt(i)
+            const newDay = (day < 10) ? (0 + "" + day) : day
+            return newDay
+        })
+        return index.map(i => newDate[i]).join("-")
     }
 
     componentDidMount = () => {
@@ -41,43 +53,48 @@ export default class Flights extends React.Component {
             isLoading: false
         })
         // console.log(this.state.departing)
-        const outbound = this.changeDateFormat(this.state.departing)
-        const inbound = this.changeDateFormat(this.state.returning)
+        const outbound = this.dateFormatter(this.state.departing)
+        const inbound = this.dateFormatter(this.state.returning)
         const origin = this.state.flyingFrom
         const destination = this.state.flyingTo
         // console.log(outbound, inbound, origin, destination);
-
-        // fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}?inboundpartialdate=${inbound}`, {
-            fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${origin}-sky/${destination}-sky/${outbound}/${inbound}`, {
-        //fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/AVP-sky/PHX-sky/2020-04-09?inboundpartialdate=2020-010-014", {
-        
-        "method": "GET",
-        "headers": {
-        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        "x-rapidapi-key": api_key
-        }
+        // debugger
+        fetch(`https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=${inbound}&currency=USD&o2=${destination}&d2=${origin}&ta=1&c=0&d1=${destination}&o1=${origin}&dd1=${outbound}`, {
+        // fetch("https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=2020-04-14&currency=USD&o2=PHX&d2=AVP&ta=1&c=0&d1=PHX&o1=AVP&dd1=2020-04-09", {
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+            "x-rapidapi-key": api_key
+	        }
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            // data.map()
-            // console.log(data.Quotes[0].MinPrice, 
-            //             data.Quotes[0].Direct, 
-            //             data.Quotes[0].OutboundLeg.CarrierIds[0], 
-            //             data.Quotes[0].QuoteId,
-            //             data.Places[0].SkyscannerCode,
-            //             data.Places[0].CityName,
-            //             data.Places[0].Name,
-            //             data.Places[1].SkyscannerCode,
-            //             data.Places[1].CityName,
-            //             data.Places[1].Name,
-            //             data.Places[0].CityName,
-            //             data
-                        // )
+            this.setState({
+                sid: data.search_params.sid
+            })
         })
-        .catch(err => {    
+    }
+
+    componentDidUpdate = () => {
+        if(this.state.sid !== "") {
+            const sidsy = this.state.sid
+            
+    fetch(`https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sidsy}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+            "x-rapidapi-key": api_key
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            return console.log(data.summary.sh, data.summary.pd,
+                data.search_params.sid, data)
+        })
+        .catch(err => {
             console.log(err);
         });
+        }
     }
 
     render() {
