@@ -1,4 +1,6 @@
 import React from 'react'
+import ScrapeDisplay from './ScrapeDisplay'
+import PaperAirplane from './PaperAirplane'
 
 class AdventureDisplay extends React.Component {
 
@@ -13,8 +15,7 @@ class AdventureDisplay extends React.Component {
         .then(data => this.setState({
             destinations: data.results,
             isLoading: false
-        })
-        )
+        }))
     }
 
     render() {

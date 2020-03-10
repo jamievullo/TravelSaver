@@ -1,4 +1,6 @@
 import React from 'react'
+import ScrapeDisplay from './ScrapeDisplay'
+import PaperAirplane from './PaperAirplane'
 
 class ExploreDisplay extends React.Component {
 
