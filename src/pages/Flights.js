@@ -26,17 +26,6 @@ export default class Flights extends React.Component {
         // console.log(this.state)
     }
 
-    //needed function to change date format to insert into template literal
-    // changeDateFormat = (enteredDate) => {
-    //     let date = enteredDate
-    //     let newDate = date.split("/").reverse()
-    //     const year = parseInt(newDate[0])
-    //     const day = 0 + "" + (parseInt(newDate[1]))
-    //     const month = 0 + "" + (parseInt(newDate[2]))         
-    //     const extraNewDate = [year, month, day]
-    //     return extraNewDate.join("-")
-    // }
-
     dateFormatter = date => {
         const index = [2, 0, 1]
         const newDate = date.split('/').map(i => {
@@ -73,6 +62,9 @@ export default class Flights extends React.Component {
                 sid: data.search_params.sid
             })
         })
+        .catch(err => {
+            console.log(err);
+        });
     }
 
     componentDidUpdate = () => {
@@ -80,8 +72,8 @@ export default class Flights extends React.Component {
             const sidsy = this.state.sid
             
     fetch(`https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sidsy}`, {
-        "method": "GET",
-        "headers": {
+            "method": "GET",
+            "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
             "x-rapidapi-key": api_key
             }
@@ -90,11 +82,39 @@ export default class Flights extends React.Component {
         .then(data => {
             return console.log(data.summary.sh, data.summary.pd,
                 data.search_params.sid, data)
+                //this.setState({
+                //searchHash: data.summary.sh,
+                //price: data.summary.pd
+                //flightId: data.itineraries[0][0].id
+                
+                //})
         })
         .catch(err => {
             console.log(err);
         });
         }
+    }
+
+    componentDidUpdate = () => {
+        //conditional to check if stste exists before running final fetch
+        // if(this.state.)
+        // const origin = this.state.flyingFrom
+        // const destination = this.state.flyingTo
+        // const searchHashy = this.state.searchHash
+        // const flightId2 = this.state.flightId
+
+        fetch("https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=12dae31b49dd872e95d07f6e7b1eedf3&Dest=PHX&id=AA%257C1%257C200&Orig=AVP&searchId=95ba3c72-da5e-4db8-91dc-4a078cbc38f2.2814", {
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+            "x-rapidapi-key": api_key
+	        }
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err => {
+            console.log(err);
+        });
     }
 
     render() {
