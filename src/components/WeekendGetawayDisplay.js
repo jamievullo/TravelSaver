@@ -8,14 +8,16 @@ class WeekendGetawayDisplay extends React.Component {
         destinations: [],
         isLoading: true
     }
-
+    //fetch route in backend for info from scrape and set state of destinations to results
     componentDidMount = () => {
         fetch('http://localhost:3001/weekend_getaways')
         .then(response => response.json())
-        .then(data => this.setState({
+        .then(data => {
+            console.log(data)
+            this.setState({
             destinations: data.results,
             isLoading: false
-        }))
+        })})
     }
 
     render() {
@@ -29,7 +31,7 @@ class WeekendGetawayDisplay extends React.Component {
                         ) : (                                 
                         <div style={{margin: "0 auto", width:"80%"}}>
                             {/* {this.state.isLoading && <p>Loading..</p>} */}
-                            {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
+                            {/* maps over destinations state object and index and passes them as props to scrapedisplay component */}
                             {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
                         </div>
                     )}

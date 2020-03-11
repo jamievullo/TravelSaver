@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 export default function Loading() {
     return (
         <div>
-            <ReactLoading type={"spinningBubbles"} color={"#364182"} position={'fixed'} top={'30%'} marginright={'auto'} marginleft={'auto'} height={500} width={230} />
+            <ReactLoading type={"spinningBubbles"} color={"#364182"} position={'fixed'} style={{marginRight: 'auto', marginLeft: 'auto', height='500px', width: '230px'}} />
         </div>
     )
 }

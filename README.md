@@ -112,7 +112,9 @@ ruby '2.6.1'
 * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_zoom_hover
 * https://repl.it/@jamievullo/Scrapers
 * https://rubygems.org/gems/nokogiri
-
+* https://reactstrap.github.io/components/popovers/
+* https://www.canva.com/design/DAD2IqOY0a8/deK9vpF728J0fkIgArEZBw/edit?category=tACZCp5JRWg#
+* https://www.figma.com
 
 ### License
 * MIT License

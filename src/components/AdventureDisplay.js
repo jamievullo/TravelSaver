@@ -12,10 +12,13 @@ class AdventureDisplay extends React.Component {
     componentDidMount = () => {
         fetch('http://localhost:3001/adventure')
         .then(response => response.json())
-        .then(data => this.setState({
+        .then(data => {
+            console.log(data)
+            this.setState({
             destinations: data.results,
             isLoading: false
-        }))
+        })})
+
     }
 
     render() {

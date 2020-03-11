@@ -5,6 +5,10 @@ import Col from 'react-bootstrap/Col'
 
 export default function FlightResultsDisplay(props) {
 
+    // componentDidMount() {
+
+    // }
+
     return (
         <div>
             <div className="justify-content-center" >
@@ -23,7 +27,7 @@ export default function FlightResultsDisplay(props) {
                             <Card.Text>Price Range:</Card.Text>
                             <Card.Text>Rating:</Card.Text>                            
                             <Card.Text>
-                                Amenities: Smoking in-cabin, mile high club ticket punching
+                                Amenities: Stuffs, mile high club ticket punching
                             </Card.Text>
                             {/* <Card.Text as="h6">Click Here to Book Now: <a href={props.flight.website} target="_blank" rel="noopener noreferrer">{props.flight.name}</a></Card.Text>                        */}
                         </Col>
