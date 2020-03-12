@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import FlighResultsDisplay from '../components/FlightResultsDisplay'
 import PaperAirplane from '../components/PaperAirplane';
 // import moment from 'moment'
-import {getFlightData} from '../utils/API'
+import { getFlightData } from '../utils/API'
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
@@ -14,12 +14,13 @@ export default class Flights extends React.Component {
         //from flightInfo state redirect object in form render
         const { departing, returning, flyingFrom, flyingTo, adults, children } = this.props.location.state.flightInfo
         this.state = {
-            departing,
-            returning,
-            flyingFrom,
-            flyingTo,
-            adults,
-            children,            
+            //do not need these variables in state because passing in props and state never changes
+            // departing,
+            // returning,
+            // flyingFrom,
+            // flyingTo,
+            // adults,
+            // children,            
             isLoading: true,
             flights: [],
             sid: null,
@@ -52,7 +53,7 @@ export default class Flights extends React.Component {
         const origin = this.state.flyingFrom
         const destination = this.state.flyingTo
         getFlightData(outbound, inbound, origin, destination)
-        .then(//setState with the return of getFlightData)
+        // .then(//setState with the return of getFlightData)
 
         
 
@@ -74,8 +75,9 @@ export default class Flights extends React.Component {
         })
         .catch(err => {
             console.log(err);
-        });
+        })
     }
+    
 
     componentDidUpdate = () => {
 
@@ -135,14 +137,16 @@ export default class Flights extends React.Component {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
             "x-rapidapi-key": api_key
 	        }
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => {
-            console.log(err);
-        });
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => {
+                console.log(err);
+            });
         }
     }
+    
+    
 
     render() {
         // console.log(this.props)        
@@ -162,4 +166,5 @@ export default class Flights extends React.Component {
             </div>
         )
     }
+
 }

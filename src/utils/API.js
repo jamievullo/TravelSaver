@@ -21,9 +21,9 @@ async function fetchOne(outbound, inbound, origin, destination) {
   return await res.json();
 }
 
-async function fetchTwo(sidsy) {
+async function fetchTwo(sid) {
   const res = await fetch(
-    `https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sidsy}`,
+    `https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sid}`,
     {
       method: "GET",
       headers: {
@@ -35,9 +35,9 @@ async function fetchTwo(sidsy) {
   return await res.json();
 }
 
-async function thirdFetch(sidsy, flight, sh) {
+async function thirdFetch(sid, flight, sh) {
   const res = await fetch(
-    `https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=${sh}&Dest=${destination}&id=${flight}&Orig=${origin}&searchId=${sidsy}`,
+    `https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=${sh}&Dest=${destination}&id=${flight}&Orig=${origin}&searchId=${sid}`,
     {
       method: "GET",
       headers: {
@@ -51,15 +51,15 @@ async function thirdFetch(sidsy, flight, sh) {
 
 export async function getFlightData() {
   try {
-    const flightData = await fetchOne();
-    console.log("1st => ", flightData);
-    const sidsy = flightData.search_params.sid;
-    const moreFlightData = await fetchTwo(sidsy);
-    console.log("2nd =>", moreFlightData);
-    const flight = moreFlightData.itineraries[0].l[0].id;
-    const sh = moreFlightData.summary.sh;
-    const evenMoreFlightData = await thirdFetch(sidsy, flight, sh);
-    console.log("3rd =>", evenMoreFlightData);
+    const sessionId = await fetchOne();
+    console.log("1st => ", sessionId);
+    const sid = sessionId.search_params.sid;
+    const getSessionHash = await fetchTwo(sid);
+    console.log("2nd =>", getSessionHash);
+    const flight = getSessionHash.itineraries[0].l[0].id;
+    const sh = getSessionHash.summary.sh;
+    const getDeepLink = await thirdFetch(sid, flight, sh);
+    console.log("3rd =>", getDeepLink);
 
     //return whatever you need for setState
   } catch (err) {

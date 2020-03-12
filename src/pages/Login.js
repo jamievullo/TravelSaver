@@ -40,6 +40,7 @@ class Login extends React.Component {
             type: 'LOGIN_USER',
             payload: response.data.user
          })
+         //trying to toggle redirect after logging in
          this.setState({
             redirect: '/'
          })
@@ -55,6 +56,7 @@ class Login extends React.Component {
       .catch(error => console.log('api errors:', error))
    };
 
+   //rendering of error messages in response from server controller actions
    errorMessages = () => {
       if(this.state.errors) {
          return this.state.errors.map((err, index) => (
