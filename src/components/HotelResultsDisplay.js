@@ -16,10 +16,10 @@ export default function HotelResultsDisplay(props) {
             <div className="justify-content-center" >
                 <Card>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
-                        <Col className="auto" md={3}>
+                        <Col className="auto" md={4}>
                             <img src={props.hotel.photo.images.medium.url} className="img-fluid" alt=""/>
                         </Col>
-                        <Col>                       
+                        <Col style={{marginLeft: '.25em'}}>                       
                             <Card.Title>
                                 {props.hotel.name}
                                 <Card.Text>

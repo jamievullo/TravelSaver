@@ -89,8 +89,8 @@ h4 {
 /* initial position of "paper airplane animation" */
 .paper-airplane {
   position: absolute;
-  top: 0%;
-  left: -25%;
+  top: 20%;
+  left: -20%;
 }
 
 #zoomer {

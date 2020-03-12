@@ -2,7 +2,6 @@ import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlighResultsDisplay from '../components/FlightResultsDisplay'
 import PaperAirplane from '../components/PaperAirplane';
-// import moment from 'moment'
 import { getFlightData } from '../utils/API'
 
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
@@ -48,103 +47,104 @@ export default class Flights extends React.Component {
         //     isLoading: false
         // })
         // console.log(this.state.departing)
-        const outbound = this.dateFormatter(this.state.departing)
-        const inbound = this.dateFormatter(this.state.returning)
-        const origin = this.state.flyingFrom
-        const destination = this.state.flyingTo
-        getFlightData(outbound, inbound, origin, destination)
+        const outbound = this.dateFormatter(this.props.departing)
+        const inbound = this.dateFormatter(this.props.returning)
+        const origin = this.props.flyingFrom
+        const destination = this.props.flyingTo
+        const finalFetch = getFlightData(outbound, inbound, origin, destination)
+        console.log(finalFetch)
         // .then(//setState with the return of getFlightData)
 
         
 
-        fetch(`https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=${inbound}&currency=USD&o2=${destination}&d2=${origin}&ta=1&c=0&d1=${destination}&o1=${origin}&dd1=${outbound}`, {
-        // fetch("https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=2020-04-14&currency=USD&o2=PHX&d2=AVP&ta=1&c=0&d1=PHX&o1=AVP&dd1=2020-04-09", {
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
-	        }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            // debugger
-            this.setState({
-                sid: data.search_params.sid
-            })
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        // fetch(`https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=${inbound}&currency=USD&o2=${destination}&d2=${origin}&ta=1&c=0&d1=${destination}&o1=${origin}&dd1=${outbound}`, {
+        // // fetch("https://tripadvisor1.p.rapidapi.com/flights/create-session?dd2=2020-04-14&currency=USD&o2=PHX&d2=AVP&ta=1&c=0&d1=PHX&o1=AVP&dd1=2020-04-09", {
+        //     "method": "GET",
+        //     "headers": {
+        //     "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+        //     "x-rapidapi-key": api_key
+	    //     }
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(data)
+        //     // debugger
+        //     this.setState({
+        //         sid: data.search_params.sid
+        //     })
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // })
     }
     
 
-    componentDidUpdate = () => {
+    // componentDidUpdate = () => {
 
-        if(this.state.isLoading === false) {
-            return null
-        } 
+    //     if(this.state.isLoading === false) {
+    //         return null
+    //     } 
         
-        if(this.state.sid !== null) {
-            const sidsy = this.state.sid
+    //     if(this.state.sid !== null) {
+    //         const sidsy = this.state.sid
             
-    fetch(`https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sidsy}`, {
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-                // debugger
-                console.log(data.summary.sh, data.summary.pd,
-                data.search_params.sid, data.itineraries[0].l[0].id, data)
-                this.setState({
-                    isLoading: false,
-                    searchHash: data.summary.sh,
-                    price: data.summary.pd,
-                    flightId: data.itineraries[0].l[0].id                
-                })
-                //possible name change?? maybe
-            })
-        .then(this.thirdFetch())
-        .catch(err => {
-            console.log(err);
-        });
-        }
-    }
-    //making third function for fetch to pass as callback because stuffs happenin too fast
-    //because i need to slow down third fetch. Still not working
+    // fetch(`https://tripadvisor1.p.rapidapi.com/flights/poll?currency=USD&n=15&ns=NON_STOP%252CONE_STOP&so=PRICE&o=0&sid=${sidsy}`, {
+    //         "method": "GET",
+    //         "headers": {
+    //         "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+    //         "x-rapidapi-key": api_key
+    //         }
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //             // debugger
+    //             console.log(data.summary.sh, data.summary.pd,
+    //             data.search_params.sid, data.itineraries[0].l[0].id, data)
+    //             this.setState({
+    //                 isLoading: false,
+    //                 searchHash: data.summary.sh,
+    //                 price: data.summary.pd,
+    //                 flightId: data.itineraries[0].l[0].id                
+    //             })
+    //             //possible name change?? maybe
+    //         })
+    //     .then(this.thirdFetch())
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
+    //     }
+    // }
+    // //making third function for fetch to pass as callback because stuffs happenin too fast
+    // //because i need to slow down third fetch. Still not working
 
-    thirdFetch = () => {
-        // debugger
-        //conditional to check if state exists before running final fetch
-        if(this.state.flightId !== null) {
+    // thirdFetch = () => {
+    //     // debugger
+    //     //conditional to check if state exists before running final fetch
+    //     if(this.state.flightId !== null) {
 
-        const origin = this.state.flyingFrom
-        const destination = this.state.flyingTo
-        const sh = this.state.searchHash
-        const flight = this.state.flightId
-        const sidsy = this.state.sid
+    //     const origin = this.state.flyingFrom
+    //     const destination = this.state.flyingTo
+    //     const sh = this.state.searchHash
+    //     const flight = this.state.flightId
+    //     const sidsy = this.state.sid
 
-        console.log(flight)
+    //     console.log(flight)
 
-        fetch(`https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=${sh}&Dest=${destination}&id=${flight}&Orig=${origin}&searchId=${sidsy}`, {
-        // fetch("https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=12dae31b49dd872e95d07f6e7b1eedf3&Dest=PHX&id=AA%257C1%257C200&Orig=AVP&searchId=95ba3c72-da5e-4db8-91dc-4a078cbc38f2.2814", {
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
-	        }
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(err => {
-                console.log(err);
-            });
-        }
-    }
+    //     fetch(`https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=${sh}&Dest=${destination}&id=${flight}&Orig=${origin}&searchId=${sidsy}`, {
+    //     // fetch("https://tripadvisor1.p.rapidapi.com/flights/get-booking-url?searchHash=12dae31b49dd872e95d07f6e7b1eedf3&Dest=PHX&id=AA%257C1%257C200&Orig=AVP&searchId=95ba3c72-da5e-4db8-91dc-4a078cbc38f2.2814", {
+    //         "method": "GET",
+    //         "headers": {
+    //         "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+    //         "x-rapidapi-key": api_key
+	//         }
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => console.log(data))
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    //     }
+    // }
     
     
 

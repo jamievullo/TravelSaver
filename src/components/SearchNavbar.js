@@ -40,7 +40,7 @@ export default class SearchNavbar extends React.Component {
             <Tab eventKey={2} title={hotelTab}>
                 <HotelForm />
             </Tab>
-            <Tab eventKey={3} title={rentalTab}>
+            <Tab eventKey={3} title={rentalTab} disabled>
                 <CarRentalForm />
             </Tab>
         </Tabs>
