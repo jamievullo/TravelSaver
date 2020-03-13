@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
-// import AutoCompleteSearch from './AutoCompleteSearch'
+import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-// import PaperAirplane from './PaperAirplane';
+import airports from '../data/airports.js'
 
 require('dotenv').config();
 
@@ -51,15 +51,14 @@ export default class FlightForm extends React.Component {
       return (
          <div>
             <div className='hero-flight-form'>
-               {/* <PaperAirplane /> */}
                <Form onSubmit={this.handleSubmit}>
                   <Form.Row>
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying From</Form.Label>
-                              <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}>
-                                 {/* <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom}/> */}
-                                 </Form.Control>
+                              {/* <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}> */}
+                                 <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" items={airports} value={this.state.flyingFrom}/>
+                                 {/* </Form.Control> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>

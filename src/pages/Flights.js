@@ -54,7 +54,7 @@ export default class Flights extends React.Component {
         const destination = this.state.flyingTo
         console.log(outbound, inbound, origin, destination)
 
-        fetch(`https://kiwicom-prod.apigee.net/v2/search?fly_from=${origin}&fly_to=${destination}&dateFrom=${outbound}&dateTo=${outbound}&returnFrom=${inbound}&flightType=round&curr=USD`, {
+        fetch(`https://kiwicom-prod.apigee.net/v2/search?fly_from=${origin}&fly_to=${destination}&dateFrom=${outbound}&dateTo=${outbound}&returnFrom=${inbound}&curr=USD`, {
         // fetch("https://kiwicom-prod.apigee.net/v2/search?fly_from=AVP&fly_to=PHX&dateFrom=08/05/2020&dateTo=08/05/2020&returnFrom=12/05/2020&flightType=round&curr=USD", {
             "method": "GET",
             "headers": {
@@ -95,19 +95,3 @@ export default class Flights extends React.Component {
         )
     }
 }
-
-
-
-
-// fetch("https://kiwicom-prod.apigee.net/v2/search?fly_from=AVP&fly_to=PHX&dateFrom=08/05/2020&returnFrom=12/05/2020", {
-// 	"method": "GET",
-// 	"headers": {
-// 	
-// 		"apikey": "jLI2pB1FdikOwrigjYmSJFYikvuOxC0d"
-// 	}
-// })
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch(err => {
-// 	console.log(err);
-// });
