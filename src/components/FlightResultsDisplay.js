@@ -2,7 +2,6 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-// import Flights from '../pages/Flights'
 import ts from '../assets/images/travelsaver2.png'
 
 export default function FlightResultsDisplay(props) {
@@ -12,7 +11,7 @@ export default function FlightResultsDisplay(props) {
             <div className="justify-content-center" >
                 <Card>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
-                        <Col className="auto" md={3} style={{paddingRight: "1em"}}>
+                        <Col className="auto" md={4} style={{paddingRight: "1em"}}>
                             <img src={ts} className="img-fluid" alt=""/>
                         </Col>
                         <Col>                       

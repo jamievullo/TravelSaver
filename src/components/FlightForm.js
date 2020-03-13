@@ -28,6 +28,13 @@ export default class FlightForm extends React.Component {
       })
       console.log(event.target.value)      
    }
+
+   handleChangeCity = (value, name) => {
+      console.log(value, name)
+      this.setState({
+         [name]: value[1]
+      })
+   }
    //prevents default of submit button and redirects to flight page for results display
    handleSubmit = (event) => {
       event.preventDefault();
@@ -57,16 +64,15 @@ export default class FlightForm extends React.Component {
                            <Col>
                               <Form.Label>Flying From</Form.Label>
                               {/* <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}> */}
-                                 <div className="app-Component">
-                                 <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" items={airports} value={this.state.flyingFrom}></AutoCompleteSearch>
-                                 </div>
+                                 <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.flyingFrom}></AutoCompleteSearch>
                                  {/* </Form.Control> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying To</Form.Label>
-                              <Form.Control id="flying-to" type="text" name="flyingTo" placeholder="Enter City" value={this.state.flyingTo} onChange={this.handleChange} />
+                                 <AutoCompleteSearch id="flying-to" type="text" name="flyingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.flyingTo}></AutoCompleteSearch>
+                              {/* <Form.Control id="flying-to" type="text" name="flyingTo" value={this.state.flyingTo} onChange={this.handleChange} /> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>

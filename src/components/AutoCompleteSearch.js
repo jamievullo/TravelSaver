@@ -1,7 +1,6 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 
-
 export default class AutoCompleteSearch extends React.Component {
    constructor(props) {
       super(props);
@@ -21,19 +20,20 @@ export default class AutoCompleteSearch extends React.Component {
          //set regex variable to what input '^' starts with value and case sensitive 'i'
          const regex = new RegExp(`^${value}`, 'i')
          //takes in props(airports) and maps over them then filters based on value of input
-         //need the airport code(IATA) value for airline fetch
+         //need the airport code(IATA) value in state for airline fetch
          suggestions = items.map(item => {
             return [item.city, item.IATA]
          }).filter(v => regex.test(v))
          console.log(suggestions)
       }
-            this.setState({ 
-               suggestions, 
-               text: value 
-            });
+      this.setState({ 
+         suggestions, 
+         text: value 
+      });
    };
 
    handleSelect = (value) => {
+      this.props.handleChangeCity(value, this.props.name)
       this.setState({
          text:value,
          suggestions: []
@@ -51,7 +51,6 @@ export default class AutoCompleteSearch extends React.Component {
          </ul>
       )
    }
-
 
    render() {
       const { text } = this.state

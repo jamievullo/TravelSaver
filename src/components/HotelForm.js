@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
+import AutoCompleteSearch from './AutoCompleteSearch'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import airports from '../data/airports.js'
 
 export default class HotelForm extends React.Component {
 
@@ -22,6 +24,13 @@ export default class HotelForm extends React.Component {
          [event.target.name]: event.target.value
       })
       console.log(event.target.value)
+   }
+
+   handleChangeCity = (value, name) => {
+      console.log(value, name)
+      this.setState({
+         [name]: value[0]
+      })
    }
 
    handleSubmit = (event) => {
@@ -50,7 +59,8 @@ export default class HotelForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Destination</Form.Label>
-                              <Form.Control id="going-to" type="text" name="goingTo" placeholder="Try 'Flagstaff'" value={this.state.goingTo} onChange={this.handleChange} />
+                              <AutoCompleteSearch id="going-to" type="text" name="goingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.goingTo}></AutoCompleteSearch>
+                              {/* <Form.Control id="going-to" type="text" name="goingTo" placeholder="Try 'Flagstaff'" value={this.state.goingTo} onChange={this.handleChange} /> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>
