@@ -1,6 +1,5 @@
 
-const airports = {
-    "airports": [{
+ const airports = [{
         "city": "Goroka",
         "name": "Goroka ",
         "country": "Papua New Guinea",
@@ -51188,6 +51187,5 @@ const airports = {
         "lat": "40.542524",
         "timezone": "\\N"
     }]
-}
 
 export default airports;

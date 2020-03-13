@@ -57,14 +57,16 @@ export default class FlightForm extends React.Component {
                            <Col>
                               <Form.Label>Flying From</Form.Label>
                               {/* <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}> */}
-                                 <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" items={airports} value={this.state.flyingFrom}/>
+                                 <div className="app-Component">
+                                 <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" items={airports} value={this.state.flyingFrom}></AutoCompleteSearch>
+                                 </div>
                                  {/* </Form.Control> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying To</Form.Label>
-                              <Form.Control id="flying-to" type="text" name="flyingTo" placeholder="Enter airport code" value={this.state.flyingTo} onChange={this.handleChange} />
+                              <Form.Control id="flying-to" type="text" name="flyingTo" placeholder="Enter City" value={this.state.flyingTo} onChange={this.handleChange} />
                            </Col>
                      </Form.Group>
                      <Form.Group>

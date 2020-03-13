@@ -20,12 +20,17 @@ export default class AutoCompleteSearch extends React.Component {
       if(value.length > 0) {
          //set regex variable to what input '^' starts with value and case sensitive 'i'
          const regex = new RegExp(`^${value}`, 'i')
-         suggestions = items.map(item => item.city).filter(v => regex.test(v))
+         //takes in props(airports) and maps over them then filters based on value of input
+         //need the airport code(IATA) value for airline fetch
+         suggestions = items.map(item => {
+            return [item.city, item.IATA]
+         }).filter(v => regex.test(v))
+         console.log(suggestions)
       }
-      this.setState({ 
-         suggestions, 
-         text: value 
-      });
+            this.setState({ 
+               suggestions, 
+               text: value 
+            });
    };
 
    handleSelect = (value) => {
@@ -42,7 +47,7 @@ export default class AutoCompleteSearch extends React.Component {
       }
       return (
          <ul>
-            {suggestions.map((item) => <li onClick={() => this.handleSelect(item)}>{item}</li>)}
+            {suggestions.map((item, i) => <li key={i} style={{color: 'white'}} onClick={() => this.handleSelect(item)}>{item}</li>)}
          </ul>
       )
    }
@@ -51,9 +56,11 @@ export default class AutoCompleteSearch extends React.Component {
    render() {
       const { text } = this.state
       return (
-         <Form.Control value={text} onChange={this.handleChange} type='text' placeholder="Try 'Scranton'">
-            {this.renderSuggestions()}
-         </Form.Control>
+         <div className="autoCompleteText">
+            <Form.Control value={text} onChange={this.handleChange} type='text' placeholder="Enter City" />
+               {this.renderSuggestions()}
+            {/* </Form.Control> */}
+         </div>
       );
    }
 }

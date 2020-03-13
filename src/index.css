@@ -104,6 +104,44 @@ h4 {
 #zoomer:hover img  {
   -ms-transform: scale(1.05); /* IE 9 */
   -webkit-transform: scale(1.05); /* Safari 3-8 */
-  transform: scale(1.05); 
+  transform: scale(1.05);   
+}
+
+.autoCompleteText {
+
+}
+
+.autoCompleteText input{
+  box-sizing: border-box;
+}
+
+.autoCompleteText ul{
+  position: absolute;
+  width: 100%;
+  background-color: rgb(73, 73, 110);
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgb(128, 128, 128);
+  z-index: 100;
+}
+
+.autoCompleteText ul::before {
+  content: '';
+}
+
+.autoCompleteText li {
+  padding: 10px 5px;
+  cursor: pointer;
   
 }
+
+.autoCompleteText li:hover {
+  background-color: #ffd744;
+}
+
+.app-Component {
+
+}
+
