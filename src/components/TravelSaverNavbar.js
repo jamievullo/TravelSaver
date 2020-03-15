@@ -66,7 +66,7 @@ class TravelSaverNavbar extends React.Component {
       })
    }
 
-    //on logout clears user state obj and toggles isLoggedIn obj
+    //on logout clears user state obj and toggles isLoggedIn obj to false
    handleLogout = () => {
       this.props.dispatch({ type: 'LOGOUT_USER', payload: ''})
       this.setState({
@@ -134,9 +134,10 @@ class TravelSaverNavbar extends React.Component {
                         </Navbar.Collapse>
                </Navbar>
 
-                  <Route path="/" exact component={HomePage} />
+                  <Route exact path="/" component={HomePage} />
                   {/* <Route path="/login" component={Login} /> */}
-                  <Route exact path='/login' 
+                  <Route 
+                     exact path='/login' 
                      render={props => (<Login {...props} 
                      handleLogin={this.handleLogin} 
                      loggedInStatus={this.state.isLoggedIn}/>)}

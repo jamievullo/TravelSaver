@@ -122,8 +122,13 @@ ruby '2.6.1'
 * MIT License
 
 ### Future Adjustments 
-* Geocoding country, city, lat-lng automatically from location.
-* Autocomplete for airport code based on city input in FlightForm
-* Autocomplete city for HotelForm
-* Datepicker for dates on all forms
-* Somehow get deep links for transfer of search data to carrier, hotel, or rental provider.
+* Geocoding country, city, lat-lng automatically from user location.
+* Datepicker for dates on all forms(air bnb) need to figure out styling
+* Recent history of all searches from local storage or database
+* Get car rental search up and running
+* Better layout of results for flights and hotels
+* Format for arrival and departure dates
+* Make smaller second search navbar to display on top of flights/ hotels/ rentals
+     results displays with pre-populated data based on search results allowing user to adjust dates or destination
+* Get better APIs or affiliate API for more stable results of searches
+* Publish site

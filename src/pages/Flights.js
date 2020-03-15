@@ -2,7 +2,6 @@ import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlightResultsDisplay from '../components/FlightResultsDisplay'
 import PaperAirplane from '../components/PaperAirplane';
-// import { getFlightData } from '../utils/API'
 const api_key = process.env.REACT_APP_API_TEQUILA_KEY
 
 // console.log(process.env)
@@ -27,10 +26,10 @@ export default class Flights extends React.Component {
             children,            
             isLoading: true,
             flights: [],
-            sid: null,
-            searchHash: "",
-            price: "",
-            flightId: null
+            // sid: null,
+            // searchHash: "",
+            // price: "",
+            // flightId: null
         }
         // console.log(this.state)
     }
@@ -47,7 +46,6 @@ export default class Flights extends React.Component {
     }
     
     componentDidMount = () => {
-
         const outbound = this.dateFormatter(this.state.departing)
         const inbound = this.dateFormatter(this.state.returning)
         const origin = this.state.flyingFrom
@@ -82,14 +80,17 @@ export default class Flights extends React.Component {
             <div>
                 {this.state.isLoading ? (
                 <div> 
-                    <PaperAirplane anim={"hotels"}/>
+                    <PaperAirplane/>
                 </div>        
-                ) : ( 
-                <div style={{margin: "0 auto", width:"85%"}}>                
-                    <Row className="justify-content-center" >
-                    {this.state.flights.map((flight, i) => <FlightResultsDisplay key={i} flight={flight} />)}                            
-                    </Row>                
-                </div>
+                ) : (
+                    <div> 
+                    <center><h3>Flight Search Results</h3></center>
+                        <div style={{margin: "0 auto", width:"85%"}}>                
+                            <Row className="justify-content-center" >
+                                {this.state.flights.map((flight, i) => <FlightResultsDisplay key={i} flight={flight} />)}                            
+                            </Row>                
+                        </div>
+                    </div>
                 )}
             </div>
         )

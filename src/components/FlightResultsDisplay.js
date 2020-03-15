@@ -32,3 +32,13 @@ export default function FlightResultsDisplay(props) {
         </div>
     )
 }
+
+// FlightResultsDisplay.defaultProps = {
+//     flight.flyFrom: 'No Data Avail.',
+//     flight.cityFrom: 'No Data Avail.',
+//     flight.flyTo: 'No Data Avail.',
+//     flight.cityTo: 'No Data Avail',
+//     flight.price: 'No Data Aval.',
+//     flight.route[0].local_departure: 'No Data Avail.',
+//     flight.route[1].local_arrival: 'No Data Avail.'
+// }

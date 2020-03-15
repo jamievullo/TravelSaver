@@ -112,12 +112,15 @@ export default class Hotels extends React.Component {
                 <div> 
                     <PaperAirplane anim={"hotels"}/>
                 </div>        
-                ) : (                                 
-            <div style={{margin: "0 auto", width:"85%"}}>
-                {/* {this.state.isLoading && <p>Loading..</p>} */}
-                {/* maps over hotels state object and index and passes them as props HRD component */}
-                {this.state.hotels.map((hotel, i) => <HotelResultsDisplay key={i} hotel={hotel} />)}
-            </div>
+                ) : ( 
+                <div>
+                    <center><h3>Flight Search Results</h3></center>
+                    <div style={{margin: "0 auto", width:"85%"}}>
+                        {/* {this.state.isLoading && <p>Loading..</p>} */}
+                        {/* maps over hotels state object and index and passes them as props HRD component */}
+                        {this.state.hotels.map((hotel, i) => <HotelResultsDisplay key={i} hotel={hotel} />)}
+                    </div>                                
+                </div>
                 )} 
             </div>     
             )

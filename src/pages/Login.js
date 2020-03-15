@@ -39,12 +39,14 @@ class Login extends React.Component {
          this.props.dispatch({
             type: 'LOGIN_USER',
             payload: response.data.user
+            
          })
          //trying to toggle redirect after logging in
-         this.setState({
-            redirect: '/'
-         })
-         // this.redirect()
+         // this.history.push('/')
+         // this.setState({
+         //    redirect: '/'
+         // })
+         this.redirect()
       } else {
          this.setState({
             errors: response.data.errors,
@@ -67,20 +69,21 @@ class Login extends React.Component {
          )
       }}
 
-   // redirect = () => {
-   //    // this.props.history.push('/')
-   //    this.setState({
-   //       redirect: "/"
-   //       })
-   // }
+   redirect = () => {
+      // this.props.history.push('/')
+      this.setState({
+         redirect: "/"
+         })
+   }
    
    render() {
-      if(this.state.redirect) {
-         return <Redirect to='/' />
-      } else if(this.props.loggedInStatus === true) {
-         return <Redirect to='/' />
-         // this.redirect()
+      if(this.state.redirect === '/') {
+         return (<Redirect to='/' />)
       }
+      // } else if(this.props.loggedInStatus === true) {
+      //    // return <Redirect to='/' />
+      //    return this.redirect()
+      // }
       return (
          <div>
             {this.errorMessages()}
