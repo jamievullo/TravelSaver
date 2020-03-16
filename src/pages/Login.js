@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter as Redirect } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -13,7 +12,6 @@ class Login extends React.Component {
       email: '',
       password: '',
       errors: '',
-      redirect: null
    }
 
    handleChange = (event) => {      
@@ -38,15 +36,10 @@ class Login extends React.Component {
          this.props.handleLogin(response.data)
          this.props.dispatch({
             type: 'LOGIN_USER',
-            payload: response.data.user
-            
+            payload: response.data.user            
          })
          //trying to toggle redirect after logging in
-         // this.history.push('/')
-         // this.setState({
-         //    redirect: '/'
-         // })
-         this.redirect()
+         this.props.history.push('/')
       } else {
          this.setState({
             errors: response.data.errors,
@@ -68,22 +61,8 @@ class Login extends React.Component {
             )
          )
       }}
-
-   redirect = () => {
-      // this.props.history.push('/')
-      this.setState({
-         redirect: "/"
-         })
-   }
    
    render() {
-      if(this.state.redirect === '/') {
-         return (<Redirect to='/' />)
-      }
-      // } else if(this.props.loggedInStatus === true) {
-      //    // return <Redirect to='/' />
-      //    return this.redirect()
-      // }
       return (
          <div>
             {this.errorMessages()}
@@ -99,14 +78,9 @@ class Login extends React.Component {
                      </Col>
                   </Form.Group>
                </Form.Row>
-                  {/* <Link className="nav-link" 
-                     to='/'
-                     exact="true"
-                  > */}
                   <Button className="d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
                      True Adventurer
                   </Button>
-                  {/* </Link> */}
             </Form>
          </Col> 
          </div>

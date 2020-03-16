@@ -26,10 +26,6 @@ export default class Flights extends React.Component {
             children,            
             isLoading: true,
             flights: [],
-            // sid: null,
-            // searchHash: "",
-            // price: "",
-            // flightId: null
         }
         // console.log(this.state)
     }
