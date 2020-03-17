@@ -42,9 +42,12 @@ ruby '2.6.1'
 * "bootstrap": "^4.4.1",
 * "dotenv": "^8.2.0",
 * "gsap": "^3.2.0",
+* "moment": "^2.24.0",
+* "node-fetch": "^2.6.0",
 * "react": "^16.12.0",
 * "react-autocomplete": "^1.8.1",
 * "react-bootstrap": "^1.0.0-beta.16",
+* "dotenv": "^8.2.0",
 * "react-dates": "^21.8.0",
 * "react-dom": "^16.12.0",
 * "react-loading": "^2.0.3",
@@ -54,6 +57,7 @@ ruby '2.6.1'
 * "react-scripts": "3.4.0",
 * "react-spring": "^8.0.27",
 * "redux": "^4.0.5"
+* "redux-logger": "^3.0.6"
 
 ### Setup
 * To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into your terminal.
@@ -131,4 +135,5 @@ ruby '2.6.1'
 * Make smaller second search navbar to display on top of flights/ hotels/ rentals
 results displays with pre-populated data based on search results allowing user to adjust dates or destination. Either save data in local storage, or make a table in the database to save data and allow it to be edited. CRUD.
 * Get better APIs or affiliate API for more stable results of searches right now,   inconsistent and unreliable. Skyscanner just keiboshed their live pricing endpoints.
+* Adding Auth0 to site for easier and more secure authentication
 * Publish site

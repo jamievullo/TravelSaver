@@ -76,7 +76,7 @@ export default class Flights extends React.Component {
             <div>
                 {this.state.isLoading ? (
                 <div> 
-                    <PaperAirplane/>
+                    <PaperAirplane anim={'flights'}/>
                 </div>        
                 ) : (
                     <div> 
