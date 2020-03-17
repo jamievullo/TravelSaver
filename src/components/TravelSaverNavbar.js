@@ -94,7 +94,7 @@ class TravelSaverNavbar extends React.Component {
       axios.delete('http://localhost:3001/logout', {withCredentials: true})
       .then(response => {
          this.handleLogout()
-         this.history.push('/')
+         this.props.history.push('/')
       })
       .catch(error => console.log(error))
    }

@@ -34,11 +34,13 @@ export default function FlightResultsDisplay(props) {
 }
 
 // FlightResultsDisplay.defaultProps = {
-//     flight.flyFrom: 'No Data Avail.',
-//     flight.cityFrom: 'No Data Avail.',
-//     flight.flyTo: 'No Data Avail.',
-//     flight.cityTo: 'No Data Avail',
-//     flight.price: 'No Data Aval.',
-//     flight.route[0].local_departure: 'No Data Avail.',
-//     flight.route[1].local_arrival: 'No Data Avail.'
+//     flight = {
+//     flyFrom: 'No Data Avail.',
+//     cityFrom: 'No Data Avail.',
+//     flyTo: 'No Data Avail.',
+//     cityTo: 'No Data Avail',
+//     price: 'No Data Aval.',
+//     route[0].local_departure: 'No Data Avail.',
+//     route[1].local_arrival: 'No Data Avail.'
+//      }
 // }
