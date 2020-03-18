@@ -22,6 +22,7 @@ export default function FlightResultsDisplay(props) {
                                 {props.flight.cityTo}                                
                             <Card.Text>Price: ${props.flight.price}</Card.Text>
                             </Card.Title>
+                            {/* trying to conditionally render default props if not present in response */}
                             <Card.Text>Departure: {props.flight.route[0].local_departure ? props.flight.route[0].local_departure : 'No Data Avail.'}</Card.Text> 
                             <Card.Text>Arrival: {props.flight.route[1].local_arrival ? props.flight.route[1].local_arrival : 'No Data Avail.'}</Card.Text>                                                        
                             <Card.Text as="h6">Click Here to Book Now: <a href={props.flight.deep_link} target="_blank" rel="noopener noreferrer">${props.flight.price}</a></Card.Text>                       
