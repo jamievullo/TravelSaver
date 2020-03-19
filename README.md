@@ -11,7 +11,7 @@ A web application made using the Rails framework as an API for backend and the R
 * License
 
 ### Description
-This is a single page application that allows Users to signup and search for real-time prices of flights, hotels, and rental cars for a specific date or date range. Utilizes 4 different APIs including TripAdvisor, Skyscanner, Avis, and Triposo.  
+This is a single page application that allows Users to signup and search for real-time prices of flights, hotels, and rental cars for a specific date or date range. Utilizes 3 different APIs including TripAdvisor, Avis, and Tequila.  
 
 ### Technologies
 This application utilizes the Ruby Programming language, the React Library, and JavaScript while using several gems and dependencies(listed)
@@ -60,13 +60,13 @@ ruby '2.6.1'
 * "redux-logger": "^3.0.6"
 
 ### Setup
-* To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into your terminal.
-* On command line type: git clone git@github.com:jamievullo/TravelSaver.git
-* input "cd TravelSaver" on command line
-* input npm install on command line
-* input npm start to start the server on localhost:3000
-* On a seperate terminal type: git@github.com:jamievullo/TravelSaver-api.git
-* input "cd TravelSaver-api" on command line
+* To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into 2 seperate terminals.
+* On command line 1 type: git clone git@github.com:jamievullo/TravelSaver.git
+* input: "cd TravelSaver" on command line
+* input: npm install on command line
+* input: npm start to start the server on localhost:3000
+* On command line 2 type: git@github.com:jamievullo/TravelSaver-api.git
+* input: "cd TravelSaver-api" on command line
 * Run bundle install from command line
 * Run "rails db:migrate" from command line
 * Run rails s from the command line to start the server on localhost:3001
@@ -76,7 +76,7 @@ ruby '2.6.1'
 ### Sources and Resources Used
 * http://learn.co
 * https://rubygems.org
-* https://stackoverflow.com x 1000 ;)
+* https://stackoverflow.com x 2000 ;)
 * https://css-tricks.com
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript
 * https://www.w3schools.com/js/default.asp
@@ -122,6 +122,7 @@ ruby '2.6.1'
 * https://tequila.kiwi.com/portal/resources/search_api
 * https://reactjs.org/docs/conditional-rendering.html
 * https://developer.avis.com/home?destination=/getting-started
+* https://airbnb.io/react-dates/?path=/story/drp-calendar-props--default
 
 ### License
 * MIT License
