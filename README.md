@@ -120,7 +120,8 @@ ruby '2.6.1'
 * https://www.canva.com/design/DAD2IqOY0a8/deK9vpF728J0fkIgArEZBw/edit?category=tACZCp5JRWg#
 * https://www.figma.com
 * https://tequila.kiwi.com/portal/resources/search_api
-
+* https://reactjs.org/docs/conditional-rendering.html
+* https://developer.avis.com/home?destination=/getting-started
 
 ### License
 * MIT License

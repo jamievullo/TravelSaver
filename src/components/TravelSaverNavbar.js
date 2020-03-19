@@ -103,15 +103,15 @@ class TravelSaverNavbar extends React.Component {
       return (
          <Router>
             <Container className="p-0" fluid={true} >
-               <Navbar className="navbar" expand="lg">
+               <Navbar className="navbar" expand="md">
                   <Navbar.Brand>
                      <img src={brand} style={{height: "50px", width: "340px"}} alt=""/>
                   </Navbar.Brand>
                      <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
                         <Navbar.Collapse id="navbar-toggle">
                            <Nav className="ml-auto">
-                              <NavDropdown className="account" title={
-                                 <span className="my-auto" style={{color: "white"}}>Account</span>
+                              <NavDropdown className="account" style={{margin: 'inherit'}} title={
+                                 <span className="mr-auto" style={{color: "white"}}>Account</span>
                                        } id="basic-dropdown">
                                     { 
                                     this.state.isLoggedIn ? 
@@ -128,7 +128,7 @@ class TravelSaverNavbar extends React.Component {
                                     </>
                                     }
                               </NavDropdown>
-                              <Link className="nav-link" style={{color: "white"}} to='/'>Home</Link>
+                              <Link className="nav-link" style={{color: "white", margin: 'inherit'}} to='/'>Home</Link>
 
                            </Nav>
                         </Navbar.Collapse>
