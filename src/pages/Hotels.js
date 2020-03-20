@@ -114,7 +114,7 @@ export default class Hotels extends React.Component {
                 </div>        
                 ) : ( 
                 <div>
-                    <center><h3>Flight Search Results</h3></center>
+                    <center><h3>Hotel Search Results</h3></center>
                     <div style={{margin: "0 auto", width:"85%"}}>
                         {/* {this.state.isLoading && <p>Loading..</p>} */}
                         {/* maps over hotels state object and index and passes them as props HRD component */}
