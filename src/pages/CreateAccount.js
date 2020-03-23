@@ -71,7 +71,7 @@ class CreateAccount extends React.Component {
          <div>
             <Col>
             <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-            <Form.Row>
+            <Form.Row className="justify-content-md-center">
                <Form.Group>
                   <Col>
                      <Form.Label style={{color: "#364182"}}>Email</Form.Label>
@@ -89,16 +89,16 @@ class CreateAccount extends React.Component {
                      <Form.Label style={{color: "#364182"}}>Confirm Password</Form.Label>
                      <Form.Control id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange} />
                   </Col>
-               </Form.Group>
-               </Form.Row>
             <Link className="nav-link" 
                to='/'
                exact="true"
                >
-               <Button id="cabutton" className="d-inline-block" style={{backgroundColor: "#212747"}}size="lg" type="submit">
+               <Button id="cabutton" className=" button d-inline-block" style={{backgroundColor: "#212747"}}size="lg" type="submit">
                   See The World
                </Button>
             </Link>                  
+               </Form.Group>
+               </Form.Row>
          </Form>
          </Col>            
          </div>

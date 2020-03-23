@@ -141,11 +141,7 @@ h4 {
   background-color: #ffd744;
 }
 
-/* adding and removing comma from Hotel amenities */
-/* .amenities span:after {
-  content: ",";
+.button {
+  margin-top: 1em;
 }
-.amenities span:last-child:after {
-  content: "";
-} */
 

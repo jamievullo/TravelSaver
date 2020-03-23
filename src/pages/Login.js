@@ -68,7 +68,7 @@ class Login extends React.Component {
             {this.errorMessages()}
          <Col>
             <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-               <Form.Row>
+               <Form.Row className="justify-content-md-center">
                   <Form.Group>
                      <Col>
                         <Form.Label style={{color: "#364182"}}>Email</Form.Label>
@@ -76,11 +76,11 @@ class Login extends React.Component {
                         <Form.Label style={{color: "#364182"}}>Password</Form.Label>
                            <Form.Control id="password" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                      </Col>
-                  </Form.Group>
-               </Form.Row>
-                  <Button className="d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
+                  <Button className="button d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
                      True Adventurer
                   </Button>
+                  </Form.Group>
+               </Form.Row>
             </Form>
          </Col> 
          </div>
