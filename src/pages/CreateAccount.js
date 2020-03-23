@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import Alert from 'react-bootstrap/Alert'
 
 class CreateAccount extends React.Component {
 
@@ -37,7 +38,7 @@ class CreateAccount extends React.Component {
       .then(response => {
          if (response.data.status === 'created') {
          this.props.handleLogin(response.data)
-         //sets response.data.user to userDate variable
+         //sets response.data.user to userData variable
          const userData = response.data.user
          //calls dispatch method 'add new user' and passes user data payload
          this.props.dispatch({ type: 'ADD_NEW_USER', payload: userData })
@@ -54,9 +55,15 @@ class CreateAccount extends React.Component {
       this.props.history.push('/')
    }
 
-      // this.setState({
-      //    redirect: "/"
-      // })
+   errorMessages = () => {
+      if(this.state.errors) {
+         return this.state.errors.map((err, index) => (
+            <Alert style={{color: 'red'}} key={index}>
+               {err}
+            </Alert>
+            )
+         )
+      }}
 
    render() {
       if(this.state.redirect) {
@@ -69,6 +76,7 @@ class CreateAccount extends React.Component {
       }
       return (
          <div>
+            {this.errorMessages()}
             <Col>
             <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
             <Form.Row className="justify-content-md-center">

@@ -68,7 +68,7 @@ code {
   height: 235px;
   box-shadow: 0px 2px 1px rgb(149, 149, 149);
 }
-/* hidden info for projects */
+
 /* .vac-card-info {
   /* margin-top: 10px; */
   /* min-height: .5em; */
@@ -107,9 +107,9 @@ h4 {
   transform: scale(1.05);   
 }
 
-.autoCompleteText {
+/* .autoCompleteText {
 
-}
+} */
 
 .autoCompleteText input{
   box-sizing: border-box;

@@ -9,6 +9,7 @@ import SearchNavbar from './SearchNavbar'
 export default function Hero() {
 
    return (
+      // {successMessages()}
       <Jumbotron className="bg-transparent jumbotron-fluid p-0">
          <Container fluid={true}>
                <Row className="justify-content-center py-0" >
