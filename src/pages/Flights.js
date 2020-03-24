@@ -1,7 +1,8 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlightResultsDisplay from '../components/FlightResultsDisplay'
-import PaperAirplane from '../components/PaperAirplane';
+// import PaperAirplane from '../components/PaperAirplane';
+import Loading from '../components/Loading'
 const api_key = process.env.REACT_APP_API_TEQUILA_KEY
 
 // console.log(process.env)
@@ -27,7 +28,7 @@ export default class Flights extends React.Component {
             isLoading: true,
             flights: [],
         }
-        // console.log(this.state)
+        console.log(this.state)
     }
 
     //takes in date from form, makes it an integer, then rejoins it in format necessary for fetch
@@ -64,6 +65,7 @@ export default class Flights extends React.Component {
                 isLoading: false,
                 flights: [...allFlights]
             })
+            return null
         })
         .catch(err => {
             console.log(err);
@@ -71,24 +73,25 @@ export default class Flights extends React.Component {
     }
     
     render() {
-        // console.log(this.props)        
-        return (
-            <div>
-                {this.state.isLoading ? (
+        // console.log(this.props)    
+        if (this.state.isLoading === true) {
+            return (
+            <div> 
+                <Loading />
+                {/* <PaperAirplane/> */}
+            </div>  
+            )      
+        } else { 
+            return (
                 <div> 
-                    <PaperAirplane anim={'flights'}/>
-                </div>        
-                ) : (
-                    <div> 
-                    <center><h3>Flight Search Results</h3></center>
-                        <div style={{margin: "0 auto", width:"85%"}}>                
-                            <Row className="justify-content-center" >
-                                {this.state.flights.map((flight, i) => <FlightResultsDisplay key={i} flight={flight} />)}                            
-                            </Row>                
-                        </div>
+                <center><h3>Flight Search Results</h3></center>
+                    <div style={{margin: "0 auto", width:"85%"}}>                
+                        <Row className="justify-content-center" >
+                            {this.state.flights.map((flight, i) => <FlightResultsDisplay key={i} flight={flight} />)}                            
+                        </Row>                
                     </div>
-                )}
-            </div>
-        )
+                </div>
+            )
+        }        
     }
 }

@@ -110,7 +110,7 @@ export default class Hotels extends React.Component {
             <div>
             {this.state.isLoading ? (
                 <div> 
-                    <PaperAirplane anim={"hotels"}/>
+                    <PaperAirplane/>
                 </div>        
                 ) : ( 
                 <div>
