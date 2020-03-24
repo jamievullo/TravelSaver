@@ -60,29 +60,30 @@ class Login extends React.Component {
             </Alert>
             )
          )
-      }}
+      }
+   }
    
    render() {
       return (
          <div>
             {this.errorMessages()}
-         <Col>
-            <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-               <Form.Row className="justify-content-md-center">
-                  <Form.Group>
-                     <Col>
-                        <Form.Label style={{color: "#364182"}}>Email</Form.Label>
-                           <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
-                        <Form.Label style={{color: "#364182"}}>Password</Form.Label>
-                           <Form.Control id="password" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
-                     </Col>
-                  <Button className="button d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
-                     True Adventurer
-                  </Button>
-                  </Form.Group>
-               </Form.Row>
-            </Form>
-         </Col> 
+            <Col>
+               <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
+                  <Form.Row className="justify-content-md-center">
+                     <Form.Group>
+                        <Col>
+                           <Form.Label style={{color: "#364182"}}>Email</Form.Label>
+                              <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
+                           <Form.Label style={{color: "#364182"}}>Password</Form.Label>
+                              <Form.Control id="password" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                        </Col>
+                        <Button className="button d-inline-block" variant="primary" style={{margingTop: "2em", backgroundColor: "#212747"}} size="lg" type="submit">
+                           True Adventurer
+                        </Button>
+                     </Form.Group>
+                  </Form.Row>
+               </Form>
+            </Col> 
          </div>
       )
    }
