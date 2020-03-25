@@ -9,7 +9,8 @@ export default function FlightResultsDisplay(props) {
 
     function dateFormat(date) {
         let unformattedDate = moment(date, 'YYYY-MM-DDTHH:mm:ss.sss')
-        let formattedDate = unformattedDate.format('MM-DD-YYYY [Time:] hh:mm a')
+        // let formattedDate = unformattedDate.format('MM-DD-YYYY [Time:] hh:mm a')
+        let formattedDate = unformattedDate.format('LLLL')
         return formattedDate
     }
 
