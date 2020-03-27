@@ -14,7 +14,8 @@ class CreateAccount extends React.Component {
       password: '',
       password_confirmation: '',
       errors: '',
-      redirect: null
+      redirect: null,
+      success: false
    }
 
    handleChange = (event) => {

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import Alert from 'react-bootstrap/Alert'
+import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
 
@@ -12,6 +13,8 @@ class Login extends React.Component {
       email: '',
       password: '',
       errors: '',
+      redirect: false,
+      success: false
    }
 
    handleChange = (event) => {      
@@ -38,8 +41,12 @@ class Login extends React.Component {
             type: 'LOGIN_USER',
             payload: response.data.user            
          })
-         //trying to toggle redirect after logging in
-         this.props.history.push('/')
+         //trying to toggle redirect after logging in and display success messages       
+         // this.props.history.push('/')
+         this.setState({
+            success: true,
+            redirect: true
+         })
       } else {
          this.setState({
             errors: response.data.errors,
@@ -64,6 +71,14 @@ class Login extends React.Component {
    }
    
    render() {
+      if(this.state.success === true) {
+         return <Redirect to={{
+            pathname: '/',
+            state: {
+               success: true
+            }
+         }}/>
+      }
       return (
          <div>
             {this.errorMessages()}
