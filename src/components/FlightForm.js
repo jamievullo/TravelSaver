@@ -15,7 +15,7 @@ export default class FlightForm extends React.Component {
       flyingTo: '',
       departing: '',
       returning: '',
-      adults: '',
+      adults: '1',
       children: '',
       redirect: null,
       flights: []
@@ -47,7 +47,7 @@ export default class FlightForm extends React.Component {
 
    render() {
       //if submit button pressed, sets state of redirect and sends props/state to flight 
-      //page as flightInfo object
+      // page as flightInfo object
       if(this.state.redirect) {
          return <Redirect to={{
             pathname: this.state.redirect,

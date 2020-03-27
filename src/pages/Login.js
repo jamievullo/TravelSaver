@@ -71,6 +71,8 @@ class Login extends React.Component {
    }
    
    render() {
+      // checking to see if state is updated and if it is redirecting with state to home to 
+      // render success message 
       if(this.state.success === true) {
          return <Redirect to={{
             pathname: '/',
@@ -84,7 +86,8 @@ class Login extends React.Component {
             {this.errorMessages()}
             <Col>
                <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-                  <Form.Row className="justify-content-md-center">
+                  {/* <Form.Row className="justify-content-md-center"> */}
+                  <Form.Row>
                      <Form.Group>
                         <Col>
                            <Form.Label style={{color: "#364182"}}>Email</Form.Label>

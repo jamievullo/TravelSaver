@@ -81,7 +81,8 @@ class CreateAccount extends React.Component {
             {this.errorMessages()}
             <Col>
                <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-                  <Form.Row className="justify-content-md-center">
+                  {/* <Form.Row className="justify-content-md-center"> */}
+                  <Form.Row>
                      <Form.Group>
                         <Col>
                            <Form.Label style={{color: "#364182"}}>Email</Form.Label>
