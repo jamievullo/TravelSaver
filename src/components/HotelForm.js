@@ -12,8 +12,8 @@ export default class HotelForm extends React.Component {
       goingTo: '',
       checkIn: '',
       checkOut: '',
-      roomsNeeded: '',
-      adults: '',
+      roomsNeeded: '1',
+      adults: '1',
       children: '',
       redirect: null
    }
@@ -66,13 +66,13 @@ export default class HotelForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Checking-in</Form.Label>
-                              <Form.Control id="check-in" type="text" name="checkIn" placeholder="mm/dd/yyyy" value={this.state.checkIn} onChange={this.handleChange} />
+                              <Form.Control id="check-in" type="date" name="checkIn" placeholder="mm/dd/yyyy" value={this.state.checkIn} onChange={this.handleChange} />
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Checking-out</Form.Label>
-                              <Form.Control id="check-out" type="text" name="checkOut" placeholder="mm/dd/yyyy" value={this.state.checkOut} onChange={this.handleChange} />
+                              <Form.Control id="check-out" type="date" name="checkOut" placeholder="mm/dd/yyyy" value={this.state.checkOut} onChange={this.handleChange} />
                            </Col>
                      </Form.Group>
                      <Form.Group>

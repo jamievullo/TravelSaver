@@ -30,7 +30,7 @@ export default class Hotels extends React.Component {
     //needed to reformat inputted date to input into template literal for fetch
     changeDateFormat = (enteredDate) => {
         let date = enteredDate
-        let newDate = date.split("/").reverse()
+        let newDate = date.split("-").reverse()
         const year = parseInt(newDate[0])
         const day = 0 + "" + (parseInt(newDate[1]))
         const month = 0 + "" + (parseInt(newDate[2]))         

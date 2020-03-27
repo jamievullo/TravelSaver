@@ -33,8 +33,8 @@ export default class Flights extends React.Component {
 
     //takes in date from form, makes it an integer, then rejoins it in format necessary for fetch
     dateFormatter = date => {
-        const index = [1, 0, 2]
-        const newDate = date.split('/').map(i => {
+        const index = [2, 1, 0]
+        const newDate = date.split('-').map(i => {
             const day = parseInt(i)
             const newDay = (day < 10) ? (0 + "" + day) : day
             return newDay
