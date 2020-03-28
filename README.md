@@ -123,6 +123,7 @@ ruby '2.6.1'
 * https://reactjs.org/docs/conditional-rendering.html
 * https://developer.avis.com/home?destination=/getting-started
 * https://airbnb.io/react-dates/?path=/story/drp-calendar-props--default
+* https://github.com/danilowoz/react-content-loader
 
 ### License
 * MIT License

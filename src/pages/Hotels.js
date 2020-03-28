@@ -1,7 +1,6 @@
 import React from 'react'
-// import Loading from '../components/Loading'
 import HotelResultsDisplay from '../components/HotelResultsDisplay'
-import PaperAirplane from '../components/PaperAirplane'
+import MyLoader from '../components/MyLoader'
 const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 export default class Hotels extends React.Component {
@@ -110,7 +109,11 @@ export default class Hotels extends React.Component {
             <div>
             {this.state.isLoading ? (
                 <div> 
-                    <PaperAirplane/>
+                    {/* <PaperAirplane/> */}
+                    <MyLoader />
+                    <MyLoader />
+                    <MyLoader />
+                    <MyLoader />        
                 </div>        
                 ) : ( 
                 <div>

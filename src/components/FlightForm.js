@@ -85,7 +85,7 @@ export default class FlightForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Returning</Form.Label>
-                              <Form.Control id="returning" type="date" name="returning" placeholder="dd/mm/yyyy" value={this.state.returning} onChange={this.handleChange} />
+                              <Form.Control id="returning" type="date" name="returning" placeholder='dd/mm/yyyy' value={this.state.returning} onChange={this.handleChange} />
                            </Col>
                         </Form.Group>
                         <Form.Group>
