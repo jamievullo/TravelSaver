@@ -42,12 +42,14 @@ ruby '2.6.1'
 * "bootstrap": "^4.4.1",
 * "dotenv": "^8.2.0",
 * "gsap": "^3.2.0",
+* "heroku": "^7.39.0",
+* "jsdom": "^16.2.0",
 * "moment": "^2.24.0",
 * "node-fetch": "^2.6.0",
 * "react": "^16.12.0",
 * "react-autocomplete": "^1.8.1",
 * "react-bootstrap": "^1.0.0-beta.16",
-* "dotenv": "^8.2.0",
+* "react-content-loader": "^5.0.2",
 * "react-dates": "^21.8.0",
 * "react-dom": "^16.12.0",
 * "react-loading": "^2.0.3",
@@ -56,7 +58,7 @@ ruby '2.6.1'
 * "react-router-dom": "^5.1.2",
 * "react-scripts": "3.4.0",
 * "react-spring": "^8.0.27",
-* "redux": "^4.0.5"
+* "redux": "^4.0.5",
 * "redux-logger": "^3.0.6"
 
 ### Setup
