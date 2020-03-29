@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import airports from '../data/airports.js'
+import validateForm from '../components/Validations'
 
 export default class HotelForm extends React.Component {
 
@@ -15,6 +16,7 @@ export default class HotelForm extends React.Component {
       roomsNeeded: '1',
       adults: '1',
       children: '',
+      errors: [],
       redirect: null
    }
 
@@ -35,11 +37,18 @@ export default class HotelForm extends React.Component {
 
    handleSubmit = (event) => {
       event.preventDefault();
-      console.log(event);
-
-      this.setState({
-         redirect: "/hotels"
-      })
+      let input = this.state.goingTo
+         let results =  validateForm(input)
+            if (results !== null) {
+               this.setState({
+                  errors: results
+               })
+         } else {
+      // after submit, redirects to flight page
+         this.setState({
+            redirect: "/hotels",
+         })      
+      }
    }
 
    render() {
@@ -59,20 +68,20 @@ export default class HotelForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Destination</Form.Label>
-                              <AutoCompleteSearch id="going-to" type="text" name="goingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.goingTo}></AutoCompleteSearch>
+                              <AutoCompleteSearch id="going-to" type="text" name="goingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.goingTo} required ></AutoCompleteSearch>
                               {/* <Form.Control id="going-to" type="text" name="goingTo" placeholder="Try 'Flagstaff'" value={this.state.goingTo} onChange={this.handleChange} /> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Checking-in</Form.Label>
-                              <Form.Control id="check-in" type="date" name="checkIn" placeholder="mm/dd/yyyy" value={this.state.checkIn} onChange={this.handleChange} />
+                              <Form.Control id="check-in" type="date" name="checkIn" placeholder="mm/dd/yyyy" value={this.state.checkIn} onChange={this.handleChange} required />
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Checking-out</Form.Label>
-                              <Form.Control id="check-out" type="date" name="checkOut" placeholder="mm/dd/yyyy" value={this.state.checkOut} onChange={this.handleChange} />
+                              <Form.Control id="check-out" type="date" name="checkOut" placeholder="mm/dd/yyyy" value={this.state.checkOut} onChange={this.handleChange} required />
                            </Col>
                      </Form.Group>
                      <Form.Group>

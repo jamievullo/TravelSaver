@@ -10,7 +10,7 @@ function MyLoader() {
             viewBox="0 0 1000 300"
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
-            marginBottom={20}
+            marginbottom={20}
         >
             <rect x="50" y="50" rx="5" ry="5" width="250" height="250" />
             <rect x="310" y="50" rx="4" ry="4" width="800" height="17" />
