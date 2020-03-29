@@ -16,7 +16,7 @@ export default class HotelForm extends React.Component {
       roomsNeeded: '1',
       adults: '1',
       children: '',
-      errors: [],
+      errors: null,
       redirect: null
    }
 
@@ -140,6 +140,7 @@ export default class HotelForm extends React.Component {
                      to='/hotels'
                      exact="true"
                   >
+                     {this.state.errors && <div style={{color: "white", marginBottom: '.424em'}}>{this.state.errors}</div>}
                      <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                            Get Deals
                      </Button>

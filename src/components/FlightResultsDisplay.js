@@ -17,13 +17,13 @@ export default function FlightResultsDisplay(props) {
     return (
         <div>
             <div className="justify-content-center" >
-                <Card>
+                <Card style={{marginBottom: '1em'}}>
                     <Row className="no-gutters" style={{position: "center", width: "100%", paddingBottom: "1em"}}>
                         <Col className="auto" md={4} style={{paddingRight: "1em"}}>
                             <img src={ts} className="img-fluid" alt=""/>
                         </Col>
                         <Col>                       
-                            <Card.Title>
+                            <Card.Title style={{fontSize: '1.6em'}}>
                                 {props.flight.flyFrom}-- 
                                 {props.flight.cityFrom} ==>
                                 {props.flight.flyTo}--  

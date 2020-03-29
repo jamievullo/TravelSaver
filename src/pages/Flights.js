@@ -1,8 +1,7 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlightResultsDisplay from '../components/FlightResultsDisplay'
-// import PaperAirplane from '../components/PaperAirplane';
-import Loading from '../components/Loading'
+import MyFlightLoader from '../components/MyFlightLoader';
 const api_key = process.env.REACT_APP_API_TEQUILA_KEY
 
 // console.log(process.env)
@@ -77,8 +76,10 @@ export default class Flights extends React.Component {
         if (this.state.isLoading === true) {
             return (
             <div> 
-                <Loading />
-                {/* <PaperAirplane/> */}
+                <MyFlightLoader />
+                <MyFlightLoader />
+                <MyFlightLoader />
+                <MyFlightLoader />
             </div>  
             )      
         } else { 

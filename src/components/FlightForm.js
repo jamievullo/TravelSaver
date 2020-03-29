@@ -140,6 +140,7 @@ export default class FlightForm extends React.Component {
                      to='/flights'
                      exact="true"
                   >
+                     {this.state.errors && <div style={{color: "white", marginBottom: '.424em'}}>{this.state.errors[0]}</div>}
                      <Button className="d-inline-block" variant="primary" style={{backgroundColor: "#364182"}} size="lg" type="submit">
                            Get Deals        
                      </Button>
