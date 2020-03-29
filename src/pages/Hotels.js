@@ -27,22 +27,22 @@ export default class Hotels extends React.Component {
     }
     
     //needed to reformat inputted date to input into template literal for fetch
-    changeDateFormat = (enteredDate) => {
-        let date = enteredDate
-        let newDate = date.split("-").reverse()
-        const year = parseInt(newDate[0])
-        const day = 0 + "" + (parseInt(newDate[1]))
-        const month = 0 + "" + (parseInt(newDate[2]))         
-        const extraNewDate = [year, month, day]
-        return extraNewDate.join("-")
-    }
+    // changeDateFormat = (enteredDate) => {
+    //     let date = enteredDate
+    //     let newDate = date.split("-").reverse()
+    //     const year = parseInt(newDate[0])
+    //     const day = 0 + "" + (parseInt(newDate[1]))
+    //     const month = 0 + "" + (parseInt(newDate[2]))         
+    //     const extraNewDate = [year, month, day]
+    //     return extraNewDate.join("-")
+    // }
 
     //needed function to determine the number of nights for hotel stay in template literal
     numberOfNights = (date1, date2) => {
-        let newDate1 = date1.split("/")
-        let newDate2 = date2.split("/")
-        const day1 = parseInt(newDate1[1])
-        const day2 = parseInt(newDate2[1])
+        let newDate1 = date1.split("-")
+        let newDate2 = date2.split("-")
+        const day1 = parseInt(newDate1[2])
+        const day2 = parseInt(newDate2[2])
         return day2 - day1
     }
 
@@ -74,7 +74,8 @@ export default class Hotels extends React.Component {
         if(this.state.isLoading === false) {
             return null
         }
-        const checkIn = this.changeDateFormat(this.state.checkIn)
+        // const checkIn = this.changeDateFormat(this.state.checkIn)
+        const checkIn = this.state.checkIn
         const nights = this.numberOfNights(this.state.checkIn, this.state.checkOut)
         const adults = parseInt(this.state.adults)
         const rooms = parseInt(this.state.roomsNeeded)
@@ -109,7 +110,6 @@ export default class Hotels extends React.Component {
             <div>
             {this.state.isLoading ? (
                 <div> 
-                    {/* <PaperAirplane/> */}
                     <MyLoader />
                     <MyLoader />
                     <MyLoader />

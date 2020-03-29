@@ -1,6 +1,7 @@
 import React from 'react'
 import ScrapeDisplay from './ScrapeDisplay'
-import PaperAirplane from './PaperAirplane'
+// import PaperAirplane from './PaperAirplane'
+import MyLoader from './MyLoader'
 
 class PopularDestinationsDisplay extends React.Component {
 
@@ -24,7 +25,11 @@ class PopularDestinationsDisplay extends React.Component {
                 <center><h3>Popular Destinations</h3></center>
                 {this.state.isLoading ? (
                     <div> 
-                        <PaperAirplane anim={"hotels"}/>
+                        {/* <PaperAirplane anim={"hotels"}/> */}
+                        <MyLoader />
+                        <MyLoader />
+                        <MyLoader />
+                        <MyLoader />
                     </div>        
                     ) : (                                 
                     <div style={{margin: "0 auto", width:"80%"}}>
