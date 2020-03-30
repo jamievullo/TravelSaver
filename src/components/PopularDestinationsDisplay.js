@@ -11,7 +11,7 @@ class PopularDestinationsDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch("http://localhost:3001/popular_destinations")
+        fetch("https://git.heroku.com/fierce-meadow-46868.git/popular_destinations")
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results,

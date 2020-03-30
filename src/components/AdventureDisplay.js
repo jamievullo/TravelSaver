@@ -11,7 +11,7 @@ class AdventureDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch('http://localhost:3001/adventure')
+        fetch('https://git.heroku.com/fierce-meadow-46868.git/adventure')
         .then(response => response.json())
         .then(data => {
             console.log(data)
