@@ -20,6 +20,7 @@ const tsReducer = (state = {
             console.log(user)
             return {
                 ...state,
+                // might not need ln-24 because of doing it on ln-19
                 user: Object.assign(user)
             }
 

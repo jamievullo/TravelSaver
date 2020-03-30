@@ -56,8 +56,7 @@ class TravelSaverNavbar extends React.Component {
 
    //helper function to overcome not setting state 2x in same function and to
    //also pass into conditional to check if the origin of the data is from the 
-   //server(to check for login from session) or from user input.
-   
+   //server(to check for login from session) or from user input.   
    dataOrigin = (user) => {
       this.props.dispatch({ type: 'LOGIN_USER', payload: user})
       this.setState({
@@ -167,6 +166,7 @@ class TravelSaverNavbar extends React.Component {
    }
 }
 
+// passing in pieces of state from the store to use as props
 const mapStateToProps = state => ({
    user: state.user
 })

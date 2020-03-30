@@ -4,12 +4,12 @@ import ContentLoader from 'react-content-loader'
 function MyFlightLoader() {
     return (
         <ContentLoader
-            speed={2}
+            speed={1.5}
             width={1200}
             height={225}
             viewBox="0 0 1000 225"
             backgroundColor="#f3f3f3"
-            foregroundColor="#ecebeb"
+            foregroundColor="#364182"
             marginbottom={20}
         >
             <rect x="280" y="50" rx="5" ry="5" width="200" height="200" />

@@ -35,9 +35,11 @@ class CreateAccount extends React.Component {
       password: password,
       password_confirmation: password_confirmation
       }
+      // with credentials allows rails to return back a cookie
    axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
       .then(response => {
          if (response.data.status === 'created') {
+            // callback passed in thru props logging in user after signup
          this.props.handleLogin(response.data)
          //sets response.data.user to userData variable
          const userData = response.data.user
