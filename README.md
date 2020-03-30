@@ -64,9 +64,10 @@ ruby '2.6.1'
 * "redux-logger": "^3.0.6"
 
 ### Setup
-* To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into 2 seperate terminals.
+* To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. 
+* Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into 2 seperate terminals.
 
-## Frontend setup
+### Frontend setup
 * On command line 1 type: 
 ```
 git clone git@github.com:jamievullo/TravelSaver.git
@@ -85,7 +86,7 @@ npm start
 ```
 * this will start the server on localhost:3000
 
-## Backend setup
+### Backend setup
 * On command line 2 type: 
 ```
 git clone git@github.com:jamievullo/TravelSaver-api.git
