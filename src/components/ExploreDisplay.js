@@ -11,7 +11,7 @@ class ExploreDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch('https://git.heroku.com/fierce-meadow-46868.git/explore')
+        fetch('https://fierce-meadow-46868.herokuapp.com/explore')
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results,

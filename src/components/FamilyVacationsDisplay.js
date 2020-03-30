@@ -11,7 +11,7 @@ class FamilyVacationsDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch('https://git.heroku.com/fierce-meadow-46868.git/family_vacations')
+        fetch('https://fierce-meadow-46868.herokuapp.com/family_vacations')
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results,

@@ -11,7 +11,7 @@ class NotYourAverageDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch('https://git.heroku.com/fierce-meadow-46868.git/not_your_average')
+        fetch('https://fierce-meadow-46868.herokuapp.com/not_your_average')
         .then(response => response.json())
         .then(data => this.setState({
             destinations: data.results,

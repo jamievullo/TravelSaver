@@ -11,7 +11,7 @@ class WeekendGetawayDisplay extends React.Component {
     }
     //fetch route in backend for info from scrape and set state of destinations to results
     componentDidMount = () => {
-        fetch('https://git.heroku.com/fierce-meadow-46868.git/weekend_getaways')
+        fetch('https://fierce-meadow-46868.herokuapp.com/weekend_getaways')
         .then(response => response.json())
         .then(data => {
             console.log(data)
