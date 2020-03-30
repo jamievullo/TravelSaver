@@ -1,5 +1,7 @@
 05-13-19 PT Jamie Vullo React with Redux and Rails as an API Project
 
+<img src='DestinationPole.png' alt='' style='zoom:50%;'>
+
 # TravelSaver
 A web application made using the Rails framework as an API for backend and the React JavaScript libraray for frontend. 
 
@@ -63,15 +65,48 @@ ruby '2.6.1'
 
 ### Setup
 * To run this web application you must clone it from git@github.com:jamievullo/TravelSaver.git and git@github.com:jamievullo/TravelSaver-api.git. Goto https://github.com/jamievullo/TravelSaver and https://github.com/jamievullo/TravelSaver-api copy and clone into 2 seperate terminals.
-* On command line 1 type: git clone git@github.com:jamievullo/TravelSaver.git
-* input: "cd TravelSaver" on command line
-* input: npm install on command line
-* input: npm start to start the server on localhost:3000
-* On command line 2 type: git@github.com:jamievullo/TravelSaver-api.git
-* input: "cd TravelSaver-api" on command line
-* Run bundle install from command line
-* Run "rails db:migrate" from command line
-* Run rails s from the command line to start the server on localhost:3001
+**Frontend setup
+* On command line 1 type: 
+```
+git clone git@github.com:jamievullo/TravelSaver.git
+```
+* input: 
+```
+cd TravelSaver
+```
+* input: 
+```
+npm install
+```
+* input: 
+```
+npm start 
+```
+* to start the server on localhost:3000
+
+**Backend setup
+* On command line 2 type: 
+```
+git clone git@github.com:jamievullo/TravelSaver-api.git
+```
+* input: 
+```
+cd TravelSaver-api
+```
+* Input: 
+```
+bundle install
+```
+* input: 
+```
+rails db:migrate
+```
+* input: 
+```
+rails s 
+```
+* to start the server on localhost:3001
+
 * Signup for app by creating a Username.
 * Plan your next trip 
 
@@ -131,14 +166,13 @@ ruby '2.6.1'
 * MIT License
 
 ### Future Adjustments 
-* Geocoding country, city, lat-lng automatically from user location to   auto-populate forms origination field. 
+* Geocoding country, city, lat-lng automatically from user location to auto-populate forms origination field. 
 * Datepicker for dates on all forms(air bnb) need to figure out styling
 * Get car rental search up and running
 * Better layout of results for flights and hotels and I am sure car rentals
-* Ad banners for side of results
-* Format for arrival and departure dates
+* Ad banners $$$
 * Make smaller second search navbar to display on top of flights/ hotels/ rentals
 results displays with pre-populated data based on search results allowing user to adjust dates or destination. Either save data in local storage, or make a table in the database to save data and allow it to be edited. CRUD.
 * Get better APIs or affiliate API for more stable results of searches right now,   inconsistent and unreliable. Skyscanner just keiboshed their live pricing endpoints.
 * Adding Auth0 to site for easier and more secure authentication
-* Publish site
+* Publish site WIP as of 03/30/2020
