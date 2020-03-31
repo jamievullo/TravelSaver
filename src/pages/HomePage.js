@@ -11,6 +11,7 @@ export default class HomePage extends React.Component {
         // return console.log(this.props.location.state.success)
     }
 
+    
     render() {
         return (
             <>                
