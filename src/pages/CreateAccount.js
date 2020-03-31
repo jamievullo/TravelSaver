@@ -36,7 +36,7 @@ class CreateAccount extends React.Component {
       password_confirmation: password_confirmation
       }
       // with credentials allows rails to return back a cookie
-   axios.post('https://fierce-meadow-46868.herokuapp.com/users', {user}, {withCredentials: true})
+   axios.post('https://fierce-meadow-46868.herokuapp.com/users', {user})
       .then(response => {
          if (response.data.status === 'created') {
             // callback passed in thru props logging in user after signup

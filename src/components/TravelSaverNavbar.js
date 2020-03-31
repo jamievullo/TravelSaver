@@ -76,9 +76,9 @@ class TravelSaverNavbar extends React.Component {
 
    loginStatus = () => {
       //ajax call to sessions custom route
-      axios.get('https://fierce-meadow-46868.herokuapp.com/logged_in',
+      axios.get('https://fierce-meadow-46868.herokuapp.com/logged_in')
       // This allows our Rails server to set and read the cookie on the front-end’s browser.
-      {withCredentials: true})
+      
       .then(response => {
          if (response.data.logged_in) {
             this.handleLogin(response)
@@ -90,7 +90,7 @@ class TravelSaverNavbar extends React.Component {
       }
    
    handleLogoutClick = () => {
-      axios.delete('https://fierce-meadow-46868.herokuapp.com/logout', {withCredentials: true})
+      axios.delete('https://fierce-meadow-46868.herokuapp.com/logout')
       .then(response => {
          this.handleLogout()
          this.props.history.push('/')
