@@ -1,7 +1,7 @@
 import React from 'react'
 import HotelResultsDisplay from '../components/HotelResultsDisplay'
 import MyLoader from '../components/MyLoader'
-const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
+// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 export default class Hotels extends React.Component {
     constructor(props) {
