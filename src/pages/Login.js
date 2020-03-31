@@ -33,7 +33,7 @@ class Login extends React.Component {
          password: password
          }
       
-      axios.post('https://fierce-meadow-46868.herokuapp.com/login', {user}, {withCredentials: true})
+      axios.post('https://fierce-meadow-46868.herokuapp.com/login', {user})
       .then(response => {
       if (response.data.logged_in) {
          this.props.handleLogin(response.data)
