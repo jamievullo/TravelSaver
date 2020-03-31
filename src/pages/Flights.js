@@ -53,7 +53,7 @@ export default class Flights extends React.Component {
             "method": "GET",
             "headers": {
             
-            "apikey": "tmTNzOHgvDomyVGeaF6Ucf4fsAQmefX5"
+            "apikey": api_key
             }
         })
         .then(response => response.json())
