@@ -54,7 +54,7 @@ export default class Hotels extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": api_key
+            "x-rapidapi-key": "9d244aaeabmsh059d5079a8fdd03p1a0572jsn52a9b59c3240"
             }
         })
         .then(res => res.json())
