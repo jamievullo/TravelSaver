@@ -1,7 +1,7 @@
 import React from 'react'
 import HotelResultsDisplay from '../components/HotelResultsDisplay'
 import MyLoader from '../components/MyLoader'
-// const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
+const api_key = process.env.REACT_APP_API_SKYSCANNER_KEY
 
 export default class Hotels extends React.Component {
     constructor(props) {
@@ -54,7 +54,7 @@ export default class Hotels extends React.Component {
             "method": "GET",
             "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "61701e88f8mshd9e482f2952e0b9p13755cjsn44ed64b78eb3"
+            "x-rapidapi-key": api_key
             }
         })
         .then(res => res.json())
@@ -86,7 +86,7 @@ export default class Hotels extends React.Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-                "x-rapidapi-key": "61701e88f8mshd9e482f2952e0b9p13755cjsn44ed64b78eb3"
+                "x-rapidapi-key": api_key
                 }
             })
             .then(res => res.json())

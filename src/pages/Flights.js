@@ -2,7 +2,7 @@ import React from 'react'
 import Row from 'react-bootstrap/Row';
 import FlightResultsDisplay from '../components/FlightResultsDisplay'
 import MyFlightLoader from '../components/MyFlightLoader';
-// const api_key = process.env.REACT_APP_API_TEQUILA_KEY
+const api_key = process.env.REACT_APP_API_TEQUILA_KEY
 
 // console.log(process.env)
 export default class Flights extends React.Component {
@@ -53,7 +53,7 @@ export default class Flights extends React.Component {
             "method": "GET",
             "headers": {
             
-            "apikey": "tmTNzOHgvDomyVGeaF6Ucf4fsAQmefX5"
+            "apikey": api_key
             }
         })
         .then(response => response.json())

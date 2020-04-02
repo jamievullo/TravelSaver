@@ -13,20 +13,20 @@ function MyLoader() {
                         <ContentLoader
                             speed={1.5}
                             width={1200}
-                            height={250}
+                            height={300}
                             viewBox="0 0 1200 300"
                             backgroundColor="#f3f3f3"
                             foregroundColor="#364182"
                             marginbottom={20}
                         >
                             <rect x="50" y="50" rx="5" ry="5" width="250" height="250" />
-                            <rect x="310" y="50" rx="4" ry="4" width="800" height="17" />
-                            <rect x="310" y="75" rx="4" ry="4" width="800" height="17" />
-                            <rect x="310" y="110" rx="3" ry="3" width="100" height="12" />
-                            <rect x="310" y="140" rx="3" ry="3" width="50" height="12" />
-                            <rect x="310" y="170" rx="3" ry="3" width="800" height="12" />                            
-                            <rect x="310" y="190" rx="3" ry="3" width="200" height="12" />
-                            <rect x="310" y="225" rx="3" ry="3" width="400" height="15" />
+                            <rect x="310" y="50" rx="4" ry="4" width="760" height="24" />
+                            <rect x="310" y="89" rx="4" ry="4" width="760" height="24" />
+                            <rect x="310" y="132" rx="1" ry="1" width="225" height="15" />
+                            <rect x="310" y="164" rx="1" ry="1" width="108" height="15" />
+                            <rect x="310" y="208" rx="1" ry="1" width="780" height="15" />                            
+                            <rect x="310" y="232" rx="1" ry="1" width="225" height="15" />
+                            <rect x="310" y="268" rx="1" ry="1" width="476" height="17" />
                         </ContentLoader>
                 </Card>
             </div>
