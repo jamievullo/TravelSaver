@@ -4,7 +4,6 @@ import FlightResultsDisplay from '../components/FlightResultsDisplay'
 import MyFlightLoader from '../components/MyFlightLoader';
 const api_key = process.env.REACT_APP_API_TEQUILA_KEY
 
-// console.log(process.env)
 export default class Flights extends React.Component {
     constructor(props) {
         super(props)

@@ -38,7 +38,6 @@ class TravelSaverNavbar extends React.Component {
 
     //taking in login data recieved from server and setting state
    handleLogin = (data) => {
-   // debugger
       console.log(data)
       if (data.user) {
          const user = data.user
@@ -47,11 +46,6 @@ class TravelSaverNavbar extends React.Component {
          const user = data.data.user
          this.dataOrigin(user)
       }
-      // this.props.dispatch({ type: 'LOGIN_USER', payload: data.user })
-      // this.setState({
-      //    isLoggedIn: true,
-      //    user: this.props.user
-      // })
    }
 
    //helper function to overcome not setting state 2x in same function and to
@@ -134,14 +128,12 @@ class TravelSaverNavbar extends React.Component {
                </Navbar>
 
                   <Route exact path="/" component={HomePage} />
-                  {/* <Route path="/login" component={Login} /> */}
                   <Route 
                      exact path='/login' 
                      render={props => (<Login {...props} 
                      handleLogin={this.handleLogin} 
                      loggedInStatus={this.state.isLoggedIn}/>)}
                   />
-                  {/* <Route path="/signup" component={CreateAccount} /> */}
                   <Route 
                      exact path='/signup' 
                      render={props => (

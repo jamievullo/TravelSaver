@@ -10,7 +10,7 @@ import validateForm from '../components/Validations'
 require('dotenv').config();
 
 export default class FlightForm extends React.Component {
-   // sets initial state
+
    state = {
       flyingFrom: '',
       flyingTo: '',
@@ -24,7 +24,7 @@ export default class FlightForm extends React.Component {
    }
    // sets state of all inputted values based on name attribute
    handleChange = (event) => {
-      // console.log(event.target)      
+   
       this.setState({
          [event.target.name]: event.target.value
       })
@@ -81,16 +81,13 @@ export default class FlightForm extends React.Component {
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying From</Form.Label>
-                              {/* <Form.Control id="flying-from" type="text" name="flyingFrom" placeholder="Enter airport code" value={this.state.flyingFrom} onChange={this.handleChange}> */}
                                  <AutoCompleteSearch id="flying-from" type="text" name="flyingFrom" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.flyingFrom} ></AutoCompleteSearch>
-                                 {/* </Form.Control> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>
                            <Col>
                               <Form.Label>Flying To</Form.Label>
                                  <AutoCompleteSearch id="flying-to" type="text" name="flyingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.flyingTo} ></AutoCompleteSearch>
-                              {/* <Form.Control id="flying-to" type="text" name="flyingTo" value={this.state.flyingTo} onChange={this.handleChange} /> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>

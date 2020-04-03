@@ -1,11 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
-// import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-// import DatePicker from './DatePicker'
-
 
 export default class CarRentalForm extends React.Component {
 
@@ -24,7 +21,6 @@ export default class CarRentalForm extends React.Component {
       this.setState({
          [event.target.name]: event.target.value
       })
-      // console.log(event.target.value)
    }
 
    handleSubmit = (event) => {
@@ -34,9 +30,6 @@ export default class CarRentalForm extends React.Component {
       this.setState({
          redirect: '/carrental'
       })
-      
-
-         //fetch
    }
 
    render() {
@@ -116,12 +109,6 @@ export default class CarRentalForm extends React.Component {
                      <Form.Control id="dropoff-date" type="text" name="dropoffDate" placeholder="dd/mm/yyyy" value={this.state.dropoffDate} onChange={this.handleChange} />
                      </Col>
                   </Form.Group>
-                  {/* <Form.Group>
-                     <Col>
-                        <Form.Label>Calendar</Form.Label>
-                           <DatePicker />
-                     </Col>
-                     </Form.Group> */}
                   <Form.Group>
                            <Col>
                               <Form.Label>Time</Form.Label>

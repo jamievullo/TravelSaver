@@ -83,22 +83,13 @@ class CreateAccount extends React.Component {
             {this.errorMessages()}
             <Col>
                <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-                  {/* <Form.Row className="justify-content-md-center"> */}
                   <Form.Row>
                      <Form.Group>
                         <Col>
                            <Form.Label style={{color: "#364182"}}>Email</Form.Label>
                            <Form.Control id="email" type="text" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleChange} />
-                        {/* </Col>
-                     </Form.Group>
-                     <Form.Group>
-                        <Col> */}
                            <Form.Label style={{color: "#364182"}}>Password</Form.Label>
                            <Form.Control id="password" type="password" name="password" placeholder="Password 6-8 digits" value={this.state.password} onChange={this.handleChange} />
-                        {/* </Col>
-                     </Form.Group>
-                     <Form.Group>
-                        <Col> */}
                            <Form.Label style={{color: "#364182"}}>Confirm Password</Form.Label>
                            <Form.Control id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange} />
                         </Col>
@@ -118,6 +109,5 @@ class CreateAccount extends React.Component {
       )
    }
 }
-
 
 export default connect()(CreateAccount)

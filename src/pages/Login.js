@@ -41,8 +41,6 @@ class Login extends React.Component {
             type: 'LOGIN_USER',
             payload: response.data.user            
          })
-         //trying to toggle redirect after logging in and display success messages       
-         // this.props.history.push('/')
          this.setState({
             success: true,
             redirect: true
@@ -86,7 +84,6 @@ class Login extends React.Component {
             {this.errorMessages()}
             <Col>
                <Form onSubmit={this.handleSubmit} className="justify-content-md-center">
-                  {/* <Form.Row className="justify-content-md-center"> */}
                   <Form.Row>
                      <Form.Group>
                         <Col>

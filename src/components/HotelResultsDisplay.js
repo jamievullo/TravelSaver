@@ -41,12 +41,3 @@ export default function HotelResultsDisplay(props) {
     )
     
 }
-    // HotelResultsDisplay.defaultProps = {
-    //     hotel.photo.images.medium.url: 'No Image Avail.',
-    //     hotel.name: 'Coming Soon',
-    //     hotel.address: 'Coming Soon',
-    //     hotel.price: 'Coming Soon',
-    //     hotel.rating: 'Coming Soon',
-    //     hotel.amenities: 'Coming Soon',
-    //     hotel.website: 'Coming Soon'
-    // }

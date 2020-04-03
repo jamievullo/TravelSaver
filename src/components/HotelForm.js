@@ -44,7 +44,6 @@ export default class HotelForm extends React.Component {
                   errors: results
                })
          } else {
-      // after submit, redirects to flight page
          this.setState({
             redirect: "/hotels",
          })      
@@ -69,7 +68,6 @@ export default class HotelForm extends React.Component {
                            <Col>
                               <Form.Label>Destination</Form.Label>
                               <AutoCompleteSearch id="going-to" type="text" name="goingTo" handleChangeCity={this.handleChangeCity} items={airports} value={this.state.goingTo} required ></AutoCompleteSearch>
-                              {/* <Form.Control id="going-to" type="text" name="goingTo" placeholder="Try 'Flagstaff'" value={this.state.goingTo} onChange={this.handleChange} /> */}
                            </Col>
                      </Form.Group>
                      <Form.Group>

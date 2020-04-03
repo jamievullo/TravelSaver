@@ -25,22 +25,20 @@ class WeekendGetawayDisplay extends React.Component {
         return (
             <div>
                 <center><h3>Weekend Getaways</h3></center>
-                    {this.state.isLoading ? (
-                        <div> 
-                            {/* <PaperAirplane anim={"hotels"}/> */}
-                            <MyLoader />
-                            <MyLoader />
-                            <MyLoader />
-                            <MyLoader />
-                        </div>        
-                        ) : (                                 
-                        <div style={{margin: "0 auto", width:"80%"}}>
-                            {/* {this.state.isLoading && <p>Loading..</p>} */}
-                            {/* maps over destinations state object and index and passes them as props to scrapedisplay component */}
-                            {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
-                        </div>
-                    )}
-                
+                {this.state.isLoading ? (
+                    <div> 
+                        {/* <PaperAirplane anim={"hotels"}/> */}
+                        <MyLoader />
+                        <MyLoader />
+                        <MyLoader />
+                        <MyLoader />
+                    </div>        
+                    ) : (                                 
+                    <div style={{margin: "0 auto", width:"80%"}}>
+                        {/* maps over destinations state object and index and passes them as props to scrapedisplay component */}
+                        {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
+                    </div>
+                )}                
             </div>
         )
     }

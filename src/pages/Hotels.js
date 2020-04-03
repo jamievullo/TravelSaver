@@ -23,19 +23,7 @@ export default class Hotels extends React.Component {
             isLoading: true,
             hotels: []
             }
-        // console.log(this.state)
     }
-    
-    //needed to reformat inputted date to input into template literal for fetch
-    // changeDateFormat = (enteredDate) => {
-    //     let date = enteredDate
-    //     let newDate = date.split("-").reverse()
-    //     const year = parseInt(newDate[0])
-    //     const day = 0 + "" + (parseInt(newDate[1]))
-    //     const month = 0 + "" + (parseInt(newDate[2]))         
-    //     const extraNewDate = [year, month, day]
-    //     return extraNewDate.join("-")
-    // }
 
     //needed function to determine the number of nights for hotel stay in template literal
     numberOfNights = (date1, date2) => {
@@ -47,7 +35,7 @@ export default class Hotels extends React.Component {
     }
 
     componentDidMount = () => {
-        //location id is going to need to be fetched first
+        //location id is fetched first
         const destination = this.state.goingTo
             
         fetch(`https://tripadvisor1.p.rapidapi.com/locations/auto-complete?lang=en_US&units=mi&query=${destination}`, {
@@ -80,7 +68,6 @@ export default class Hotels extends React.Component {
         const adults = parseInt(this.state.adults)
         const rooms = parseInt(this.state.roomsNeeded)
         const locationId = this.state.locationId
-        // console.log("componentDidUpdate")
 
         fetch(`https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=${adults}&nights=${nights}&currency=USD&rooms=${rooms}&lang=en_US&checkin=${checkIn}&location_id=${locationId}`, {
             "method": "GET",
@@ -98,7 +85,6 @@ export default class Hotels extends React.Component {
                     hotels: [...allHotels]
                 })
                 return null 
-                // console.log(hotel.name, hotel.address, hotel.rating, hotel.price, hotel.website, hotel.amenities)
             })            
             .catch(err => {
                 console.log(err);
@@ -119,7 +105,6 @@ export default class Hotels extends React.Component {
                 <div>
                     <center><h3>Hotel Search Results</h3></center>
                     <div style={{margin: "0 auto", width:"85%"}}>
-                        {/* {this.state.isLoading && <p>Loading..</p>} */}
                         {/* maps over hotels state object and index and passes them as props HRD component */}
                         {this.state.hotels.map((hotel, i) => <HotelResultsDisplay key={i} hotel={hotel} />)}
                     </div>                                

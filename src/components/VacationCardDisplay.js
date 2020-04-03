@@ -1,22 +1,11 @@
 import React from 'react'
-
 import DestinationCard from '../components/DestinationCard'
-
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-
-// import plans from '../assets/images/Plans.png'
-// import weekend from '../assets/images/Weekend.png'
-// import paris from '../assets/images/Paris.png'
-// import mountains from '../assets/images/MountainsTravel.png'
-// import tropical from '../assets/images/Tropical2.png'
-// import adventure from '../assets/images/Adventure.png'
-// import observe from '../assets/images/Observe.png'
 
 export default class VacationCardDisplay extends React.Component {
     constructor() {
         super()
-        //sets state of vac card item array titles, links, images, and selected status for display
         this.state ={
             items: [
                 {
@@ -65,22 +54,6 @@ export default class VacationCardDisplay extends React.Component {
         }
     }
 
-    // handleCardClick = (id, card) => {
-    //     let items = [...this.state.items];
-
-    //     items[id].selected = items[id].selected ? false : true;
-
-    //     items.forEach(item => {
-    //         if(item.id !== id) {
-    //             item.selected = false;
-    //         }
-    //     })
-
-    //     this.setState({
-    //         items
-    //     })
-    // }
-
     //iterates over items array and sets props for each card
     makeItems = (items) => {
         return items.map(item => {
@@ -93,7 +66,6 @@ export default class VacationCardDisplay extends React.Component {
             <div>
                 <Container fluid={true} style={{paddingBottom: "4em"}} onClick={this.handleCardClick}>
                     <Row className="justify-content-center"> 
-                        {/* on render "makes" cards for each vacation card item */}
                         {this.makeItems(this.state.items)}
                     </Row>
                 </Container>

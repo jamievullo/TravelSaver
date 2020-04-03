@@ -34,8 +34,7 @@ class NotYourAverageDisplay extends React.Component {
                         </div>        
                         ) : (                                 
                         <div style={{margin: "0 auto", width:"80%"}}>
-                            {/* {this.state.isLoading && <p>Loading..</p>} */}
-                            {/* maps over destinations state object and index and passes them as props to srapedisplay component */}
+                            {/* maps over destinations state object and index and passes them as props to scrapedisplay component */}
                             {this.state.destinations.map((destination, i) => <ScrapeDisplay key={i} destination={destination} />)}
                         </div>
                     )}           

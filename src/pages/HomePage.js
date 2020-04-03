@@ -8,7 +8,6 @@ export default class HomePage extends React.Component {
         if(this.props.location.state.success === true) {
             return "Successfully Logged In";
         } 
-        // return console.log(this.props.location.state.success)
     }
 
     render() {
